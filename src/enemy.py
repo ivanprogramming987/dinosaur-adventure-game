@@ -1,13 +1,13 @@
 import random
 
 class Enemy:
-	def __init__(self, health, defense, speed, attacks, name):
+	def __init__(self, health, defense, speed, attacks, name, lasers=None):
 		self.health = health
 		self.defense = defense
 		self.speed = speed
 		self.attacks = attacks
 		self.name = name
-		self.lasers = None
+		self.lasers = lasers
 
 	def attack(self, target):
 		attack_no = next_attack()

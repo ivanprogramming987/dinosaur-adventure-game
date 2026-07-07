@@ -34,11 +34,12 @@ At the beginning, you can read the instructions. A copy is also in this file.
 
 ### INSTRUCTIONS
 
-If you are presented with a choice, type the number that fits your choice.
+If you are presented with a choice, type the number that fits your choice, then type enter.
 
-You cannot type a keyword in the middle of a battle.
+There are also certain keywords that always do certain things but can only be used at a checkpoint.
 
 Keywords:
 
 - Type `instructions` to read the instructions.
 - Type `quit` to quit the game.
+- Type `continue` to continute playing.
