@@ -6,24 +6,23 @@ def battle(player, enemies):
 		if player.health <= 0:
 			print_s(f"Enemy(s) Win!")
 			return False
-		enemies_lose = True
-		for enemy in enemies:
-			if not enemy.health <= 0:
-				enemies_lose = False
-		if enemies_lose:
-			print_s(f"Player Wins!")
-			return True
 
 		print_s("Pick an enemy:")
-		print_s(f"1) {repr(enemies[0])}")
+		print_s(f"1. {repr(enemies[0])}")
 		if len(enemies) > 1:
-			print_s(f"2) {repr(enemies[1])}")
+			print_s(f"2. {repr(enemies[1])}")
 		if len(enemies) > 2:
-			print_s(f"3) {repr(enemies[2])}")
+			print_s(f"3. {repr(enemies[2])}")
 		if len(enemies) > 3:
-			print_s(f"4) {repr(enemies[3])}")
+			print_s(f"4. {repr(enemies[3])}")
 		i = choices(len(enemies))
+
 		player.attack(enemies[i-1])
+		if enemies[i-1].health <= 0:
+			print(f"You defeated {repr(enemies[i-1])}")
+			enemies.pop(i-1)
+			if len(enemies) == 0:
+				print_s(f"{repr(player)} Wins!")
+				return True
 		for enemy in enemies:
-			if enemy.health > 0:
-				enemy.attack(player, enemy.next_attack())
+			enemy.attack(player)

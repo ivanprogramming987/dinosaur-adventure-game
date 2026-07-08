@@ -3,9 +3,24 @@ from attack import *
 # variables without functions
 PLAYER_LEVEL = 1
 PLAYER_SPEED = 50
-PLAYER_DEFENSE = 10
+PLAYER_DEFENSE = 0
 PLAYER_HEALTH = 100
 PLAYER_LASERS = 10
+
+COMPSOGNATHUS_HEALTH = 55
+COMPSOGNATHUS_DEFENSE = 10
+COMPSOGNATHUS_SPEED = 75
+COMPSOGNATHUS_ATTACKS = [Attack(15, 75, "Slash", None), Attack(25, 50, "Tail Swipe", None)]
+
+TIANYULONG_HEALTH = 35
+TIANYULONG_DEFENSE = 15
+TIANYULONG_SPEED = 45
+TIANYULONG_ATTACKS = [Attack(20, 70, "Bite", None), Attack(25, 50, "Tail Swipe", None), Attack(10, 100, "Scream", None)]
+
+MICRORAPTOR_HEALTH = 20
+MICRORAPTOR_DEFENSE = 5
+MICRORAPTOR_SPEED = 85
+MICRORAPTOR_ATTACKS = [Attack(10, 100, "Scream", None), Attack(15, 85, "Swoop", None)]
 
 # functions
 def heal_30(user):

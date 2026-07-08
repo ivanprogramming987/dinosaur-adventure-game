@@ -26,7 +26,7 @@ You have to escape. Your ultra-smart app tells you that you need to find _anothe
 
 ## HOW TO PLAY
 
-To start the game, run the shell file `main.sh`. This game runs in Python 3, so get it installed if you don't have it.
+To start the game, run the shell file `main.sh` in the command line. This game runs in Python 3, so get it installed if you don't have it.
 
 This is a text-based game. This game will tell you to type to do certain actions.
 

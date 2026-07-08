@@ -11,6 +11,7 @@ class Player:
 		self.health = PLAYER_HEALTH
 		self.max_health = PLAYER_HEALTH
 		self.lasers = PLAYER_LASERS
+		self.name = "Player"
 
 	def attack(self, target):
 		print_s("Pick an attack:")
@@ -22,10 +23,11 @@ class Player:
 		attack_no = choices(5)
 		atk = self.attacks[attack_no - 1]
 		if attack_no == 5:
-			self.lasers -= 1
 			if self.lasers == 0:
 				print_s("You don't have any lasers")
 				return
+			self.lasers -= 1
+			print_s(f"Lasers left: {self.lasers}")
 		atk.use(target, self)
 		if self.speed > target.speed * 2:
 			atk.use(target, self)
@@ -35,7 +37,6 @@ class Player:
 		print_s("LEVEL UP!")
 		print_s(f"you are at level {self.level}!")
 		self.max_health += 50
-		self.defense += 10
 		self.speed += 25
 		if self.level == 3:
 			self.attacks = PLAYER_ATTACKS_LEVEL_3
@@ -47,9 +48,8 @@ class Player:
 			self.attacks = PLAYER_ATTACKS_LEVEL_9
 		elif self.level == 10:
 			self.max_health += 50
-			self.defense += 10
 			self.speed += 25
 		self.health = self.max_health
 
 	def __repr__(self):
-		return "Player"
+		return self.name

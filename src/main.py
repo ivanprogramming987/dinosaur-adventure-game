@@ -1,21 +1,19 @@
 import time
 import sys
-from game import *
-
-score = 0
+import game
 
 def main():
-	play()
+	game.play()
 
 def lose():
 	print_s("YOU LOSE")
-	print_s(f"Score: {score}")
+	print_s(f"Score: {game.score}")
 	sys.exit()
 
 def win():
 	print_s("YOU WIN!!")
 	print_s("Congratulations!")
-	print_s(f"Score: {score}")
+	print_s(f"Score: {game.score}")
 	sys.exit()
 
 def print_s(str, t=0.75):
