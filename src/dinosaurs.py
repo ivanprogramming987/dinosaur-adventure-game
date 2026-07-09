@@ -13,3 +13,11 @@ class Tianyulong(Enemy):
 class Microraptor(Enemy):
 	def __init__(self, letter):
 		super().__init__(MICRORAPTOR_HEALTH, MICRORAPTOR_DEFENSE, MICRORAPTOR_SPEED, MICRORAPTOR_ATTACKS, f"Microraptor {letter}")
+
+class Pentaceratops(Enemy):
+	def __init__(self, letter):
+		super().__init__(PENTACERATOPS_HEALTH, PENTACERATOPS_DEFENSE, PENTACERATOPS_SPEED, PENTACERATOPS_ATTACKS, f"Pentaceratops {letter}")
+		self.max_health = PENTACERATOPS_HEALTH
+
+	def __repr__(self):
+		return f"Boss {self.name}"

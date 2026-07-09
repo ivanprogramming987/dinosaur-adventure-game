@@ -81,21 +81,18 @@ def FernsOne(t=False):
 def PathOne():
 	global score
 	if player.health <= 0:
-		lose()
+		main.lose()
 	print_s("You come to a big clearing. A small hungry-looking dinosaur shows up. He eyes you nervously.", 1)
 	print_s("Seeing that you are taking no notice, he attacks you!", 1)
 	print_s("!!! BATTLE COMPSOGNATHUS !!!")
 	compsognathus_1 = Compsognathus("A")
 	battle_outcome = battle(player, [compsognathus_1])
 	if battle_outcome == False:
-		lose()
+		main.lose()
 	else:
 		score += 200
-		player.health += 10
-		if player.health > player.max_health:
-			player.health = player.max_health
-		print_s(f"You earned 200 points and 10 HP for defeating Compsognathus! Score: {score}. {repr(player)} HP remaining: {player.health}")
-	find_mushroom(50, 10, 10)
+		print_s(f"You earned 200 points for defeating Compsognathus! Score: {score}.")
+	find_mushroom(10)
 	print_s("The path climbs up a mountain. There is also a cave in the mountain.", 1)
 	print_s("Which way do you want to go?")
 	print_s("1. Climb the mountain")
@@ -111,28 +108,27 @@ def PathOne():
 
 def MountainOne():
 	global score
-	find_mushroom(25, 25, 10)
-	find_mushroom(75, 10, 25)
-	print_s("You come to a field. You accidentally kick a small dinosaur.", 1)
+	find_mushroom(10)
+	find_mushroom(5)
+	print_s("You come to a field. You accidentally kick a small dinosaur peacefully grazing on plants.", 1.5)
 	print_s("It gets angry and attacks you!", 1)
 	print_s("!!! BATTLE TIANYULONG !!!")
 	tianyulong_1 = Tianyulong("A")
 	battle_outcome = battle(player, [tianyulong_1])
 	if battle_outcome == False:
-		lose()
+		main.lose()
 	else:
 		score += 200
-		player.health += 10
 		if player.health > player.max_health:
 			player.health = player.max_health
-		print_s(f"You earned 200 points and 10 HP for defeating Tianyulong! Score: {score}. {repr(player)} HP remaining: {player.health}")
-	print_s("You walk down the mountain and find human footprints. Your crewmate must be this way.", 1)
+		print_s(f"You earned 200 points for defeating Tianyulong! Score: {score}.")
+	print_s("You walk down the mountain and find human footprints. Your crewmate must be this way.", 2)
 	PathTwo()
 
 def CaveOne():
 	global score
-	print_s("As you walk into the cave, a massive fluttering surrounds your head", 1)
-	print_s("You automatically think 'Bats!' but then remember this is dinosaur times and there are no bats here.", 1)
+	print_s("As you walk into the cave, a massive fluttering surrounds your head", 1.5)
+	print_s("You automatically think 'Bats!' but then remember this is dinosaur times and there are no bats here.", 2)
 	print_s("They swoop down on you. Obviously, they are hungry.", 1)
 	print_s("!!! BATTLE THREE MICRORAPTOR !!!")
 	microraptor_1 = Microraptor("A")
@@ -140,51 +136,109 @@ def CaveOne():
 	microraptor_3 = Microraptor("C")
 	battle_outcome = battle(player, [microraptor_1, microraptor_2, microraptor_3])
 	if battle_outcome == False:
-		lose()
-	else:
-		score += 400
-		player.health += 20
-		if player.health > player.max_health:
-			player.health = player.max_health
-		print_s(f"You earned 400 points and 20 HP for defeating three Microraptor! Score: {score}. {repr(player)} HP remaining: {player.health}")
-	print_s("Luckily, after defeating the Microraptor, you are not troubled anymore.")
-	player.lasers += 2
-	score += 100
-	print_s(f"You find 2 lasers lying on the floor! {repr(player)} lasers: {player.lasers}", 1)
-	print_s(f"You earned 100 points for finding lasers! Score: {score}", 1)
-	print_s(f"As you exit the cave, you see that the path continues and you see footprints.", 1)
-	PathTwo()
-
-def DetourOne():
-	global score
-	print_s("As you walk around the mountain, you trip and fall on a dinosaur's kill.", 1)
-	print_s("The dinosaur and his friend jump out of a hole in the mountain and, thinking you are after their prey, attack you.", 1)
-	compsognathus_2 = Compsognathus("A")
-	compsognathus_3 = Compsognathus("B")
-	print_s("!!! BATTLE TWO COMPSOGNATHUS !!!")
-	battle_outcome = battle(player, [compsognathus_2, compsognathus_3])
-	if battle_outcome == False:
-		lose()
+		main.lose()
 	else:
 		score += 400
 		player.health += 10
 		if player.health > player.max_health:
 			player.health = player.max_health
-		print_s(f"You earned 400 points and 10 HP for defeating two Compsognathus! Score: {score}. {repr(player)} health: {player.health}")
+		print_s(f"You earned 400 points and 10 HP for defeating three Microraptor! Score: {score}. {repr(player)} HP remaining: {player.health}")
+	print_s("Luckily, after defeating the Microraptor, you are not troubled anymore.", 1)
+	player.lasers += 2
+	score += 100
+	print_s(f"You find 2 lasers lying on the floor! {repr(player)} lasers: {player.lasers}", 1)
+	print_s(f"You earned 100 points for finding lasers! Score: {score}", 1)
+	print_s(f"As you exit the cave, you see that the path continues and you see footprints.", 2)
+	find_mushroom(10)
+	PathTwo()
+
+def DetourOne():
+	global score
+	print_s("As you walk around the mountain, you trip and fall on a dinosaur's kill.", 1)
+	print_s("The dinosaur and his friend jump out of a hole in the mountain and, thinking you are after their prey, attack you.", 2)
+	compsognathus_1 = Compsognathus("A")
+	compsognathus_2 = Compsognathus("B")
+	print_s("!!! BATTLE TWO COMPSOGNATHUS !!!")
+	battle_outcome = battle(player, [compsognathus_1, compsognathus_2])
+	if battle_outcome == False:
+		main.lose()
+	else:
+		score += 400
+		print_s(f"You earned 400 points for defeating two Compsognathus! Score: {score}.")
 	print_s("You continue along the path.")
 	player.health += 20
 	score += 100
 	print_s("You find granola bars spilled everywhere. You eat one and you start healing from your wounds.", 1)
 	print_s(f"You heal 20 damage and earn 100 points for your lucky find. Score: {score}. {repr(player)} health: {player.health}")
-	print_s("You find that this detour converges onto the dino path. You also see footprints, which means your crewmate is nearby.", 1)
+	print_s("You find that this detour converges onto the dino path. You also see footprints, which means your crewmate is nearby.", 2)
 	PathTwo()
 
 def PathTwo():
+	global score
 	player.level_up()
-	print_s("walking on the path...")
+	print_s("You follow your crewmate's footprints, but suddenly they vanish, replaced by a trail of huge dinosaur footprints.", 2)
+	print_s("You follow the footprints, but another dinosaur shows up. A big dinosaur is chasing it.", 2)
+	print_s("Luckily, the big dinosaur ignores you.", 1)
+	find_mushroom(5)
+	print_s("The path leads into a jungle and you follow it.", 1)
+	print_s("You see dinosaurs flying through trees. They swoop down on you.", 1.5)
+	print_s("Oh no! More Microraptor.")
+	print_s("!!! BATTLE THREE MICRORAPTOR !!!")
+	microraptor_1 = Microraptor("A")
+	microraptor_2 = Microraptor("B")
+	microraptor_3 = Microraptor("C")
+	battle_outcome = battle(player, [microraptor_1, microraptor_2, microraptor_3])
+	if battle_outcome == False:
+		main.lose()
+	else:
+		score += 400
+		player.health += 10
+		print_s(f"You earned 400 points and 10 HP for defeating three Microraptor! Score: {score}. {repr(player)} health: {player.health}")
+	print_s("You see a huge dinosaur coming towards you. You climb a tree and luckily, it does not notice you.", 2)
+	print_s("But then, you suddenly look closer. It's carrying someone.", 1.5)
+	print_s("IT'S YOUR CREWMATE!!!", 1.5)
+	find_mushroom(10)
+	print_s("You climb down and start walking. You slip on some leaves.", 1.5)
+	print_s("Oh no! A large, crabby herbivore shows up. It seems angry about you squashing its leaves.", 2)
+	print_s("It lowers its head, showing five sharp horns.", 1)
+	print_s("This dinosaur will be very difficult to fight.", 1)
+	print_s("!!! BOSS !!!", 1)
+	print_s("!!! BATTLE PENTACERATOPS !!!", 1)
+	pentaceratops = Pentaceratops("A")
+	battle_outcome = battle(player, [pentaceratops])
+	if battle_outcome == False:
+		main.lose()
+	else:
+		score += 1000
+		print_s(f"You earned 1000 points for defeating Pentaceratops! Score: {score}.")
+	find_mushroom(10)
+	player.health += 50
+	print_s(f"You find an energy drink. You drink it and heal some damage. {repr(player)} HP: {player.health}", 1)
+	print_s("The path ends. You see a huge mountain, a volcano, and a desert.", 1.5)
+	print_s("The mountain has a locked door on it. But, the door has three locks. You must find three keys to unlock it.", 2)
+	print_s("Which way do you want to go?")
+	print_s("1. Climb the mountain")
+	print_s("2. Go to the volcano")
+	print_s("3. Hike through the desert")
+	i = choices(3)
+	if i == 1:
+		MountainTwo()
+	elif i == 2:
+		VolcanoOne()
+	elif i == 3:
+		DesertOne()
+
+def MountainTwo():
+	print_s("climbing up the mountain...")
+
+def VolcanoOne():
+	print_s("walking to the volcano...")
+
+def DesertOne():
+	print_s("hiking through the desert...")
 
 
-def find_mushroom(probability_of_heal, heal, dmg):
+def find_mushroom(n):
 	global score
 	print_s("You found a mushroom!")
 	print_s("Do you want to eat the mushroom?")
@@ -193,18 +247,18 @@ def find_mushroom(probability_of_heal, heal, dmg):
 	i = choices(2)
 	if i == 1:
 		r = random.randint(0, 100)
-		if r < probability_of_heal:
-			player.health += heal
+		if r < 75:
+			player.health += n
 			score += 100
 			if player.health > player.max_health:
 				player.health = player.max_health
 			print_s(f"The mushroom healed you. {repr(player)} health: {player.health}.")
 			print_s(f"You earned 100 points for eating a good mushroom! Score: {score}")
 		else:
-			player.health -= dmg
+			player.health -= n
 			print_s(f"The mushroom poisoned you. {repr(player)} health: {player.health}.")
 			if player.health <= 0:
-				lose()
+				main.lose()
 	elif i == 2:
 		print_s("You decided not to eat the mushroom.")
 

@@ -43,3 +43,5 @@ Keywords:
 - Type `instructions` to read the instructions.
 - Type `quit` to quit the game.
 - Type `continue` to continute playing.
+
+If you need to quit immediately, type `Ctrl+C`. (_it will give you an error but don't worry about that._)
