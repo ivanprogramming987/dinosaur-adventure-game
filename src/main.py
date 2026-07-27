@@ -16,6 +16,18 @@ def win():
 	print_s(f"Score: {game.score}")
 	sys.exit()
 
+def end():
+	print_s("ARE YOU SURE?")
+	print_s("1. Yes")
+	print_s("2. No")
+	i = choices(2)
+	if i == 1:
+		print_s("QUITTING GAME")
+		print_s("Score: {game.score}")
+		sys.exit()
+	elif i == 2:
+		print_s("RESUMING GAME")
+
 def print_s(str, t=0.75):
 	print(str)
 	time.sleep(t)

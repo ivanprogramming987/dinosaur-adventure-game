@@ -92,7 +92,7 @@ def PathOne():
 	else:
 		score += 200
 		print_s(f"You earned 200 points for defeating Compsognathus! Score: {score}.")
-	find_mushroom(10)
+	find_mushroom(5)
 	print_s("The path climbs up a mountain. There is also a cave in the mountain.", 1)
 	print_s("Which way do you want to go?")
 	print_s("1. Climb the mountain")
@@ -108,7 +108,6 @@ def PathOne():
 
 def MountainOne():
 	global score
-	find_mushroom(10)
 	find_mushroom(5)
 	print_s("You come to a field. You accidentally kick a small dinosaur peacefully grazing on plants.", 1.5)
 	print_s("It gets angry and attacks you!", 1)
@@ -139,17 +138,13 @@ def CaveOne():
 		main.lose()
 	else:
 		score += 400
-		player.health += 10
-		if player.health > player.max_health:
-			player.health = player.max_health
-		print_s(f"You earned 400 points and 10 HP for defeating three Microraptor! Score: {score}. {repr(player)} HP remaining: {player.health}")
+		print_s(f"You earned 400 points for defeating three Microraptor! Score: {score}.")
 	print_s("Luckily, after defeating the Microraptor, you are not troubled anymore.", 1)
 	player.lasers += 2
 	score += 100
 	print_s(f"You find 2 lasers lying on the floor! {repr(player)} lasers: {player.lasers}", 1)
 	print_s(f"You earned 100 points for finding lasers! Score: {score}", 1)
 	print_s(f"As you exit the cave, you see that the path continues and you see footprints.", 2)
-	find_mushroom(10)
 	PathTwo()
 
 def DetourOne():
@@ -175,6 +170,12 @@ def DetourOne():
 
 def PathTwo():
 	global score
+	print_s("CHECKPOINT! type instructions, quit, or continue (any other word will default to 'continue')")
+	i = input("Please choose:")
+	if i == "instructions":
+		print_instructions()
+	elif i == "quit":
+		main.end()
 	player.level_up()
 	print_s("You follow your crewmate's footprints, but suddenly they vanish, replaced by a trail of huge dinosaur footprints.", 2)
 	print_s("You follow the footprints, but another dinosaur shows up. A big dinosaur is chasing it.", 2)
@@ -192,12 +193,11 @@ def PathTwo():
 		main.lose()
 	else:
 		score += 400
-		player.health += 10
-		print_s(f"You earned 400 points and 10 HP for defeating three Microraptor! Score: {score}. {repr(player)} health: {player.health}")
+		print_s(f"You earned 400 points for defeating three Microraptor! Score: {score}.")
 	print_s("You see a huge dinosaur coming towards you. You climb a tree and luckily, it does not notice you.", 2)
 	print_s("But then, you suddenly look closer. It's carrying someone.", 1.5)
 	print_s("IT'S YOUR CREWMATE!!!", 1.5)
-	find_mushroom(10)
+	find_mushroom(5)
 	print_s("You climb down and start walking. You slip on some leaves.", 1.5)
 	print_s("Oh no! A large, crabby herbivore shows up. It seems angry about you squashing its leaves.", 2)
 	print_s("It lowers its head, showing five sharp horns.", 1)
@@ -211,32 +211,112 @@ def PathTwo():
 	else:
 		score += 1000
 		print_s(f"You earned 1000 points for defeating Pentaceratops! Score: {score}.")
-	find_mushroom(10)
-	player.health += 50
-	print_s(f"You find an energy drink. You drink it and heal some damage. {repr(player)} HP: {player.health}", 1)
+	player.health += 30
+	print_s(f"You find an energy drink. You drink it and heal some damage. {repr(player)} HP: {player.health}", 1.5)
 	print_s("The path ends. You see a huge mountain, a volcano, and a desert.", 1.5)
 	print_s("The mountain has a locked door on it. But, the door has three locks. You must find three keys to unlock it.", 2)
-	print_s("Which way do you want to go?")
+	print_s("Which way do you want to go? Each way has one key.")
 	print_s("1. Climb the mountain")
-	print_s("2. Go to the volcano")
+	print_s("2. Go to the volcano !!! HARD !!!")
 	print_s("3. Hike through the desert")
+	keys = [False, False, False]
 	i = choices(3)
 	if i == 1:
-		MountainTwo()
+		MountainTwo(keys)
 	elif i == 2:
-		VolcanoOne()
+		VolcanoOne(keys)
 	elif i == 3:
-		DesertOne()
+		DesertOne(keys)
 
-def MountainTwo():
-	print_s("climbing up the mountain...")
+def MountainTwo(keys):
+	print_s("You are climbing up the mountain. You see a tree. To your delight, it has tasty fruit!", 1.5)
+	find_fruit(-5, 8)
+	print_s("You see a pond with a box in it. You also see a pit with something shiny in it.", 1.5)
+	print_s("There is also a part of the jungle that seems to have been cleared by a large dinosaur.", 1.5)
+	print_s("Which way do you want to go?")
+	print_s("1. Swim to the box")
+	print_s("2. Crawl into the pit")
+	print_s("3. Look in the clearing")
+	paths = [False, False, False]
+	i = choices(3)
+	if i == 1:
+		SwimOne(paths, keys)
+	elif i == 2:
+		PitOne(paths, keys)
+	elif i == 3:
+		ClearingOne(paths, keys)
 
-def VolcanoOne():
+def SwimOne(paths, keys):
+	global score
+	print_s("You swim to the box and open it. There is part of a key inside!", 1)
+	print_s("As you swim back, an odd long-necked thing swims towards you.", 1)
+	print_s("It opens its mouth and rushes at you! You dodge the bite.", 1)
+	print_s("But it is still trying to eat you.", 1)
+	print_s("!!! BATTLE UNKTAHEELA !!!")
+	unktaheela_1 = Unktaheela("A")
+	battle_outcome = battle(player, [unktaheela_1])
+	if battle_outcome == False:
+		main.lose()
+	else:
+		score += 250
+		print_s(f"You earned 250 points for defeating Unktaheela! Score: {score}")
+	find_fruit(-8, 10)
+	paths[0] = True
+	if paths[1] == False and paths[2] == False:
+		print_s("What do you want to do now?")
+		print_s("1. Go into the pit")
+		print_s("2. Walk to the clearing")
+		i = choices(2)
+		if i == 1:
+			PitOne(paths, keys)
+		elif i == 2:
+			ClearingOne(paths)
+	elif paths[1] == False and paths[2] == True:
+		print_s("You decide to go into the pit.", 1)
+		PitOne(paths, keys)
+	elif paths[1] == True and paths[2] == False:
+		print_s("You decide to walk to the clearing.", 1)
+		ClearingOne(paths, keys)
+	else:
+		CompleteMountain(keys)
+
+def PitOne(paths, keys):
+	print_s("going into the pit...")
+
+def ClearingOne(paths, keys):
+	print_s("going into the clearing...")
+
+def CompleteMountain(keys):
+	print_s("You finished the mountain safely.")
+	keys[0] = True
+	if keys[1] == False and keys[2] == False:
+		print_s("Where do you want to go now?")
+		print_s("1. Walk to the volcano !!! HARD !!!")
+		print_s("2. Hike into the desert")
+		i = choices(2)
+		if i == 1:
+			VolcanoOne(keys)
+		elif i == 2:
+			DesertOne(keys)
+	elif keys[1] == False and keys[2] == True:
+		player.level_up()
+		print_s("You decide to walk to the volcano.", 1)
+		VolcanoOne(keys)
+	elif keys[1] == True and keys[2] == False:
+		print_s("You decide to hike into the desert.", 1)
+		DesertOne(keys)
+	else:
+		print_s("You got all three keys! You unlock the mountain door.", 2)
+		CaveTwo()
+
+def VolcanoOne(keys):
 	print_s("walking to the volcano...")
 
-def DesertOne():
+def DesertOne(keys):
 	print_s("hiking through the desert...")
 
+def CaveTwo():
+	print_s("going into the cave...")
 
 def find_mushroom(n):
 	global score
@@ -261,6 +341,33 @@ def find_mushroom(n):
 				main.lose()
 	elif i == 2:
 		print_s("You decided not to eat the mushroom.")
+
+def find_fruit(min, max):
+	global score
+	print_s("You found a fruit!")
+	print_s("Do you want to eat the fruit?")
+	print_s("1. Yes")
+	print_s("2. No")
+	i = choices(2)
+	if i == 1:
+		r = random.randint(min, max)
+		if r > 0:
+			player.health += r
+			score += 100
+			if player.health > player.max_health:
+				player.health = player.max_health
+			print_s(f"The fruit healed you. {repr(player)} health: {player.health}.")
+			print_s(f"You earned 100 points for eating a good fruit! Score: {score}")
+		elif r == 0:
+			print_s("The fruit had no effect whatsoever.")
+		else:
+			player.health += r
+			print_s(f"The fruit poisoned you. {repr(player)} health: {player.health}.")
+			if player.health <= 0:
+				main.lose()
+	elif i == 2:
+		print_s("You decided not to eat the fruit.")
+
 
 def print_instructions():
 	print_s("instructions:")

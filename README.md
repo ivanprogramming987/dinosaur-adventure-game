@@ -12,7 +12,7 @@ Their rock-identifying app that can identify every rock can't figure it out and 
 
 The green spot looks especially unusual. It glows. Your crewmate touches it.
 
-The crewmate starts glowing green and then vanishes! You and your best friends Ann and James are assigned to rescue him.
+The crewmate starts glowing green and then vanishes! You are assigned to rescue him.
 
 You touch the green spot. All of a sudden your crewmates start blurring. Your vision goes black for a few moments. Then your vision returns.
 

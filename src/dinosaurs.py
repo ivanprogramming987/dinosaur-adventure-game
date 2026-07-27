@@ -21,3 +21,7 @@ class Pentaceratops(Enemy):
 
 	def __repr__(self):
 		return f"Boss {self.name}"
+
+class Unktaheela(Enemy):
+	def __init__(self, letter):
+		super().__init__(UNKTAHEELA_HEALTH, UNKTAHEELA_DEFENSE, UNKTAHEELA_SPEED, UNKTAHEELA_ATTACKS, f"Unktaheela {letter}")

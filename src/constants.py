@@ -26,6 +26,11 @@ PENTACERATOPS_HEALTH = 165
 PENTACERATOPS_DEFENSE = 10
 PENTACERATOPS_SPEED = 55
 
+UNKTAHEELA_HEALTH = 100
+UNKTAHEELA_DEFENSE = 5
+UNKTAHEELA_SPEED = 80
+UNKTAHEELA_ATTACKS = [Attack(15, 90, "Bite", None), Attack(25, 80, "Neck Hit", None), Attack(35, 70, "Powerful Current", None)]
+
 # functions
 def heal_30(user):
 	user.health += 30
@@ -67,4 +72,4 @@ PLAYER_ATTACKS_LEVEL_5 = [Attack(55, 95, "Punch", None),Attack(75, 85, "Kick", N
 PLAYER_ATTACKS_LEVEL_7 = [Attack(70, 95, "Punch", None),Attack(90, 85, "Kick", None),Attack(0, 100, "Cure", heal_120),Attack(125, 95, "Smash", damage_self_50),Attack(70, 100, "Laser", None)]
 PLAYER_ATTACKS_LEVEL_9 = [Attack(90, 95, "Punch", None),Attack(115, 85, "Kick", None),Attack(0, 100, "Cure", heal_160),Attack(150, 95, "Smash", damage_self_60),Attack(90, 100, "Laser", None)]
 
-PENTACERATOPS_ATTACKS = [Attack(25, 90, "Horn Hit", None), Attack(45, 75, "Charge", damage_self_20), Attack(5, 90, "Cure and Hit", heal_30)]
+PENTACERATOPS_ATTACKS = [Attack(30, 90, "Horn Hit", None), Attack(45, 85, "Charge", damage_self_20), Attack(20, 90, "Cure and Hit", heal_30)]
