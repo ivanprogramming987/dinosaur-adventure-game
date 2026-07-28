@@ -30,7 +30,9 @@ def play():
 	print_s("")
 	junk = input("Type your name, then type enter to start: ")
 	player.name = junk
-	print_s("starting the game...")
+	print_s("Player stats:")
+	player.print_stats()
+	print_s("")
 	print_s("You are in a jungle. There is a big tree next to you with a hole in it.", 1.25)
 	print_s("You also see a big bunch of ferns and a well trod path used by dinos often.", 1.25)
 	print_s("Which way do you want to go?")
@@ -87,11 +89,7 @@ def PathOne():
 	print_s("!!! BATTLE COMPSOGNATHUS !!!")
 	compsognathus_1 = Compsognathus("A")
 	battle_outcome = battle(player, [compsognathus_1])
-	if battle_outcome == False:
-		main.lose()
-	else:
-		score += 200
-		print_s(f"You earned 200 points for defeating Compsognathus! Score: {score}.")
+	battle_aftermath(battle_outcome, 200)
 	find_mushroom(5)
 	print_s("The path climbs up a mountain. There is also a cave in the mountain.", 1)
 	print_s("Which way do you want to go?")
@@ -114,13 +112,7 @@ def MountainOne():
 	print_s("!!! BATTLE TIANYULONG !!!")
 	tianyulong_1 = Tianyulong("A")
 	battle_outcome = battle(player, [tianyulong_1])
-	if battle_outcome == False:
-		main.lose()
-	else:
-		score += 200
-		if player.health > player.max_health:
-			player.health = player.max_health
-		print_s(f"You earned 200 points for defeating Tianyulong! Score: {score}.")
+	battle_aftermath(battle_outcome, 200)
 	print_s("You walk down the mountain and find human footprints. Your crewmate must be this way.", 2)
 	PathTwo()
 
@@ -134,11 +126,7 @@ def CaveOne():
 	microraptor_2 = Microraptor("B")
 	microraptor_3 = Microraptor("C")
 	battle_outcome = battle(player, [microraptor_1, microraptor_2, microraptor_3])
-	if battle_outcome == False:
-		main.lose()
-	else:
-		score += 400
-		print_s(f"You earned 400 points for defeating three Microraptor! Score: {score}.")
+	battle_aftermath(battle_outcome, 300)
 	print_s("Luckily, after defeating the Microraptor, you are not troubled anymore.", 1)
 	player.lasers += 2
 	score += 100
@@ -155,11 +143,7 @@ def DetourOne():
 	compsognathus_2 = Compsognathus("B")
 	print_s("!!! BATTLE TWO COMPSOGNATHUS !!!")
 	battle_outcome = battle(player, [compsognathus_1, compsognathus_2])
-	if battle_outcome == False:
-		main.lose()
-	else:
-		score += 400
-		print_s(f"You earned 400 points for defeating two Compsognathus! Score: {score}.")
+	battle_aftermath(battle_outcome, 400)
 	print_s("You continue along the path.")
 	player.health += 20
 	score += 100
@@ -184,16 +168,13 @@ def PathTwo():
 	print_s("The path leads into a jungle and you follow it.", 1)
 	print_s("You see dinosaurs flying through trees. They swoop down on you.", 1.5)
 	print_s("Oh no! More Microraptor.")
-	print_s("!!! BATTLE THREE MICRORAPTOR !!!")
+	print_s("!!! BATTLE FOUR MICRORAPTOR !!!")
 	microraptor_1 = Microraptor("A")
 	microraptor_2 = Microraptor("B")
 	microraptor_3 = Microraptor("C")
-	battle_outcome = battle(player, [microraptor_1, microraptor_2, microraptor_3])
-	if battle_outcome == False:
-		main.lose()
-	else:
-		score += 400
-		print_s(f"You earned 400 points for defeating three Microraptor! Score: {score}.")
+	microraptor_4 = Microraptor("D")
+	battle_outcome = battle(player, [microraptor_1, microraptor_2, microraptor_3, microraptor_4])
+	battle_aftermath(battle_outcome, 400)
 	print_s("You see a huge dinosaur coming towards you. You climb a tree and luckily, it does not notice you.", 2)
 	print_s("But then, you suddenly look closer. It's carrying someone.", 1.5)
 	print_s("IT'S YOUR CREWMATE!!!", 1.5)
@@ -206,12 +187,8 @@ def PathTwo():
 	print_s("!!! BATTLE PENTACERATOPS !!!", 1)
 	pentaceratops = Pentaceratops("A")
 	battle_outcome = battle(player, [pentaceratops])
-	if battle_outcome == False:
-		main.lose()
-	else:
-		score += 1000
-		print_s(f"You earned 1000 points for defeating Pentaceratops! Score: {score}.")
-	player.health += 30
+	battle_aftermath(battle_outcome, 1000)
+	player.health += 60
 	print_s(f"You find an energy drink. You drink it and heal some damage. {repr(player)} HP: {player.health}", 1.5)
 	print_s("The path ends. You see a huge mountain, a volcano, and a desert.", 1.5)
 	print_s("The mountain has a locked door on it. But, the door has three locks. You must find three keys to unlock it.", 2)
@@ -255,11 +232,7 @@ def SwimOne(paths, keys):
 	print_s("!!! BATTLE UNKTAHEELA !!!")
 	unktaheela_1 = Unktaheela("A")
 	battle_outcome = battle(player, [unktaheela_1])
-	if battle_outcome == False:
-		main.lose()
-	else:
-		score += 250
-		print_s(f"You earned 250 points for defeating Unktaheela! Score: {score}")
+	battle_aftermath(battle_outcome, 250)
 	find_fruit(-8, 10)
 	paths[0] = True
 	if paths[1] == False and paths[2] == False:
@@ -270,7 +243,7 @@ def SwimOne(paths, keys):
 		if i == 1:
 			PitOne(paths, keys)
 		elif i == 2:
-			ClearingOne(paths)
+			ClearingOne(paths, keys)
 	elif paths[1] == False and paths[2] == True:
 		print_s("You decide to go into the pit.", 1)
 		PitOne(paths, keys)
@@ -281,10 +254,65 @@ def SwimOne(paths, keys):
 		CompleteMountain(keys)
 
 def PitOne(paths, keys):
-	print_s("going into the pit...")
+	print_s("You are going into the pit, when you find a stash of fruit and mushrooms!", 1.5)
+	find_fruit(-10, 10)
+	find_mushroom(10)
+	print_s("You find the glinting object. It is part of the key and some glue to glue the key pieces.", 1.5)
+	print_s("But there are a few dinosaurs snooping around. They are attacking a plant-eater.", 1.5)
+	player.health -= 10
+	print_s(f"You leave before they notice you. A dinosaur hiding in the sand bites your face! {repr(player)} health left: {player.health}", 2)
+	if player.health <= 0:
+		main.lose()
+	print_s("You decide to leave in case that happens again.", 1)
+	paths[1] = True
+	if paths[0] == False and paths[2] == False:
+		print_s("What do you want to do now?")
+		print_s("1. Swim to the box")
+		print_s("2. Walk to the clearing")
+		i = choices(2)
+		if i == 1:
+			SwimOne(paths, keys)
+		elif i == 2:
+			ClearingOne(paths, keys)
+	elif paths[0] == False and paths[2] == True:
+		print_s("You decide to swim to the box.")
+		SwimOne(paths, keys)
+	elif paths[0] == True and paths[2] == False:
+		print_s("You decide to go into the clearing.")
+		ClearingOne(paths, keys)
+	else:
+		CompleteMountain(keys)
 
 def ClearingOne(paths, keys):
-	print_s("going into the clearing...")
+	player.lasers += 1
+	print_s(f"You find a laser package on the floor! {repr(player)} lasers: {player.lasers}", 1)
+	print_s("The clearing has been cleared by an enormous sauropod. However, several other dinosaurs have made it their home.", 1.5)
+	print_s("You step on some eggs. The dinosaurs think you are a predator and try to fight you off. There is also a real predator fighting you.", 2)
+	tianyulong_1 = Tianyulong("A")
+	tianyulong_2 = Tianyulong("B")
+	microraptor_1 = Microraptor("A")
+	print_s("!!! BATTLE TWO TIANYULONG AND MICRORAPTOR !!!")
+	battle_outcome = battle(player, [tianyulong_1, tianyulong_2, microraptor_1])
+	battle_aftermath(battle_outcome, 500)
+	print_s("You find part of the key!", 1)
+	paths[2] = True
+	if paths[0] == False and paths[1] == False:
+		print_s("What do you want to do now?")
+		print_s("1. Swim to the box")
+		print_s("2. Go into the pit")
+		i = choices(2)
+		if i == 1:
+			SwimOne(paths, keys)
+		elif i == 2:
+			PitOne(paths, keys)
+	elif paths[0] == False and paths[1] == True:
+		print_s("You decide to swim to the box.")
+		SwimOne(paths, keys)
+	elif paths[0] == True and paths[1] == False:
+		print_s("You decide to go into the pit.")
+		PitOne(paths, keys)
+	else:
+		CompleteMountain(keys)
 
 def CompleteMountain(keys):
 	print_s("You finished the mountain safely.")
@@ -368,6 +396,13 @@ def find_fruit(min, max):
 	elif i == 2:
 		print_s("You decided not to eat the fruit.")
 
+def battle_aftermath(battle_outcome, points):
+	global score
+	if battle_outcome == False:
+		main.lose()
+	else:
+		score += points
+		print_s(f"You earned {points} points! Score: {score}")
 
 def print_instructions():
 	print_s("instructions:")

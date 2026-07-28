@@ -1,3 +1,4 @@
+import random
 from constants import *
 from main import print_s
 from main import choices
@@ -29,8 +30,20 @@ class Player:
 			self.lasers -= 1
 			print_s(f"Lasers left: {self.lasers}")
 		atk.use(target, self)
-		if self.speed > target.speed * 2:
-			atk.use(target, self)
+		if target.health <= 0:
+			return
+		r = random.randint(0, 100)
+		if self.speed > target.speed + 50:
+			if r < 75:
+				print_s("You were faster and attacked again!")
+				self.attack(target)
+		elif self.speed > target.speed + 35:
+			if r < 50:
+				print_s("You were faster and attacked again!")
+				self.attack(target)
+		elif self.speed > target.speed + 20:
+			if r < 25:
+				print_s("You were faster and attacked again!")
 
 	def level_up(self):
 		self.level += 1
@@ -50,6 +63,12 @@ class Player:
 			self.max_health += 50
 			self.speed += 25
 		self.health = self.max_health
+		self.print_stats()
+
+	def print_stats(self):
+		print_s(f"Health: {self.health}/{self.max_health}")
+		print_s(f"Speed: {self.speed}")
+		print_s(f"Level: {self.level}")
 
 	def __repr__(self):
 		return self.name

@@ -10,12 +10,12 @@ PLAYER_LASERS = 10
 COMPSOGNATHUS_HEALTH = 55
 COMPSOGNATHUS_DEFENSE = 10
 COMPSOGNATHUS_SPEED = 75
-COMPSOGNATHUS_ATTACKS = [Attack(10, 85, "Slash", None), Attack(20, 60, "Tail Swipe", None)]
+COMPSOGNATHUS_ATTACKS = [Attack(10, 85, "Slash", None), Attack(20, 75, "Tail Swipe", None)]
 
 TIANYULONG_HEALTH = 40
 TIANYULONG_DEFENSE = 15
 TIANYULONG_SPEED = 45
-TIANYULONG_ATTACKS = [Attack(15, 80, "Bite", None), Attack(20, 60, "Tail Swipe", None), Attack(10, 100, "Scream", None)]
+TIANYULONG_ATTACKS = [Attack(15, 80, "Bite", None), Attack(20, 75, "Tail Swipe", None), Attack(10, 100, "Scream", None)]
 
 MICRORAPTOR_HEALTH = 20
 MICRORAPTOR_DEFENSE = 5
@@ -27,9 +27,9 @@ PENTACERATOPS_DEFENSE = 10
 PENTACERATOPS_SPEED = 55
 
 UNKTAHEELA_HEALTH = 100
-UNKTAHEELA_DEFENSE = 5
-UNKTAHEELA_SPEED = 80
-UNKTAHEELA_ATTACKS = [Attack(15, 90, "Bite", None), Attack(25, 80, "Neck Hit", None), Attack(35, 70, "Powerful Current", None)]
+UNKTAHEELA_DEFENSE = 10
+UNKTAHEELA_SPEED = 120
+UNKTAHEELA_ATTACKS = [Attack(15, 95, "Bite", None), Attack(20, 85, "Neck Hit", None), Attack(25, 75, "Powerful Current", None)]
 
 # functions
 def heal_30(user):
@@ -61,15 +61,15 @@ def damage_self_40(user):
 	user.health -= 40
 def damage_self_50(user):
 	user.health -= 50
-def damage_self_60(user):
-	user.health -= 60
+def damage_self_10(user):
+	user.health -= 10
 
 
 # variables with functions
-PLAYER_ATTACKS_LEVEL_1 = [Attack(30, 95, "Punch", None),Attack(50, 85, "Kick", None),Attack(0, 100, "Cure", heal_30),Attack(55, 95, "Smash", damage_self_20),Attack(30, 100, "Laser", None)]
-PLAYER_ATTACKS_LEVEL_3 = [Attack(40, 95, "Punch", None),Attack(60, 85, "Kick", None),Attack(0, 100, "Cure", heal_50),Attack(75, 95, "Smash", damage_self_30),Attack(40, 100, "Laser", None)]
-PLAYER_ATTACKS_LEVEL_5 = [Attack(55, 95, "Punch", None),Attack(75, 85, "Kick", None),Attack(0, 100, "Cure", heal_80),Attack(100, 95, "Smash", damage_self_40),Attack(55, 100, "Laser", None)]
-PLAYER_ATTACKS_LEVEL_7 = [Attack(70, 95, "Punch", None),Attack(90, 85, "Kick", None),Attack(0, 100, "Cure", heal_120),Attack(125, 95, "Smash", damage_self_50),Attack(70, 100, "Laser", None)]
-PLAYER_ATTACKS_LEVEL_9 = [Attack(90, 95, "Punch", None),Attack(115, 85, "Kick", None),Attack(0, 100, "Cure", heal_160),Attack(150, 95, "Smash", damage_self_60),Attack(90, 100, "Laser", None)]
+PLAYER_ATTACKS_LEVEL_1 = [Attack(30, 95, "Punch", None),Attack(50, 85, "Kick", None),Attack(0, 100, "Cure", heal_30),Attack(55, 95, "Smash", damage_self_10),Attack(30, 100, "Laser", None)]
+PLAYER_ATTACKS_LEVEL_3 = [Attack(40, 95, "Punch", None),Attack(60, 85, "Kick", None),Attack(0, 100, "Cure", heal_50),Attack(75, 95, "Smash", damage_self_20),Attack(40, 100, "Laser", None)]
+PLAYER_ATTACKS_LEVEL_5 = [Attack(55, 95, "Punch", None),Attack(75, 85, "Kick", None),Attack(0, 100, "Cure", heal_80),Attack(100, 95, "Smash", damage_self_30),Attack(55, 100, "Laser", None)]
+PLAYER_ATTACKS_LEVEL_7 = [Attack(70, 95, "Punch", None),Attack(90, 85, "Kick", None),Attack(0, 100, "Cure", heal_120),Attack(125, 95, "Smash", damage_self_40),Attack(70, 100, "Laser", None)]
+PLAYER_ATTACKS_LEVEL_9 = [Attack(90, 95, "Punch", None),Attack(115, 85, "Kick", None),Attack(0, 100, "Cure", heal_160),Attack(150, 95, "Smash", damage_self_50),Attack(90, 100, "Laser", None)]
 
-PENTACERATOPS_ATTACKS = [Attack(30, 90, "Horn Hit", None), Attack(45, 85, "Charge", damage_self_20), Attack(20, 90, "Cure and Hit", heal_30)]
+PENTACERATOPS_ATTACKS = [Attack(20, 90, "Horn Hit", None), Attack(35, 85, "Charge", damage_self_20), Attack(10, 90, "Cure and Hit", heal_30)]
