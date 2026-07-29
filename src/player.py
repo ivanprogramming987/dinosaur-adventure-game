@@ -44,6 +44,7 @@ class Player:
 		elif self.speed > target.speed + 20:
 			if r < 25:
 				print_s("You were faster and attacked again!")
+				self.attack(target)
 
 	def level_up(self):
 		self.level += 1
@@ -69,6 +70,7 @@ class Player:
 		print_s(f"Health: {self.health}/{self.max_health}")
 		print_s(f"Speed: {self.speed}")
 		print_s(f"Level: {self.level}")
+		print_s(f"Lasers left: {self.lasers}")
 
 	def __repr__(self):
 		return self.name

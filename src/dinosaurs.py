@@ -25,3 +25,7 @@ class Pentaceratops(Enemy):
 class Unktaheela(Enemy):
 	def __init__(self, letter):
 		super().__init__(UNKTAHEELA_HEALTH, UNKTAHEELA_DEFENSE, UNKTAHEELA_SPEED, UNKTAHEELA_ATTACKS, f"Unktaheela {letter}")
+
+class Vespersaurus(Enemy):
+	def __init__(self, letter):
+		super().__init__(VESPERSAURUS_HEALTH, VESPERSAURUS_DEFENSE, VESPERSAURUS_SPEED, VESPERSAURUS_ATTACKS, f"Vespersaurs {letter}")

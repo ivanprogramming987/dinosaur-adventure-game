@@ -42,6 +42,7 @@ Keywords:
 
 - Type `instructions` to read the instructions.
 - Type `quit` to quit the game.
+- Type `stats` to see the player's stats.
 - Type `continue` to continute playing.
 
 If you need to quit immediately, type `Ctrl+C`. _(it will give you an error message but don't worry about that.)_
