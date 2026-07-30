@@ -279,9 +279,9 @@ def PitOne(paths, keys):
 
 def ClearingOne(paths, keys):
 	player.lasers += 1
-	print_s(f"You find a laser package on the floor! {repr(player)} lasers: {player.lasers}", 1)
+	print_s(f"You find a laser package on the floor! {repr(player)} lasers: {player.lasers}", 1.5)
 	print_s("The clearing has been cleared by an enormous sauropod. However, several other dinosaurs have made it their home.", 1.5)
-	print_s("You step on some eggs. The dinosaurs think you are a predator and try to fight you off. There is also a real predator fighting you.", 2)
+	print_s("You step on some eggs. The dinosaurs think you are a predator and try to fight you off!", 1.5)
 	tianyulong_1 = Tianyulong("A")
 	tianyulong_2 = Tianyulong("B")
 	print_s("!!! BATTLE TWO TIANYULONG !!!")
@@ -311,6 +311,8 @@ def CompleteMountain(keys):
 	global score
 	score += 100
 	player.health += 30
+	if player.health > player.max_health:
+		player.health = player.max_health
 	print_s(f"You finished the mountain safely and earned 100 points and 30 HP!. Score: {score}. {repr(player)} health: {player.health}")
 	keys[0] = True
 	if keys[1] == False and keys[2] == False:
@@ -335,10 +337,155 @@ def CompleteMountain(keys):
 
 def VolcanoOne(keys):
 	checkpoint()
-	print_s("walking to the volcano...")
+	print_s("You go to the volcano. This is a scary place. There are big boulders and small rocks everywhere.", 1.5)
+	print_s("A particularly enormous boulder blocks your path.", 1)
+	print_s("Where do you want to go?")
+	print_s("1. Walk on the left side of the boulder")
+	print_s("2. Walk on the right side of the boulder")
+	i = choices(2)
+	if i == 1:
+		LeftSide(keys)
+	elif i == 2:
+		RightSide(keys)
+
+def LeftSide(keys, r=False):
+	print_s("Oddly, the giant boulder is one in a big line of boulders that prevent you from crossing to the right side.", 1.5)
+	print_s("There seems to be just a big nothingness surrounding you except for part of a key that you find. Suddenly, you hear a GLURP! GLOIIG! GBLEEEHK!", 2)
+	print_s("You wonder where the noises are coming from. But then, you see a trickle of lava slowly flowing down the volcano.", 1.5)
+	print_s("THE VOLCANO IS ERUPTING!", 1)
+	print_s("You have to act fast. What do you want to do?", 1)
+	print_s("1. Sprint down the volcano")
+	print_s("2. Jog down the volcano")
+	print_s("3. Walk down the volcano")
+	i = choices(3)
+	if i == 1:
+		SprintDownVolcano(keys, r)
+	elif i == 2:
+		JogDownVolcano(keys, r)
+	elif i == 3:
+		WalkDownVolcano(keys, r)
+
+def SprintDownVolcano(keys, r):
+	print_s("You sprint very fast to the bottom. You sprint so fast that some little stones start rolling down.", 1.5)
+	print_s("The little stones push some big stones. The big stones start rolling. It's an avalanche!!!", 2)
+	player.health -= 40
+	print_s(f"You escape, battered and bruised by the rocks. {repr(player)} health left: {player.health}", 1.5)
+	if player.health <= 0:
+		main.lose()
+	if r:
+		CompleteVolcano(keys)
+	else:
+		print_s("Once the eruption is over, you decide to try the right side of the rocks.", 1)
+		RightSide(keys, True)
+
+def JogDownVolcano(keys, r):
+	player.lasers -= 3
+	if player.lasers < 0:
+		player.lasers = 0
+	print_s(f"You jog, followed closely by the lava. You accidentally drop some lasers. They are consumed by the lava. {repr(player)} lasers: {player.lasers}", 2)
+	print_s("You escape unhurt.")
+	if r:
+		CompleteVolcano(keys)
+	else:
+		print_s("Once the eruption is over, you decide to try the right side of the rocks.", 1)
+		RightSide(keys, True)
+
+def WalkDownVolcano(keys, r):
+	player.health -= 20
+	player.lasers -= 1
+	if player.lasers < 0:
+		player.lasers = 0
+	print_s("You decide to be slow and not cause an avalanche. There is ONE PROBLEM, however.", 1.5)
+	print_s(f"The lava is faster than you! It burns your ankles. You have to pick up speed. {repr(player)} health: {player.health}", 2)
+	if player.health <= 0:
+		main.lose()
+	print_s(f"As you run faster, you drop a laser! The lava destroys it. {repr(player)} lasers: {player.lasers}", 1.5)
+	print_s("You escape, despite the swelling burns on your ankles and worse-for-wear shoes.", 1.5)
+	if r:
+		CompleteVolcano(keys)
+	else:
+		print_s("Once the eruption is over, you decide to try the right side of the rocks.", 1)
+		RightSide(keys, True)
+
+def RightSide(keys, l=False):
+	print_s("You walk up the volcano and find that the giant rock is in a big line of rocks, so you cannot go to the left side.", 1.5)
+	print_s("This part of the volcano has small shrubs growing on it, along with small, speedy dinosaurs.", 1.5)
+	print_s("There is a lake to your right and a big meadow of shrubs just ahead.", 1)
+	print_s("Which way do you want to go?")
+	print_s("1. Swim in the lake")
+	print_s("2. Go to the meadow of shrubs")
+	i = choices(2)
+	if i == 1:
+		SwimTwo(keys, l)
+	elif i == 2:
+		MeadowOne(keys, l)
+
+def SwimTwo(keys, l, m=False):
+	print_s("You swim in the lake. There is part of a key on the bottom! You dive to get it.", 1.5)
+	print_s("As you dive to it, a hungry plesiosaur swims towards you. You turn away, hoping to leave before it notices you.", 1.5)
+	print_s("But then, a sharp-toothed fish comes! You are stuck between two enemies. You have to fight.", 1.5)
+	print_s("!!! BATTLE ICHTHYODECTES AND UNKTAHEELA !!!")
+	ichthyodectes_1 = Ichthyodectes("A")
+	unktaheela_1 = Unktaheela("A")
+	battle_outcome = battle(player, [ichthyodectes_1, unktaheela_1])
+	battle_aftermath(battle_outcome, 500)
+	print_s("You get out of the lake, soaking wet and exhausted.", 1)
+	if m:
+		if l:
+			CompleteVolcano(keys)
+		else:
+			print_s("You decide to go to the left side of the rocks.", 1)
+			LeftSide(keys, True)
+	else:
+		print_s("You decide to go to the meadow of shrubs.", 1)
+		MeadowOne(keys, l, True)
+
+def MeadowOne(keys, l, s=False):
+	print_s("You go into the meadow. You find part of a key.", 1)
+	print_s("You escape a group of meat-eating dinosaurs attacking a plant-eater.", 1.5)
+	print_s("But you do NOT escape a meat-eater and pterosaur that want to eat you. A fight happens.", 1.5)
+	print_s("!!! BATTLE ANUROGNATHUS AND VESPERSAURUS !!!")
+	anurognathus_1 = Anurognathus("A")
+	vespersaurus_1 = Vespersaurus("A")
+	battle_outcome = battle(player, [anurognathus_1, vespersaurus_1])
+	battle_aftermath(battle_outcome, 500)
+	print_s("You walk out of the meadow.", 1)
+	if s:
+		if l:
+			CompleteVolcano(keys)
+		else:
+			print_s("You decide to go to the left side of the rocks.", 1)
+			LeftSide(keys, True)
+	else:
+		print_s("You decide to swim in the lake.", 1)
+		SwimTwo(keys, l, True)
 
 def CompleteVolcano(keys):
-	print_s("You finished the volcano safely.")
+	global score
+	score += 100
+	player.health += 30
+	if player.health > player.max_health:
+		player.health = player.max_health
+	print_s(f"You finished the mountain safely and earned 100 points and 30 HP!. Score: {score}. {repr(player)} health: {player.health}")
+	keys[1] = True
+	if keys[0] == False and keys[2] == False:
+		print_s("Where do you want to go now?")
+		print_s("1. Climb the mountain")
+		print_s("2. Hike into the desert")
+		i = choices(2)
+		if i == 1:
+			MountainTwo(keys)
+		elif i == 2:
+			DesertOne(keys)
+	elif keys[0] == False and keys[2] == True:
+		print_s("You decide to climb the mountain.", 1)
+		MountainTwo(keys)
+	elif keys[0] == True and keys[2] == False:
+		print_s("You decide to hike into the desert.", 1)
+		DesertOne(keys)
+	else:
+		print_s("You got all three keys! You unlock the mountain door.", 2)
+		CaveTwo()
 
 def DesertOne(keys):
 	checkpoint()
@@ -469,9 +616,11 @@ def PathThree(paths, keys):
 
 def CompleteDesert(keys):
 	global score
-        score += 100
-        player.health += 30
-        print_s(f"You finished the desert safely and earned 100 points and 30 HP!. Score: {score}. {repr(player)} health: {player.health}")
+	score += 100
+	player.health += 30
+	if player.health > player.max_health:
+		player.health = player.max_health
+	print_s(f"You finished the desert safely and earned 100 points and 30 HP!. Score: {score}. {repr(player)} health: {player.health}")
 	keys[2] = True
 	if keys[0] == False and keys[1] == False:
 		print_s("Where do you want to go now?")
@@ -566,6 +715,7 @@ def print_instructions():
 	print_s("type 'stats' to see your stats")
 	print_s("")
 	print_s("if you need to quit immediately, type Ctrl+C. (it will give you an error message but don't worry about that.)")
+	print_s('there is no "save" function in this game. it WILL NOT reload ANYTHING if you quit.')
 
 def checkpoint():
 	print_s("CHECKPOINT! type instructions, quit, stats, or continue (any other word will default to 'continue')")

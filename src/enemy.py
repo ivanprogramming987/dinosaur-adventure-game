@@ -15,15 +15,15 @@ class Enemy:
 		r = random.randint(0, 100)
 		if self.speed > target.speed + 50:
 			if r < 75:
-				print_s(f"{self.name} was faster and attacked again!")
+				print_s(f"{repr(self)} was faster and attacked again!")
 				self.attack(target)
 		elif self.speed > target.speed + 35:
 			if r < 50:
-				print_s(f"{self.name} was faster and attacked again!")
+				print_s(f"{repr(self)} was faster and attacked again!")
 				self.attack(target)
 		elif self.speed > target.speed + 20:
 			if r < 25:
-				print_s(f"{self.name} was faster and attacked again!")
+				print_s(f"{repr(self)} was faster and attacked again!")
 				self.attack(target)
 
 	def next_attack(self):

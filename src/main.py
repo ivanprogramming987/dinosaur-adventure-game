@@ -33,7 +33,11 @@ def print_s(str, t=0.75):
 	time.sleep(t)
 
 def choices(max):
-	i = int(input("Please choose: "))
+	try:
+		i = int(input("Please choose: "))
+	except (ValueError, TypeError):
+		print_s("Must type integer")
+		return choices(max)
 	if i < 1 or i > max:
 		print_s("Sorry, choose one")
 		return choices(max)

@@ -26,6 +26,7 @@ class Player:
 		if attack_no == 5:
 			if self.lasers == 0:
 				print_s("You don't have any lasers")
+				self.attack(target)
 				return
 			self.lasers -= 1
 			print_s(f"Lasers left: {self.lasers}")

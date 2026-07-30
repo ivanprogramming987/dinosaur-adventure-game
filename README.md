@@ -26,13 +26,16 @@ You have to escape. Your ultra-smart app tells you that you need to find _anothe
 
 ## HOW TO PLAY
 
-To start the game, run the shell file `main.sh` in the **command line** by typing `./main.sh`.
+To start the game, run the shell file `main.sh` in the **command line** by typing `./main.sh`
+** - OR - ** just run the python file `main.py`, which is in the directory `src`.
 
 This is a text-based game. This game will tell you to type to do certain actions.
 
 At the beginning, you can read the instructions. A copy is also in this file.
 
 ### INSTRUCTIONS
+
+WARNING! There is no "save" function in this game. If you quit, the game WILL NOT SAVE where you are, your stats, etc.
 
 If you are presented with a choice, type the number that fits your choice, then type enter.
 

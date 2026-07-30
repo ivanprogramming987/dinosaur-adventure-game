@@ -2,7 +2,7 @@ from main import print_s
 import random
 
 class Attack:
-	def __init__(self, dmg, acc, name, func):
+	def __init__(self, dmg, acc, name, func=None):
 		self.dmg = dmg
 		self.acc = acc
 		self.name = name

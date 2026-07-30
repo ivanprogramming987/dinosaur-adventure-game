@@ -29,3 +29,11 @@ class Unktaheela(Enemy):
 class Vespersaurus(Enemy):
 	def __init__(self, letter):
 		super().__init__(VESPERSAURUS_HEALTH, VESPERSAURUS_DEFENSE, VESPERSAURUS_SPEED, VESPERSAURUS_ATTACKS, f"Vespersaurs {letter}")
+
+class Ichthyodectes(Enemy):
+	def __init__(self, letter):
+		super().__init__(ICHTHYODECTES_HEALTH, ICHTHYODECTES_DEFENSE, ICHTHYODECTES_SPEED, ICHTHYODECTES_ATTACKS, f"Ichthyodectes {letter}")
+
+class Anurognathus(Enemy):
+	def __init__(self, letter):
+		super().__init__(ANUROGNATHUS_HEALTH, ANUROGNATHUS_DEFENSE, ANUROGNATHUS_SPEED, ANUROGNATHUS_ATTACKS, f"Anurognathus {letter}")
