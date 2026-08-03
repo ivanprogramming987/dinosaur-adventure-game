@@ -12,6 +12,7 @@ class Player:
 		self.health = PLAYER_HEALTH
 		self.max_health = PLAYER_HEALTH
 		self.lasers = PLAYER_LASERS
+		self.potions = PLAYER_POTIONS
 		self.name = "Player"
 
 	def attack(self, target):
@@ -23,6 +24,13 @@ class Player:
 		print_s(f"5. {self.attacks[4].name}")
 		attack_no = choices(5)
 		atk = self.attacks[attack_no - 1]
+		if attack_no == 3:
+			if self.potions == 0:
+				print_s("You don't have any potions")
+				self.attack(target)
+				return
+			self.potions -= 1
+			print_s(f"Potions left: {self.potions}")
 		if attack_no == 5:
 			if self.lasers == 0:
 				print_s("You don't have any lasers")

@@ -694,36 +694,18 @@ def CrackOne():
 	anurognathus_2 = Anurognathus("B")
 	battle_outcome = battle(player, [anurognathus_1, anurognathus_2])
 	battle_aftermath(battle_outcome, 450)
-	FinalPart()
+	print_s("The path joins with two others. You keep going.", 1)
+	FinalPartOne()
 
 def PathFour():
-	print_s("You keep going. You bump into some things. They peck your head.", 1)
-	print_s("!!! BATTLE FOUR NEMICOLOPTERUS !!!")
-	nemicolopterus_1 = Nemicolopterus("A")
-	nemicolopterus_2 = Nemicolopterus("B")
-	nemicolopterus_3 = Nemicolopterus("C")
-	nemicolopterus_4 = Nemicolopterus("D")
-	battle_outcome = battle(player, [nemicolopterus_1, nemicolopterus_2, nemicolopterus_3, nemicolopterus_4])
-	battle_aftermath(battle_outcome, 600)
-	FinalPart()
+	print_s("You keep going. A bunch of things fly in your face. They leave bruises. You punch the air without thinking.")
 
 def RightSideTwo():
-	print_s("to be continued...")
+	pass
 
-def FinalPart():
-	global score
-	print_s("You come to a door. It doesn't open! But then, you see it! A four-digit combination lock!", 1.5)
-	print_s("Type the code (a number from 1 to 9999, or type 10000 for a hint)")
-	combination_lock(COMBINATION_LOCK_CODE_ONE)
-	player.health += 50
-	if player.health > player.max_health:
-		player.health = player.max_health
-	print_s(f"You find an energy drink! You drink it and heal. {repr(player)} health left: {player.health}", 1.5)
-	player.lasers += 2
-	print_s(f"You found 2 lasers! {repr(player)} lasers: {player.lasers}", 1.5)
-	score += 300
-	print_s(f"You earned 300 points! Score: {score}.")
-	print_s("to be continued...")
+def FinalPartOne():
+	pass
+
 
 def find_mushroom(n):
 	global score
@@ -775,26 +757,12 @@ def find_fruit(min, max):
 	elif i == 2:
 		print_s("You decided not to eat the fruit.")
 
-def combination_lock(code):
-	i = choices(10000)
-	if i == code:
-		print_s("You unlocked the lock!")
-		return
-	elif i == 10000:
-		print_s("The answer is in the game somewhere else.")
-		combination_lock(code)
-	else:
-		print_s("You did not unlock the lock.")
-		combination_lock(code)
-
 def battle_aftermath(battle_outcome, points):
 	global score
 	if battle_outcome == False:
 		main.lose()
 	else:
 		score += points
-		player.potions += 1
-		print_s(f"You earned 1 potion! {repr(player)} potions: {player.potions}")
 		print_s(f"You earned {points} points! Score: {score}")
 
 def print_instructions():

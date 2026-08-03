@@ -6,6 +6,7 @@ PLAYER_SPEED = 50
 PLAYER_DEFENSE = 0
 PLAYER_HEALTH = 100
 PLAYER_LASERS = 10
+PLAYER_POTIONS = 3
 
 COMPSOGNATHUS_HEALTH = 55
 COMPSOGNATHUS_DEFENSE = 10
@@ -27,14 +28,14 @@ PENTACERATOPS_DEFENSE = 10
 PENTACERATOPS_SPEED = 45
 # pentaceratops attacks in "variables with functions" section
 
-UNKTAHEELA_HEALTH = 90
+UNKTAHEELA_HEALTH = 100
 UNKTAHEELA_DEFENSE = 10
-UNKTAHEELA_SPEED = 120
+UNKTAHEELA_SPEED = 100
 UNKTAHEELA_ATTACKS = [Attack(15, 95, "Bite"), Attack(20, 85, "Neck Hit"), Attack(25, 75, "Powerful Current")]
 
 VESPERSAURUS_HEALTH = 110
 VESPERSAURUS_DEFENSE = 5
-VESPERSAURUS_SPEED = 75
+VESPERSAURUS_SPEED = 80
 VESPERSAURUS_ATTACKS = [Attack(20, 95, "Kick"), Attack(25, 85, "Jump Kick"), Attack(10, 100, "Claw")]
 
 ICHTHYODECTES_HEALTH = 65
@@ -46,29 +47,30 @@ ANUROGNATHUS_HEALTH = 65
 ANUROGNATHUS_DEFENSE = 10
 ANUROGNATHUS_SPEED = 70
 ANUROGNATHUS_ATTACKS = [Attack(10, 80, "Head Hit"), Attack(15, 80, "Wing Smack")]
+
+NEMICOLOPTERUS_HEALTH = 40
+NEMICOLOPTERUS_DEFENSE = 5
+NEMICOLOPTERUS_SPEED = 130
+NEMICOLOPTERUS_ATTACKS = [Attack(5, 100, "Stupid Face"), Attack(10, 90, "Wing Smack"), Attack(15, 80, "Crash")]
 # functions
-def heal_20(user):
-	user.health += 20
+def heal_25(user):
+	user.health += 25
 	if user.health > user.max_health:
 		user.health = user.max_health
-def heal_30(user):
-	user.health += 30
-	if user.health > user.max_health:
-		user.health = user.max_health
-def heal_40(user):
-	user.health += 40
+def heal_45(user):
+	user.health += 45
 	if user.health > user.max_health:
                 user.health = user.max_health
-def heal_70(user):
-	user.health += 70
+def heal_80(user):
+	user.health += 80
 	if user.health > user.max_health:
                 user.health = user.max_health
-def heal_100(user):
-	user.health += 100
+def heal_110(user):
+	user.health += 110
 	if user.health > user.max_health:
                 user.health = user.max_health
-def heal_140(user):
-	user.health += 140
+def heal_150(user):
+	user.health += 150
 	if user.health > user.max_health:
                 user.health = user.max_health
 
@@ -85,10 +87,12 @@ def damage_self_10(user):
 
 
 # variables with functions
-PLAYER_ATTACKS_LEVEL_1 = [Attack(30, 95, "Punch"),Attack(50, 85, "Kick"),Attack(0, 100, "Cure", heal_20),Attack(65, 95, "Smash", damage_self_10),Attack(40, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_3 = [Attack(40, 95, "Punch"),Attack(60, 85, "Kick"),Attack(0, 100, "Cure", heal_40),Attack(85, 95, "Smash", damage_self_20),Attack(50, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_5 = [Attack(55, 95, "Punch"),Attack(75, 85, "Kick"),Attack(0, 100, "Cure", heal_70),Attack(110, 95, "Smash", damage_self_30),Attack(65, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_7 = [Attack(70, 95, "Punch"),Attack(90, 85, "Kick"),Attack(0, 100, "Cure", heal_100),Attack(135, 95, "Smash", damage_self_40),Attack(80, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_9 = [Attack(90, 95, "Punch"),Attack(115, 85, "Kick"),Attack(0, 100, "Cure", heal_140),Attack(160, 95, "Smash", damage_self_50),Attack(100, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_1 = [Attack(30, 95, "Punch"),Attack(50, 85, "Kick"),Attack(0, 100, "Cure", heal_25),Attack(65, 95, "Smash", damage_self_10),Attack(40, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_3 = [Attack(40, 95, "Punch"),Attack(60, 85, "Kick"),Attack(0, 100, "Cure", heal_45),Attack(85, 95, "Smash", damage_self_20),Attack(50, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_5 = [Attack(55, 95, "Punch"),Attack(75, 85, "Kick"),Attack(0, 100, "Cure", heal_80),Attack(110, 95, "Smash", damage_self_30),Attack(65, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_7 = [Attack(70, 95, "Punch"),Attack(90, 85, "Kick"),Attack(0, 100, "Cure", heal_110),Attack(135, 95, "Smash", damage_self_40),Attack(80, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_9 = [Attack(90, 95, "Punch"),Attack(115, 85, "Kick"),Attack(0, 100, "Cure", heal_150),Attack(160, 95, "Smash", damage_self_50),Attack(100, 100, "Laser")]
 
-PENTACERATOPS_ATTACKS = [Attack(20, 90, "Horn Hit"), Attack(30, 80, "Charge", damage_self_10), Attack(10, 90, "Cure and Hit", heal_30)]
+PENTACERATOPS_ATTACKS = [Attack(20, 90, "Horn Hit"), Attack(30, 80, "Charge", damage_self_10), Attack(15, 90, "Cure and Hit", heal_25)]
+# hidden variables
+COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled
