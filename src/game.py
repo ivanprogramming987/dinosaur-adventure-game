@@ -688,13 +688,13 @@ def CrackOne():
 	print_s("It's a tight squeeze. Finally you emerge. There is a hole in the ceiling letting light AND creatures in.", 1.5)
 	print_s(f"You find a granola bar. You eat it and heal a little. {repr(player)} health left: {player.health}", 1.5)
 	find_mushroom(5)
-	print_s("Some pterosaurs think you look tasty. They attack!", 1)
+	print_s("Some pterosaurs circling above think you look tasty. They attack!", 1)
 	print_s("!!! BATTLE TWO ANUROGNATHUS !!!")
 	anurognathus_1 = Anurognathus("A")
 	anurognathus_2 = Anurognathus("B")
 	battle_outcome = battle(player, [anurognathus_1, anurognathus_2])
 	battle_aftermath(battle_outcome, 450)
-	FinalPart()
+	FinalPartOne()
 
 def PathFour():
 	print_s("You keep going. You bump into some things. They peck your head.", 1)
@@ -705,22 +705,91 @@ def PathFour():
 	nemicolopterus_4 = Nemicolopterus("D")
 	battle_outcome = battle(player, [nemicolopterus_1, nemicolopterus_2, nemicolopterus_3, nemicolopterus_4])
 	battle_aftermath(battle_outcome, 600)
-	FinalPart()
+	FinalPartOne()
 
 def RightSideTwo():
-	print_s("to be continued...")
+	print_s("You choose the right side.")
+	print_s("You see a dinosaur hiding in a crack in the wall. It blunders into you.", 1.5)
+	print_s("It yelps in pain and some more dinosaurs come to it. They can't see you, but they can smell you.", 1.5)
+	print_s("They assume you are a predator and run away. You keep going.", 1)
+	print_s("Some pterosaurs come. One nips your head. They are attacking you!", 1)
+	print_s("!!! BATTLE FOUR NEMICOLOPTERUS !!!")
+	nemicolopterus_1 = Nemicolopterus("A")
+	nemicolopterus_2 = Nemicolopterus("B")
+	nemicolopterus_3 = Nemicolopterus("C")
+	nemicolopterus_4 = Nemicolopterus("D")
+	battle_outcome = battle(player, [nemicolopterus_1, nemicolopterus_2, nemicolopterus_3, nemicolopterus_4])
+	battle_aftermath(battle_outcome, 600)
+	print_s("You walk slowly and carefully. You get to a split in the path.", 1)
+	print_s("Which way do you want to go?")
+	print_s("1. Turn left")
+	print_s("2. Go straight")
+	print_s("3. Turn right")
+	i = choices(3)
+	if i == 1:
+		LeftChamberOne()
+	elif i == 2:
+		ContinueRightSide()
+	elif i == 3:
+		RightChamberOne()
 
-def FinalPart():
+def LeftChamberOne(r=False):
+	print_s("You choose to go left.")
+	print_s("This is actually just a small chamber.", 1)
+	player.health -= 30
+	print_s(f"You are careless and trip! You are cut in the face by a stalagmite and land on hard, bumpy ground. {repr(player)} HP left: {player.health}", 2)
+	if player.health <= 0:
+		main.lose()
+	print_s("You leave the chamber so you don't trip again.", 1)
+	if r:
+		print_s("You decide to go straight.")
+		ContinueRightSide()
+	else:
+		print_s("Where do you want to go?")
+		print_s("1. Go straight")
+		print_s("2. Turn right")
+		i = choices(2)
+		if i == 1:
+			ContinueRightSide()
+		elif i == 2:
+			RightChamberOne(True)
+
+def RightChamberOne(l=False):
 	global score
-	print_s("You come to a door. It doesn't open! But then, you see it! A four-digit combination lock!", 1.5)
+	print_s("You choose to go right.")
+	print_s("This is actually just a small chamber.", 1)
+	player.lasers += 2
+	score += 200
+	print_s(f"You find 2 lasers! {repr(player)} lasers: {player.lasers}.")
+	print_s(f"You earned 200 points! Score: {score}.")
+	print_s("You investigate the rest of the chamber, but find nothing. You leave the chamber.", 1.5)
+	if l:
+		print_s("You decide to go straight.")
+		ContinueRightSide()
+	else:
+		print_s("Where do you want to go?")
+		print_s("1. Turn left")
+		print_s("2. Go straight")
+		i = choices(2)
+		if i == 1:
+			LeftChamberOne()
+		elif i == 2:
+			ContinueRightSide()
+
+def ContinueRightSide():
+	pass
+
+def FinalPartOne():
+	global score
+	print_s("You come to a door. When you try to open it, it doesn't open! But then, you see it! A four-digit combination lock!", 2)
 	print_s("Type the code (a number from 1 to 9999, or type 10000 for a hint)")
-	combination_lock(COMBINATION_LOCK_CODE_ONE)
+	combination_lock(COMBINATION_LOCK_CODE_ONE, COMBINATION_LOCK_HINT_ONE)
 	player.health += 50
 	if player.health > player.max_health:
 		player.health = player.max_health
 	print_s(f"You find an energy drink! You drink it and heal. {repr(player)} health left: {player.health}", 1.5)
-	player.lasers += 2
-	print_s(f"You found 2 lasers! {repr(player)} lasers: {player.lasers}", 1.5)
+	player.potions += 1
+	print_s(f"You found 1 potion! {repr(player)} potions: {player.potions}", 1.5)
 	score += 300
 	print_s(f"You earned 300 points! Score: {score}.")
 	print_s("to be continued...")
@@ -775,13 +844,13 @@ def find_fruit(min, max):
 	elif i == 2:
 		print_s("You decided not to eat the fruit.")
 
-def combination_lock(code):
+def combination_lock(code, hint):
 	i = choices(10000)
 	if i == code:
 		print_s("You unlocked the lock!")
 		return
 	elif i == 10000:
-		print_s("The answer is in the game somewhere else.")
+		print_s(hint)
 		combination_lock(code)
 	else:
 		print_s("You did not unlock the lock.")

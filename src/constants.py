@@ -87,12 +87,13 @@ def damage_self_10(user):
 
 
 # variables with functions
-PLAYER_ATTACKS_LEVEL_1 = [Attack(30, 95, "Punch"),Attack(50, 85, "Kick"),Attack(0, 100, "Cure", heal_25),Attack(65, 95, "Smash", damage_self_10),Attack(40, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_3 = [Attack(40, 95, "Punch"),Attack(60, 85, "Kick"),Attack(0, 100, "Cure", heal_45),Attack(85, 95, "Smash", damage_self_20),Attack(50, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_5 = [Attack(55, 95, "Punch"),Attack(75, 85, "Kick"),Attack(0, 100, "Cure", heal_80),Attack(110, 95, "Smash", damage_self_30),Attack(65, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_7 = [Attack(70, 95, "Punch"),Attack(90, 85, "Kick"),Attack(0, 100, "Cure", heal_110),Attack(135, 95, "Smash", damage_self_40),Attack(80, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_9 = [Attack(90, 95, "Punch"),Attack(115, 85, "Kick"),Attack(0, 100, "Cure", heal_150),Attack(160, 95, "Smash", damage_self_50),Attack(100, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_1 = [Attack(30, 95, "Punch"),Attack(50, 85, "Kick"),Attack(0, 100, "Cure", heal_25),Attack(60, 95, "Smash", damage_self_10),Attack(50, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_3 = [Attack(40, 95, "Punch"),Attack(60, 85, "Kick"),Attack(0, 100, "Cure", heal_45),Attack(85, 95, "Smash", damage_self_20),Attack(60, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_5 = [Attack(55, 95, "Punch"),Attack(75, 85, "Kick"),Attack(0, 100, "Cure", heal_80),Attack(110, 95, "Smash", damage_self_30),Attack(75, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_7 = [Attack(70, 95, "Punch"),Attack(90, 85, "Kick"),Attack(0, 100, "Cure", heal_110),Attack(135, 95, "Smash", damage_self_40),Attack(90, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_9 = [Attack(90, 95, "Punch"),Attack(115, 85, "Kick"),Attack(0, 100, "Cure", heal_150),Attack(160, 95, "Smash", damage_self_50),Attack(115, 100, "Laser")]
 
 PENTACERATOPS_ATTACKS = [Attack(20, 90, "Horn Hit"), Attack(30, 80, "Charge", damage_self_10), Attack(15, 90, "Cure and Hit", heal_25)]
 # hidden variables
 COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled
+COMBINATION_LOCK_HINT_ONE = "The answer is in the game somewhere else"

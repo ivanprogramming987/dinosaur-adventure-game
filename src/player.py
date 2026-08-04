@@ -80,6 +80,7 @@ class Player:
 		print_s(f"Speed: {self.speed}")
 		print_s(f"Level: {self.level}")
 		print_s(f"Lasers left: {self.lasers}")
+		print_s(f"Potions left: {self.potions}")
 
 	def __repr__(self):
 		return self.name
