@@ -17,11 +17,11 @@ class Player:
 
 	def attack(self, target):
 		print_s("Pick an attack:")
-		print_s(f"1. {self.attacks[0].name}")
-		print_s(f"2. {self.attacks[1].name}")
-		print_s(f"3. {self.attacks[2].name}")
-		print_s(f"4. {self.attacks[3].name}")
-		print_s(f"5. {self.attacks[4].name}")
+		print_s("1. Punch")
+		print_s("2. Kick")
+		print_s(f"3. Cure -- potions left: {self.potions}")
+		print_s("4. Smash")
+		print_s(f"5. Laser -- lasers left: {self.lasers}")
 		attack_no = choices(5)
 		atk = self.attacks[attack_no - 1]
 		if attack_no == 3:

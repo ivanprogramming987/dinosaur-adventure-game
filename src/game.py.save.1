@@ -648,6 +648,8 @@ def CaveTwo():
 	checkpoint()
 	print_s("DUNGEON ONE: CAVE")
 	print_s("You turn on your flashlight and look around. This place is full of stalactites and stalagmites. They are beautiful.", 2)
+	find_fruit(-4, 6)
+	find_mushroom(5)
 	print_s("There is a split in the path.")
 	print_s("Which way do you want to go?")
 	print_s("1. To the left")
@@ -660,6 +662,7 @@ def CaveTwo():
 
 def LeftSideTwo():
 	print_s("You decide to choose the left side.")
+	find_fruit(-6, 8)
 	print_s("You see cave fish and giant cave bugs. Several are about two feet long! They are catching cave fish.", 1.5)
 	print_s("Suddenly, SPLASH! you fall into a big lake. Some giant cave fish are coming!", 1.5)
 	print_s("They look like some fish you have already seen in the present day. They don't bother with you.", 1.5)
@@ -689,26 +692,29 @@ def CrackOne():
 	print_s(f"You find a granola bar. You eat it and heal a little. {repr(player)} health left: {player.health}", 1.5)
 	find_mushroom(5)
 	print_s("Some pterosaurs circling above think you look tasty. They attack!", 1)
-	print_s("!!! BATTLE TWO ANUROGNATHUS !!!")
+	print_s("!!! BATTLE THREE ANUROGNATHUS !!!")
 	anurognathus_1 = Anurognathus("A")
 	anurognathus_2 = Anurognathus("B")
+	anurognathus_3 = Anurognathus("C")
 	battle_outcome = battle(player, [anurognathus_1, anurognathus_2])
-	battle_aftermath(battle_outcome, 450)
+	battle_aftermath(battle_outcome, 600)
 	FinalPartOne()
 
 def PathFour():
 	print_s("You keep going. You bump into some things. They peck your head.", 1)
-	print_s("!!! BATTLE FOUR NEMICOLOPTERUS !!!")
+	print_s("!!! BATTLE FIVE NEMICOLOPTERUS !!!")
 	nemicolopterus_1 = Nemicolopterus("A")
 	nemicolopterus_2 = Nemicolopterus("B")
 	nemicolopterus_3 = Nemicolopterus("C")
 	nemicolopterus_4 = Nemicolopterus("D")
+	nemicolopterus_5 = Nemicolopterus("E")
 	battle_outcome = battle(player, [nemicolopterus_1, nemicolopterus_2, nemicolopterus_3, nemicolopterus_4])
-	battle_aftermath(battle_outcome, 600)
+	battle_aftermath(battle_outcome, 700)
 	FinalPartOne()
 
 def RightSideTwo():
 	print_s("You choose the right side.")
+	find_mushroom(5)
 	print_s("You see a dinosaur hiding in a crack in the wall. It blunders into you.", 1.5)
 	print_s("It yelps in pain and some more dinosaurs come to it. They can't see you, but they can smell you.", 1.5)
 	print_s("They assume you are a predator and run away. You keep going.", 1)
@@ -778,22 +784,20 @@ def RightChamberOne(l=False):
 
 def ContinueRightSide():
 	print_s("You keep walking and find that a big block has come out of the wall, allowing light and life in. There are even trees growing next to you.", 2)
+	find_fruit(-6, 7)
 	print_s("This block allows even dinosaurs to walk inside, and there are several around you.", 1.5)
 	print_s("Armored dinos are the biggest. But the carnivores can't eat them. They can eat you though. One attacks you.", 1.5)
 	print_s("!!! BATTLE COELOPHYSIS !!!")
 	coelophysis_1 = Coelophysis("A")
 	battle_outcome = battle(player, [coelophysis_1])
-	battle_aftermath(battle_outcome, 500)
-	print_s("Several paths join. You enter the part where they join and walk along a barren hallway.", 1.5)
-	FinalPartOne()
+	battle_aftermath(battle_outcome, 400)
 
 def FinalPartOne():
 	global score
-	checkpoint()
 	print_s("You come to a door. When you try to open it, it doesn't open! But then, you see it! A four-digit combination lock!", 2)
 	print_s("Type the code (a number from 1 to 9999, or type 10000 for a hint)")
 	combination_lock(COMBINATION_LOCK_CODE_ONE, COMBINATION_LOCK_HINT_ONE)
-	player.health += 60
+	player.health += 40
 	if player.health > player.max_health:
 		player.health = player.max_health
 	print_s(f"You find an energy drink! You drink it and heal. {repr(player)} health left: {player.health}", 1.5)
@@ -801,16 +805,7 @@ def FinalPartOne():
 	print_s(f"You found 1 potion! {repr(player)} potions: {player.potions}", 1.5)
 	score += 300
 	print_s(f"You earned 300 points! Score: {score}.")
-	print_s("You enter a big room. The ceiling has completely fallen. A big, ferocious dinosaur is there.", 1.5)
-	print_s("The dinosaur is really hungry and has had no food for a few days, so despite you being small in comparison, it attacks.", 2)
-	print_s("!!! BOSS !!!")
-	print_s("!!! BATTLE CERATOSAURUS !!!")
-	ceratosaurus_1 = Ceratosaurus("A")
-	battle_outcome = battle(player, [ceratosaurus_1])
-	battle_aftermath(battle_outcome, 1000)
-	print_s("As you defeat Ceratosaurus, the front of the room breaks!", 1.5)
-	player.level_up()
-	print_s("to be continued...")
+	print_s("You see")
 
 def find_mushroom(n):
 	global score

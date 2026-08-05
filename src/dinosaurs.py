@@ -41,3 +41,16 @@ class Anurognathus(Enemy):
 class Nemicolopterus(Enemy):
 	def __init__(self, letter):
 		super().__init__(NEMICOLOPTERUS_HEALTH, NEMICOLOPTERUS_DEFENSE, NEMICOLOPTERUS_SPEED, NEMICOLOPTERUS_ATTACKS, f"Nemicolopterus {letter}")
+		self.max_health = NEMICOLOPTERUS_HEALTH
+
+class Coelophysis(Enemy):
+	def __init__(self, letter):
+		super().__init__(COELOPHYSIS_HEALTH, COELOPHYSIS_DEFENSE, COELOPHYSIS_SPEED, COELOPHYSIS_ATTACKS, f"Coelophysis {letter}")
+
+class Ceratosaurus(Enemy):
+	def __init__(self, letter):
+		super().__init__(CERATOSAURUS_HEALTH, CERATOSAURUS_DEFENSE, CERATOSAURUS_SPEED, CERATOSAURUS_ATTACKS, f"Ceratosaurus {letter}")
+		self.max_health = CERATOSAURUS_HEALTH
+
+	def __repr__(self):
+		return f"Boss {self.name}"
