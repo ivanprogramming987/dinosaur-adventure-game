@@ -50,7 +50,7 @@ ANUROGNATHUS_ATTACKS = [Attack(10, 80, "Head Hit"), Attack(15, 80, "Wing Smack")
 
 NEMICOLOPTERUS_HEALTH = 40
 NEMICOLOPTERUS_DEFENSE = 5
-NEMICOLOPTERUS_SPEED = 130
+NEMICOLOPTERUS_SPEED = 140
 # nemicolopterus attacks are in "variables with functions" section
 
 COELOPHYSIS_HEALTH = 140
@@ -58,10 +58,15 @@ COELOPHYSIS_DEFENSE = 5
 COELOPHYSIS_SPEED = 90
 COELOPHYSIS_ATTACKS = [Attack(20, 90, "Claw"), Attack(25, 85, "Slash"), Attack(30, 75, "Chomp")]
 
-CERATOSAURUS_HEALTH = 220
+CERATOSAURUS_HEALTH = 250
 CERATOSAURUS_DEFENSE = 5
 CERATOSAURUS_SPEED = 100
 # ceratosaurus attacks are in "variables with functions" section
+
+HOMALOCEPHALE_HEALTH = 160
+HOMALOCEPHALE_DEFENSE = 10
+HOMALOCEPHALE_SPEED = 120
+HOMALOCEPHALE_ATTACKS = [Attack(25, 80, "Headbutt"), Attack(35, 70, "Charge"), Attack(20, 85, "Tail Swipe")]
 # functions
 def heal_15(user):
 	user.health += 15

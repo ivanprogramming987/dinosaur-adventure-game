@@ -694,7 +694,7 @@ def CrackOne():
 	anurognathus_2 = Anurognathus("B")
 	battle_outcome = battle(player, [anurognathus_1, anurognathus_2])
 	battle_aftermath(battle_outcome, 450)
-	FinalPartOne()
+	EndOfCave()
 
 def PathFour():
 	print_s("You keep going. You bump into some things. They peck your head.", 1)
@@ -705,7 +705,7 @@ def PathFour():
 	nemicolopterus_4 = Nemicolopterus("D")
 	battle_outcome = battle(player, [nemicolopterus_1, nemicolopterus_2, nemicolopterus_3, nemicolopterus_4])
 	battle_aftermath(battle_outcome, 600)
-	FinalPartOne()
+	EndOfCave()
 
 def RightSideTwo():
 	print_s("You choose the right side.")
@@ -785,9 +785,9 @@ def ContinueRightSide():
 	battle_outcome = battle(player, [coelophysis_1])
 	battle_aftermath(battle_outcome, 500)
 	print_s("Several paths join. You enter the part where they join and walk along a barren hallway.", 1.5)
-	FinalPartOne()
+	EndOfCave()
 
-def FinalPartOne():
+def EndOfCave():
 	global score
 	checkpoint()
 	print_s("You come to a door. When you try to open it, it doesn't open! But then, you see it! A four-digit combination lock!", 2)
@@ -807,9 +807,41 @@ def FinalPartOne():
 	print_s("!!! BATTLE CERATOSAURUS !!!")
 	ceratosaurus_1 = Ceratosaurus("A")
 	battle_outcome = battle(player, [ceratosaurus_1])
-	battle_aftermath(battle_outcome, 1000)
-	print_s("As you defeat Ceratosaurus, the front of the room breaks!", 1.5)
+	battle_aftermath(battle_outcome, 1500)
+	print_s("As you defeat Ceratosaurus, the front of the room breaks!", 1)
 	player.level_up()
+	print_s("You exit the cave and go into a jungle.", 1)
+	print_s("There is a big tree with low branches that you could climb. There is also a big clearing with a hill in the middle.", 2)
+	print_s("Which way do you want to go?")
+	print_s("1. Climb the tree")
+	print_s("2. Climb the hill")
+	print_s("3. Walk around the hill")
+	i = choices(3)
+	if i == 1:
+		TreeTwo()
+	elif i == 2:
+		HillOne()
+	elif i == 3:
+		DetourTwo()
+
+def TreeTwo(): # fight anhanguera
+	print_s("to be continued...")
+
+def HillOne(): # fight einiosaurus
+	print_s("to be continued...")
+
+def DetourTwo():
+	print_s("You take the route around the hill.")
+	print_s("You see some dinosaurs butting heads. One looks like it has lost.", 1)
+	print_s("You walk by. The dinosaur who lost seems to be really angry. It goes on a rampage and takes out it's rage on you!", 2)
+	print_s("!!! BATTLE HOMALOCEPHALE !!!")
+	homalocephale_1 = Homalocephale("A")
+	battle_outcome = battle(player, [homalocephale_1])
+	battle_aftermath(battle_outcome, 600)
+	print_s("You decide to go into the jungle.")
+	JungleOne()
+
+def JungleOne():
 	print_s("to be continued...")
 
 def find_mushroom(n):
