@@ -814,7 +814,7 @@ def EndOfCave():
 	print_s("There is a big tree with low branches that you could climb. There is also a big clearing with a hill in the middle.", 2)
 	print_s("Which way do you want to go?")
 	print_s("1. Climb the tree")
-	print_s("2. Climb the hill")
+	print_s("2. Climb the hill !!! UNFINISHED !!!")
 	print_s("3. Walk around the hill")
 	i = choices(3)
 	if i == 1:
@@ -825,7 +825,19 @@ def EndOfCave():
 		DetourTwo()
 
 def TreeTwo(): # fight anhanguera
-	print_s("to be continued...")
+	print_s("You decide to climb the tree. Odd, toothed birds are flying around you, eating bugs.", 1.5)
+	print_s("You get to the top. You can see jungle all around you, broken only by a grassy hill.", 1.5)
+	print_s("You can see the edge of the jungle and a desert just outside it. It is a wonderful sight.", 1.5)
+	player.lasers += 2
+	print_s(f"You find 2 lasers! {repr(player)} lasers: {player.lasers}", 1)
+	print_s("You climb down. A pterosaur starts circling above you, screeching, and pecking you.", 1.5)
+	print_s("You try to avoid it. But you can't. It's pulling your hair out!", 1)
+	print_s("!!! BATTLE ANHANGUERA !!!")
+	anhanguera_1 = Anhanguera("A")
+	battle_outcome = battle(player, [anhanguera_1])
+	battle_aftermath(battle_outcome, 600)
+	print_s("You finish climbing down the tree.")
+	JungleOne()
 
 def HillOne(): # fight einiosaurus
 	print_s("to be continued...")
@@ -838,10 +850,10 @@ def DetourTwo():
 	homalocephale_1 = Homalocephale("A")
 	battle_outcome = battle(player, [homalocephale_1])
 	battle_aftermath(battle_outcome, 600)
-	print_s("You decide to go into the jungle.")
 	JungleOne()
 
 def JungleOne():
+	print_s("You decide to go into the jungle.")
 	print_s("to be continued...")
 
 def find_mushroom(n):

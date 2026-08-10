@@ -17,11 +17,11 @@ class Player:
 
 	def attack(self, target):
 		print_s("Pick an attack:")
-		print_s("1. Punch")
-		print_s("2. Kick")
-		print_s(f"3. Cure -- potions left: {self.potions}")
-		print_s("4. Smash")
-		print_s(f"5. Laser -- lasers left: {self.lasers}")
+		print_s("1. Punch (does a low amount of damage with high accuracy)")
+		print_s("2. Kick (does a higher amount of damage with lower accuracy)")
+		print_s(f"3. Cure -- potions left: {self.potions} (heals a certain amount of damage. cannot use unless you have potions)")
+		print_s("4. Smash (does a very high amount of damage, but you damage yourself)")
+		print_s(f"5. Laser -- lasers left: {self.lasers} (does the same amount of damage as Kick, but with 100% accuracy. cannot use unless you have potions)")
 		attack_no = choices(5)
 		atk = self.attacks[attack_no - 1]
 		if attack_no == 3:
@@ -30,14 +30,12 @@ class Player:
 				self.attack(target)
 				return
 			self.potions -= 1
-			print_s(f"Potions left: {self.potions}")
 		if attack_no == 5:
 			if self.lasers == 0:
 				print_s("You don't have any lasers")
 				self.attack(target)
 				return
 			self.lasers -= 1
-			print_s(f"Lasers left: {self.lasers}")
 		atk.use(target, self)
 		if target.health <= 0:
 			return

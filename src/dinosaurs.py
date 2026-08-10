@@ -55,7 +55,10 @@ class Ceratosaurus(Enemy):
 	def __repr__(self):
 		return f"Boss {self.name}"
 
+class Anhanguera(Enemy):
+	def __init__(self, letter):
+		super().__init__(ANHANGUERA_HEALTH, ANHANGUERA_DEFENSE, ANHANGUERA_SPEED, ANHANGUERA_ATTACKS, f"Anhanguera {letter}")
+
 class Homalocephale(Enemy):
 	def __init__(self, letter):
 		super().__init__(HOMALOCEPHALE_HEALTH, HOMALOCEPHALE_DEFENSE, HOMALOCEPHALE_SPEED, HOMALOCEPHALE_ATTACKS, f"Homalocephale {letter}")
-

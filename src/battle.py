@@ -12,11 +12,23 @@ def battle(player, enemies):
 		i = choices(len(enemies))
 
 		player.attack(enemies[i-1])
+		if player.health <= 0:
+			print_s(f"{repr(player)} killed himself/herself by damaging himself/herself!")
+			return False
+
 		if enemies[i-1].health <= 0:
-			print(f"You defeated {repr(enemies[i-1])}")
+			print_s(f"You defeated {repr(enemies[i-1])}!")
 			enemies.pop(i-1)
 			if len(enemies) == 0:
-				print_s(f"{repr(player)} Wins!")
+				print_s(f"{repr(player)} wins!")
 				return True
-		for enemy in enemies:
+
+		for e in range(len(enemies)):
+			enemy = enemies[e]
 			enemy.attack(player)
+			if enemy.health <= 0:
+				print_s(f"{repr(enemy)} killed itself by damaging itself!")
+				enemies.pop(e)
+				if len(enemies) == 0:
+					print_s(f"{repr(player)} wins!")
+					return True

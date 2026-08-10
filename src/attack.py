@@ -16,12 +16,12 @@ class Attack:
 			if self.func != None:
 				self.func(user)
 				self.func(user)
-			print_s(f"{self.name} activated on {repr(target)}, and made a critical hit, dealing {(self.dmg * 2) - target.defense} damage! {repr(target)} HP remaining: {target.health}.")
+			print_s(f"{self.name} activated on {repr(target)}, and made a critical hit, dealing {(self.dmg * 2) - target.defense if self.dmg > 0 else 0} damage! {repr(target)} HP remaining: {target.health}.")
 		elif r < self.acc:
 			if self.dmg != 0:
 				target.health -= (self.dmg - target.defense)
 			if self.func != None:
 				self.func(user)
-			print_s(f"{self.name} activated on {repr(target)}, dealing {self.dmg - target.defense} damage. {repr(target)} HP remaining: {target.health}.")
+			print_s(f"{self.name} activated on {repr(target)}, dealing {self.dmg - target.defense if self.dmg > 0 else 0} damage. {repr(target)} HP remaining: {target.health}.")
 		else:
 			print_s(f"{self.name} activated on {repr(target)}, but missed. {repr(target)} HP remaining: {target.health}.")
