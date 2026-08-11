@@ -58,15 +58,20 @@ COELOPHYSIS_DEFENSE = 5
 COELOPHYSIS_SPEED = 90
 COELOPHYSIS_ATTACKS = [Attack(20, 90, "Claw"), Attack(25, 85, "Slash"), Attack(30, 75, "Chomp")]
 
-CERATOSAURUS_HEALTH = 270
+CERATOSAURUS_HEALTH = 250
 CERATOSAURUS_DEFENSE = 5
 CERATOSAURUS_SPEED = 100
 # ceratosaurus attacks are in "variables with functions" section
 
-ANHANGUERA_HEALTH = 220
+ANHANGUERA_HEALTH = 210
 ANHANGUERA_DEFENSE = 10
 ANHANGUERA_SPEED = 150
 ANHANGUERA_ATTACKS = [Attack(25, 80, "Peck"), Attack(35, 70, "Power Peck"), Attack(20, 85, "Wing Smack")]
+
+EINIOSAURUS_HEALTH = 190
+EINIOSAURUS_DEFENSE = 15
+EINIOSAURUS_SPEED = 100
+# einiosaurus attacks are in "variables with functions" section
 
 HOMALOCEPHALE_HEALTH = 190
 HOMALOCEPHALE_DEFENSE = 10
@@ -123,7 +128,8 @@ PLAYER_ATTACKS_LEVEL_9 = [Attack(90, 95, "Punch"),Attack(115, 85, "Kick"),Attack
 
 PENTACERATOPS_ATTACKS = [Attack(20, 90, "Horn Hit"), Attack(30, 80, "Charge", damage_self_10), Attack(15, 90, "Cure and Hit", heal_25)]
 NEMICOLOPTERUS_ATTACKS = [Attack(5, 100, "Stupid Face", heal_15), Attack(10, 90, "Wing Smack"), Attack(15, 80, "Crash")]
-CERATOSAURUS_ATTACKS = [Attack(30, 90, "Roar"), Attack(45, 80, "Bite", damage_self_10), Attack(25, 90, "Blood Drain", heal_35), Attack(30, 100, "Kick")]
+CERATOSAURUS_ATTACKS = [Attack(30, 90, "Roar"), Attack(40, 80, "Bite", damage_self_10), Attack(20, 90, "Blood Drain", heal_25), Attack(25, 100, "Kick")]
+EINIOSAURUS_ATTACKS = [Attack(0, 100, "Drink Water", heal_35), Attack(45, 80, "Power Hit", damage_self_10), Attack(30, 90, "Horn Hit")]
 
 # hidden variables
 COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled

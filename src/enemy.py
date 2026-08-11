@@ -8,6 +8,7 @@ class Enemy:
 		self.speed = speed
 		self.attacks = attacks
 		self.name = name
+		self.max_health = health
 
 	def attack(self, target):
 		atk = self.next_attack()

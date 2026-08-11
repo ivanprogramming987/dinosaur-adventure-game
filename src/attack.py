@@ -9,6 +9,7 @@ class Attack:
 		self.func = func
 
 	def use(self, target, user):
+		original_user_health = user.health
 		r = random.randint(0, 100)
 		if r < 10:
 			if self.dmg != 0:
@@ -25,3 +26,8 @@ class Attack:
 			print_s(f"{self.name} activated on {repr(target)}, dealing {self.dmg - target.defense if self.dmg > 0 else 0} damage. {repr(target)} HP remaining: {target.health}.")
 		else:
 			print_s(f"{self.name} activated on {repr(target)}, but missed. {repr(target)} HP remaining: {target.health}.")
+
+		if user.health > original_user_health:
+			print_s(f"{repr(user)} healed {user.health - original_user_health} damage! {repr(user)} HP remaining: {user.health}")
+		elif user.health < original_user_health:
+			print_s(f"{repr(user)} did {original_user_health - user.health} damage to himself/herself/itself! {repr(user)} HP remaining: {user.health}")

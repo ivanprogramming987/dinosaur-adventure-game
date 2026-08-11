@@ -2,7 +2,7 @@ import game
 
 def main():
 	print("CHEATING... (this is for test purposes)")
-	game.player.name = input("type your name: ")
+	game.player.name = "Cheater"
 	for i in range(2):
 		print("CHEATING...")
 		game.player.level_up()

@@ -21,7 +21,7 @@ class Player:
 		print_s("2. Kick (does a higher amount of damage with lower accuracy)")
 		print_s(f"3. Cure -- potions left: {self.potions} (heals a certain amount of damage. cannot use unless you have potions)")
 		print_s("4. Smash (does a very high amount of damage, but you damage yourself)")
-		print_s(f"5. Laser -- lasers left: {self.lasers} (does the same amount of damage as Kick, but with 100% accuracy. cannot use unless you have potions)")
+		print_s(f"5. Laser -- lasers left: {self.lasers} (does the same amount of damage as Kick, but with 100% accuracy. cannot use unless you have lasers)")
 		attack_no = choices(5)
 		atk = self.attacks[attack_no - 1]
 		if attack_no == 3:

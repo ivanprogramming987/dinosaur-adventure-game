@@ -21,7 +21,7 @@ def play():
 		print_s("You have unearthed a weird purple-looking rock with a green spot on it. One of your crewmates examines the rock.", 2.5)
 		print_s("Their rock-identifying app that can identify every rock can't figure it out and shows a weird structure with elements that don't exist.", 3)
 		print_s("The green spot looks especially unusual. It glows. Your crewmate touches it.", 2)
-		print_s("The crewmate starts glowing green and then vanishes! You and your best friends Ann and James are assigned to rescue him.", 2.5)
+		print_s("The crewmate starts glowing green and then vanishes! You are assigned to rescue him.", 2)
 		print_s("You touch the green spot. All of a sudden your crewmates start blurring. Your vision goes black for a few moments. Then your vision returns.", 2.5)
 		print_s("But it isn't the same desert dino dig you were at.", 2)
 		print_s("It looks like a blurry green jungle with enormous birds. Then you realize those colorful feathered thingys aren't birds. One walks up to you. It's huge.", 2.5)
@@ -814,7 +814,7 @@ def EndOfCave():
 	print_s("There is a big tree with low branches that you could climb. There is also a big clearing with a hill in the middle.", 2)
 	print_s("Which way do you want to go?")
 	print_s("1. Climb the tree")
-	print_s("2. Climb the hill !!! UNFINISHED !!!")
+	print_s("2. Climb the hill")
 	print_s("3. Walk around the hill")
 	i = choices(3)
 	if i == 1:
@@ -824,7 +824,7 @@ def EndOfCave():
 	elif i == 3:
 		DetourTwo()
 
-def TreeTwo(): # fight anhanguera
+def TreeTwo():
 	print_s("You decide to climb the tree. Odd, toothed birds are flying around you, eating bugs.", 1.5)
 	print_s("You get to the top. You can see jungle all around you, broken only by a grassy hill.", 1.5)
 	print_s("You can see the edge of the jungle and a desert just outside it. It is a wonderful sight.", 1.5)
@@ -839,8 +839,20 @@ def TreeTwo(): # fight anhanguera
 	print_s("You finish climbing down the tree.")
 	JungleOne()
 
-def HillOne(): # fight einiosaurus
-	print_s("to be continued...")
+def HillOne():
+	print_s("You decide to climb the hill. You see squashed fruits and broken glass bottles everywhere!", 1.5)
+	player.potions += 1
+	print_s(f"One glass bottle seems intact. It's a potion! {repr(player)} potions: {player.potions}", 1.5)
+	print_s("You reach the top of the hill. You see a dinosaur sitting on eggs.", 1)
+	print_s("You walk by the nest. Another dinosaur gets really scared and thinks you are an egg theif!", 1.5)
+	print_s("It attacks you.")
+	print_s("!!! BATTLE EINIOSAURUS !!!")
+	einiosaurus_1 = Einiosaurus("A")
+	battle_outcome = battle(player, [einiosaurus_1])
+	battle_aftermath(battle_outcome, 600)
+	print_s("You walk down the hill. You see something yummy.", 1)
+	find_mushroom(10)
+	JungleOne()
 
 def DetourTwo():
 	print_s("You take the route around the hill.")
@@ -850,9 +862,13 @@ def DetourTwo():
 	homalocephale_1 = Homalocephale("A")
 	battle_outcome = battle(player, [homalocephale_1])
 	battle_aftermath(battle_outcome, 600)
+	print_s("You see a fruiting tree. You eat a fruit. It's weird tasting, but enjoyable.", 1)
+	find_fruit(-8, 13)
+	find_fruit(-10, 15)
 	JungleOne()
 
 def JungleOne():
+	checkpoint()
 	print_s("You decide to go into the jungle.")
 	print_s("to be continued...")
 

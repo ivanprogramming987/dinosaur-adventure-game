@@ -17,7 +17,6 @@ class Microraptor(Enemy):
 class Pentaceratops(Enemy):
 	def __init__(self, letter):
 		super().__init__(PENTACERATOPS_HEALTH, PENTACERATOPS_DEFENSE, PENTACERATOPS_SPEED, PENTACERATOPS_ATTACKS, f"Pentaceratops {letter}")
-		self.max_health = PENTACERATOPS_HEALTH
 
 	def __repr__(self):
 		return f"Boss {self.name}"
@@ -41,7 +40,6 @@ class Anurognathus(Enemy):
 class Nemicolopterus(Enemy):
 	def __init__(self, letter):
 		super().__init__(NEMICOLOPTERUS_HEALTH, NEMICOLOPTERUS_DEFENSE, NEMICOLOPTERUS_SPEED, NEMICOLOPTERUS_ATTACKS, f"Nemicolopterus {letter}")
-		self.max_health = NEMICOLOPTERUS_HEALTH
 
 class Coelophysis(Enemy):
 	def __init__(self, letter):
@@ -50,7 +48,6 @@ class Coelophysis(Enemy):
 class Ceratosaurus(Enemy):
 	def __init__(self, letter):
 		super().__init__(CERATOSAURUS_HEALTH, CERATOSAURUS_DEFENSE, CERATOSAURUS_SPEED, CERATOSAURUS_ATTACKS, f"Ceratosaurus {letter}")
-		self.max_health = CERATOSAURUS_HEALTH
 
 	def __repr__(self):
 		return f"Boss {self.name}"
@@ -58,6 +55,10 @@ class Ceratosaurus(Enemy):
 class Anhanguera(Enemy):
 	def __init__(self, letter):
 		super().__init__(ANHANGUERA_HEALTH, ANHANGUERA_DEFENSE, ANHANGUERA_SPEED, ANHANGUERA_ATTACKS, f"Anhanguera {letter}")
+
+class Einiosaurus(Enemy):
+	def __init__(self, letter):
+		super().__init__(EINIOSAURUS_HEALTH, EINIOSAURUS_DEFENSE, EINIOSAURUS_SPEED, EINIOSAURUS_ATTACKS, f"Einiosaurus {letter}")
 
 class Homalocephale(Enemy):
 	def __init__(self, letter):
