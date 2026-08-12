@@ -862,7 +862,7 @@ def DetourTwo():
 	homalocephale_1 = Homalocephale("A")
 	battle_outcome = battle(player, [homalocephale_1])
 	battle_aftermath(battle_outcome, 600)
-	print_s("You see a fruiting tree. You eat a fruit. It's weird tasting, but enjoyable.", 1)
+	print_s("You see a fruiting tree. You eat a fruit. It's weird tasting, but enjoyable.", 1.5)
 	find_fruit(-8, 13)
 	find_fruit(-10, 15)
 	JungleOne()
@@ -870,8 +870,46 @@ def DetourTwo():
 def JungleOne():
 	checkpoint()
 	print_s("You decide to go into the jungle.")
+	print_s("It is dark. There are ferns everywhere. You keep tripping on roots and logs.", 1.5)
+	print_s("You become aware of something softly walking behind you. You climb a tree, afraid it will notice you.", 1.5)
+	print_s("You've seen that thing. That's the dinosaur that has your crewmate.", 1)
+	print_s("You climb down the tree and chase it. But it's too fast. It escapes.", 1)
+	player.lasers += 1
+	print_s(f"You then see that your crewmate has dropped a laser! {repr(player)} lasers: {player.lasers}")
+	print_s("You keep going and find food on a tree!", 1)
+	find_mushroom(10)
+	find_fruit(-10, 15)
+	print_s("You run into some small things flying in the air. They are territorial and try to peck you out.", 1.5)
+	print_s("!!! BATTLE FIVE NEMICOLOPTERUS !!!")
+	nemicolopterus_1 = Nemicolopterus("A")
+	nemicolopterus_2 = Nemicolopterus("B")
+	nemicolopterus_3 = Nemicolopterus("C")
+	nemicolopterus_4 = Nemicolopterus("D")
+	nemicolopterus_5 = Nemicolopterus("E")
+	battle_outcome = battle(player, [nemicolopterus_1, nemicolopterus_2, nemicolopterus_3, nemicolopterus_4, nemicolopterus_5])
+	battle_aftermath(battle_outcome, 750)
+	print_s("You then come to where the trees are a little more sparse. It's more open, and you can see a desert ahead of you.", 2)
+	print_s("There are less ferns. But one big clump catches your eye. It is next to a big tree with very low branches.", 1.5)
+	print_s("Which way do you want to go?")
+	print_s("1. Climb the tree")
+	print_s("2. Look in the ferns")
+	print_s("3. Walk into the desert")
+	i = choices(3)
+	if i == 1:
+		TreeThree()
+	elif i == 2:
+		FernsTwo()
+	elif i == 3:
+		DesertTwo()
+
+def TreeThree(f=False):
 	print_s("to be continued...")
 
+def FernsTwo(t=False):
+	print_s("to be continued...")
+
+def DesertTwo():
+	print_s("to be continued...")
 def find_mushroom(n):
 	global score
 	print_s("You found a mushroom!")
