@@ -870,6 +870,7 @@ def DetourTwo():
 def JungleOne():
 	checkpoint()
 	print_s("You decide to go into the jungle.")
+	find_fruit(-8, 10)
 	print_s("It is dark. There are ferns everywhere. You keep tripping on roots and logs.", 1.5)
 	print_s("You become aware of something softly walking behind you. You climb a tree, afraid it will notice you.", 1.5)
 	print_s("You've seen that thing. That's the dinosaur that has your crewmate.", 1)
@@ -903,13 +904,73 @@ def JungleOne():
 		DesertTwo()
 
 def TreeThree(f=False):
-	print_s("to be continued...")
-
+	print_s("You decide to climb the tree.")
+	player.health -= 30
+	print_s(f"You climb the tree, but something pushes you off! {repr(player)} health left: {player.health}", 1.5)
+	if player.health <= 0:
+		main.lose()
+	if f:
+		DesertTwo()
+	else:
+		print_s("Where do you want to go?")
+		print_s("1. Look in the ferns")
+		print_s("2. Walk into the desert")
+		i = choices(2)
+		if i == 1:
+			FernsTwo(True)
+		elif i == 2:
+			DesertTwo()
 def FernsTwo(t=False):
-	print_s("to be continued...")
+	print_s("You decide to look in the ferns.")
+	player.potions += 1
+	print_s(f"You find a potion in the ferns! {repr(player)} potions: {player.potions}", 1)
+	if t:
+		DesertTwo()
+	else:
+		print_s("Where do you want to go?")
+		print_s("1. Climb the tree")
+		print_s("2. Walk into the desert")
+		i = choices(2)
+		if i == 1:
+			TreeThree(True)
+		elif i == 2:
+			DesertTwo()
 
 def DesertTwo():
+	checkpoint()
+	print_s("You decide to walk into the desert.")
+	print_s("You see some hills. You look in them. They're nests!", 1)
+	print_s("Some hunters are here. They see the eggs. Yum! One takes an egg. Ew! It's rotten.", 1.5)
+	print_s("They see you. They're really hungry from living in the desert where there isn't much food, so they attack you!", 1.5)
+	print_s("!!! BATTLE TWO VESPERSAURUS !!!")
+	vespersaurus_1 = Vespersaurus("A")
+	vespersaurus_2 = Vespersaurus("B")
+	battle_outcome = battle(player, [vespersaurus_1, vespersaurus_2])
+	battle_aftermath(battle_outcome, 600)
+	print_s("You keep walking. You see a big footprint. In it is a measuring tape. Your crewmate is this way!", 1.5)
+	player.health += 50
+	if player.health > player.max_health:
+		player.health = player.max_health
+	print_s(f"You also find a granola bar in the footprint. You eat it and heal some. {repr(player)} health left: {player.health}", 2)
+	print_s("You go in the direction of the footprint. Some more carnivores are here.", 1.5)
+	print_s("Luckily, they spot some food and attack it. They don't bother with you or even see you.", 1.5)
+	find_mushroom(10)
+	print_s("There is a canyon. There are also two ways to go into the canyon.", 1.5)
+	print_s("Where do you want to go?")
+	print_s("1. Go down the steep slope")
+	print_s("2. Go down the shallow slope")
+	i = choices(2)
+	if i == 1:
+		SlopeOne()
+	elif i == 2:
+		SlopeTwo()
+
+def SlopeOne():
 	print_s("to be continued...")
+
+def SlopeTwo():
+	print_s("to be continued...")
+
 def find_mushroom(n):
 	global score
 	print_s("You found a mushroom!")
