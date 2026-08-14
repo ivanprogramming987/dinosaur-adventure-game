@@ -646,7 +646,7 @@ def CompleteDesert(keys):
 
 def CaveTwo():
 	checkpoint()
-	print_s("DUNGEON ONE: CAVE")
+	print_s("You go into the cave.")
 	print_s("You turn on your flashlight and look around. This place is full of stalactites and stalagmites. They are beautiful.", 2)
 	print_s("There is a split in the path.")
 	print_s("Which way do you want to go?")
@@ -955,8 +955,8 @@ def DesertTwo():
 	print_s("You go in the direction of the footprint. Some more carnivores are here.", 1.5)
 	print_s("Luckily, they spot some food and attack it. They don't bother with you or even see you.", 1.5)
 	find_mushroom(10)
-	print_s("There is a canyon. There are also two ways to go into the canyon.", 1.5)
-	print_s("Where do you want to go?")
+	print_s("There is a canyon. There are also two ways to go into the canyon. The canyon is wide enough that in order to keep up with the big dinosaur, you won't be able to go around the canyon.", 2.5)
+	print_s("Which path do you want to go down?")
 	print_s("1. Go down the steep slope")
 	print_s("2. Go down the shallow slope")
 	i = choices(2)
@@ -966,9 +966,63 @@ def DesertTwo():
 		SlopeTwo()
 
 def SlopeOne():
-	print_s("to be continued...")
+	global score
+	print_s("You decide to go down the steep slope.")
+	player.health -= 50
+	print_s(f"It's really steep and hard to climb. You slip and slide down the slope. {repr(player)} health left: {player.health}", 2)
+	if player.health <= 0:
+		main.lose()
+	player.potions += 1
+	score += 200
+	print_s(f"You find 1 potion! {repr(player)} potions: {player.potions}.", 1.5)
+	print_s(f"You earned 200 points! Score: {score}.", 1)
+	print_s("There is a pond with creepy frogs in it. You leave the creepy frogs alone.", 1.5)
+	print_s("You find a big dinosaur footprint. It isn't the right kind of footprint. The dinosaur that has your crewmate did not make this footprint.", 2)
+	print_s("The two ways to get into the canyon merge. You have made it to the bottom.", 1.5)
+	print_s("Which way do you want to go to climb out of the canyon?")
+	print_s("1. Climb up the west side")
+	print_s("2. Climb up the east side")
+	i = choices(2)
+	if i == 1:
+		ClimbOne()
+	elif i == 2:
+		ClimbTwo()
 
 def SlopeTwo():
+	global score
+	print_s("You decide to go down the shallow slope.")
+	print_s("It's quite easy to walk down this shallow slope. You find footprints indicating the dinosaur with your crewmate has gone down this way.", 2)
+	print_s("But the slight grade means dinosaurs could be here. They are.", 1.5)
+	player.health -= 50
+	print_s(f"Some start chasing you. You try to run away, but slip and fall. {repr(player)} health left: {player.health}", 1.5)
+	if player.health <= 0:
+		main.lose()
+	player.lasers += 1
+	score += 200
+	print_s(f"You find 1 laser! {repr(player)} lasers: {player.lasers}.", 1.5)
+	print_s(f"You earned 200 points! Score: {score}.", 1)
+	print_s("You reach the bottom of the canyon!")
+	print_s("How do you want to get out?")
+	print_s("1. Climb up the west side")
+	print_s("2. Climb up the east side")
+	i = choices(2)
+	if i == 1:
+		ClimbOne()
+	elif i == 2:
+		ClimbTwo()
+
+def ClimbOne():
+	checkpoint()
+	print_s("You decide to climb up the west side.")
+	print_s("to be continued...")
+
+def ClimbTwo():
+	checkpoint()
+	print_s("You decide to climb up the east side.")
+	print_s("to be continued...")
+
+def PathSix():
+	player.level_up()
 	print_s("to be continued...")
 
 def find_mushroom(n):
