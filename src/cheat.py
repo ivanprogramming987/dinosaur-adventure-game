@@ -7,7 +7,7 @@ def main():
 		print("CHEATING...")
 		game.player.level_up()
 	print("FINISHED CHEATING...")
-	game.JungleOne()
+	game.DesertTwo()
 
 if __name__ == "__main__":
 	main()

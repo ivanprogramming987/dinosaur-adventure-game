@@ -63,3 +63,11 @@ class Einiosaurus(Enemy):
 class Homalocephale(Enemy):
 	def __init__(self, letter):
 		super().__init__(HOMALOCEPHALE_HEALTH, HOMALOCEPHALE_DEFENSE, HOMALOCEPHALE_SPEED, HOMALOCEPHALE_ATTACKS, f"Homalocephale {letter}")
+
+class Deinonychus(Enemy):
+	def __init__(self, letter):
+		super().__init__(DEINONYCHUS_HEALTH, DEINONYCHUS_DEFENSE, DEINONYCHUS_SPEED, DEINONYCHUS_ATTACKS, f"Deinonychus {letter}")
+
+class Chialingosaurus(Enemy):
+	def __init__(self, letter):
+		super().__init__(CHIALINGOSAURUS_HEALTH, CHIALINGOSAURUS_DEFENSE, CHIALINGOSAURUS_SPEED, CHIALINGOSAURUS_ATTACKS, f"Chialingosaurus {letter}")

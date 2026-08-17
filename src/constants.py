@@ -77,6 +77,16 @@ HOMALOCEPHALE_HEALTH = 190
 HOMALOCEPHALE_DEFENSE = 10
 HOMALOCEPHALE_SPEED = 120
 HOMALOCEPHALE_ATTACKS = [Attack(30, 80, "Headbutt"), Attack(40, 70, "Charge"), Attack(25, 85, "Tail Swipe")]
+
+DEINONYCHUS_HEALTH = 120
+DEINONYCHUS_DEFENSE = 10
+DEINONYCHUS_SPEED = 150
+DEINONYCHUS_ATTACKS = [Attack(25, 90, "Claw"), Attack(30, 85, "Slash"), Attack(35, 75, "Big Bite")]
+
+CHIALINGOSAURUS_HEALTH = 190
+CHIALINGOSAURUS_DEFENSE = 10
+CHIALINGOSAURUS_SPEED = 140
+# chialingosaurus attacks are in "variables with functions" section
 # functions
 def heal_15(user):
 	user.health += 15
@@ -94,6 +104,10 @@ def heal_45(user):
 	user.health += 45
 	if user.health > user.max_health:
                 user.health = user.max_health
+def heal_60(user):
+	user.health += 60
+	if user.health > user.max_health:
+		user.health = user.max_health
 def heal_80(user):
 	user.health += 80
 	if user.health > user.max_health:
@@ -120,16 +134,17 @@ def damage_self_10(user):
 
 
 # variables with functions
-PLAYER_ATTACKS_LEVEL_1 = [Attack(30, 95, "Punch"),Attack(50, 85, "Kick"),Attack(0, 100, "Cure", heal_25),Attack(60, 95, "Smash", damage_self_10),Attack(50, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_3 = [Attack(40, 95, "Punch"),Attack(60, 85, "Kick"),Attack(0, 100, "Cure", heal_45),Attack(75, 95, "Smash", damage_self_20),Attack(60, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_5 = [Attack(55, 95, "Punch"),Attack(75, 85, "Kick"),Attack(0, 100, "Cure", heal_80),Attack(100, 95, "Smash", damage_self_30),Attack(75, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_7 = [Attack(70, 95, "Punch"),Attack(90, 85, "Kick"),Attack(0, 100, "Cure", heal_110),Attack(125, 95, "Smash", damage_self_40),Attack(90, 100, "Laser")]
-PLAYER_ATTACKS_LEVEL_9 = [Attack(90, 95, "Punch"),Attack(115, 85, "Kick"),Attack(0, 100, "Cure", heal_150),Attack(140, 95, "Smash", damage_self_50),Attack(115, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_1 = [Attack(40, 95, "Punch"),Attack(50, 85, "Kick"),Attack(0, 100, "Cure", heal_25),Attack(60, 95, "Smash", damage_self_10),Attack(50, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_3 = [Attack(50, 95, "Punch"),Attack(60, 85, "Kick"),Attack(0, 100, "Cure", heal_45),Attack(75, 95, "Smash", damage_self_20),Attack(60, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_5 = [Attack(65, 95, "Punch"),Attack(75, 85, "Kick"),Attack(0, 100, "Cure", heal_80),Attack(100, 95, "Smash", damage_self_30),Attack(75, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_7 = [Attack(80, 95, "Punch"),Attack(90, 85, "Kick"),Attack(0, 100, "Cure", heal_110),Attack(125, 95, "Smash", damage_self_40),Attack(90, 100, "Laser")]
+PLAYER_ATTACKS_LEVEL_9 = [Attack(105, 95, "Punch"),Attack(115, 85, "Kick"),Attack(0, 100, "Cure", heal_150),Attack(140, 95, "Smash", damage_self_50),Attack(115, 100, "Laser")]
 
 PENTACERATOPS_ATTACKS = [Attack(20, 90, "Horn Hit"), Attack(30, 80, "Charge", damage_self_10), Attack(15, 90, "Cure and Hit", heal_25)]
 NEMICOLOPTERUS_ATTACKS = [Attack(5, 100, "Stupid Face", heal_15), Attack(10, 90, "Wing Smack"), Attack(15, 80, "Crash")]
 CERATOSAURUS_ATTACKS = [Attack(30, 90, "Roar"), Attack(40, 80, "Bite", damage_self_10), Attack(20, 90, "Blood Drain", heal_25), Attack(25, 100, "Kick")]
-EINIOSAURUS_ATTACKS = [Attack(0, 100, "Drink Water", heal_35), Attack(45, 80, "Power Hit", damage_self_10), Attack(30, 90, "Horn Hit")]
+EINIOSAURUS_ATTACKS = [Attack(0, 100, "Drink Water", heal_45), Attack(45, 80, "Power Hit", damage_self_10), Attack(30, 90, "Horn Hit")]
+CHIALINGOSAURUS_ATTACKS = [Attack(0, 90, "Heal", heal_60), Attack(30, 80, "Tail Whap"), Attack(55, 80, "Super Smack", damage_self_20)]
 
 # hidden variables
 COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled

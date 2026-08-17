@@ -948,7 +948,7 @@ def DesertTwo():
 	battle_outcome = battle(player, [vespersaurus_1, vespersaurus_2])
 	battle_aftermath(battle_outcome, 600)
 	print_s("You keep walking. You see a big footprint. In it is a measuring tape. Your crewmate is this way!", 1.5)
-	player.health += 50
+	player.health += 60
 	if player.health > player.max_health:
 		player.health = player.max_health
 	print_s(f"You also find a granola bar in the footprint. You eat it and heal some. {repr(player)} health left: {player.health}", 2)
@@ -1014,12 +1014,33 @@ def SlopeTwo():
 def ClimbOne():
 	checkpoint()
 	print_s("You decide to climb up the west side.")
-	print_s("to be continued...")
+	print_s("This is a hard, precipitous climb. You climb and climb until your muscles feel like they are going to burst.", 2)
+	print_s("But you still aren't at the top yet. Finally you make it to a part where you can rest. You collapse, exhausted.", 2)
+	print_s("However, this collapse disturbs something. It comes out of its hole in the canyon wall.", 1.5)
+	print_s("When you turn around, you realize this is actually two dinosaurs, not one.", 1.5)
+	print_s("!!! BATTLE COELOPHYSIS AND DEINONYCHUS !!!")
+	coelophysis_1 = Coelophysis("A")
+	deinonychus_1 = Deinonychus("A")
+	battle_outcome = battle(player, [coelophysis_1, deinonychus_1])
+	battle_aftermath(battle_outcome, 900)
+	print_s("You keep climbing and eventually get out of the canyon!", 1)
+	print_s("You decide to follow a path that turns right here.", 1)
+	PathSix()
 
 def ClimbTwo():
 	checkpoint()
 	print_s("You decide to climb up the east side.")
-	print_s("to be continued...")
+	print_s("This climb is quite ridiculously hard.", 1)
+	print_s("You keep feeling like you just can't climb up that one more ledge. But you always climb it, only to find yet another ledge that you have to pull yourself up on to.", 2.5)
+	print_s("You climb to a quite spacious ledge with small shrubs growing on it.", 1.5)
+	print_s("Suddenly a territorial dinosaur comes. It tries to wack you off with its spiked tail. It misses.", 1.5)
+	print_s("But it keeps trying to fight you off. You can't even find any way to climb out without it whipping you with its tail.", 2)
+	print_s("!!! BATTLE CHIALINGOSAURUS !!!")
+	chialingosaurus_1 = Chialingosaurus("A")
+	battle_outcome = battle(player, [chialingosaurus_1])
+	battle_aftermath(battle_outcome, 600)
+	print_s("You climb out of the canyon. You see a path and decide to follow it.", 1.5)
+	PathSix()
 
 def PathSix():
 	player.level_up()
