@@ -56,7 +56,6 @@ class Player:
 	def level_up(self):
 		self.level += 1
 		print_s("LEVEL UP!")
-		print_s(f"you are at level {self.level}!")
 		self.max_health += 50
 		self.speed += 25
 		if self.level == 3:

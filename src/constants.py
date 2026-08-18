@@ -87,6 +87,12 @@ CHIALINGOSAURUS_HEALTH = 190
 CHIALINGOSAURUS_DEFENSE = 10
 CHIALINGOSAURUS_SPEED = 140
 # chialingosaurus attacks are in "variables with functions" section
+
+PARASAUROLOPHUS_HEALTH = 350
+PARASAUROLOPHUS_DEFENSE = 5
+PARASAUROLOPHUS_SPEED = 160
+# parasaurolophus attacks are in "variables with functions" section
+
 # functions
 def heal_15(user):
 	user.health += 15
@@ -145,6 +151,7 @@ NEMICOLOPTERUS_ATTACKS = [Attack(5, 100, "Stupid Face", heal_15), Attack(10, 90,
 CERATOSAURUS_ATTACKS = [Attack(30, 90, "Roar"), Attack(40, 80, "Bite", damage_self_10), Attack(20, 90, "Blood Drain", heal_25), Attack(25, 100, "Kick")]
 EINIOSAURUS_ATTACKS = [Attack(0, 100, "Drink Water", heal_45), Attack(45, 80, "Power Hit", damage_self_10), Attack(30, 90, "Horn Hit")]
 CHIALINGOSAURUS_ATTACKS = [Attack(0, 90, "Heal", heal_60), Attack(30, 80, "Tail Whap"), Attack(55, 80, "Super Smack", damage_self_20)]
+PARASAUROLOPHUS_ATTACKS = [Attack(35, 100, "Cure and Hit", heal_35), Attack(40, 90, "Big Headbutt"), Attack(60, 80, "Stomp", damage_self_10)]
 
 # hidden variables
 COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled

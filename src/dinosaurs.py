@@ -71,3 +71,10 @@ class Deinonychus(Enemy):
 class Chialingosaurus(Enemy):
 	def __init__(self, letter):
 		super().__init__(CHIALINGOSAURUS_HEALTH, CHIALINGOSAURUS_DEFENSE, CHIALINGOSAURUS_SPEED, CHIALINGOSAURUS_ATTACKS, f"Chialingosaurus {letter}")
+
+class Parasaurolophus(Enemy):
+	def __init__(self, letter):
+		super().__init__(PARASAUROLOPHUS_HEALTH, PARASAUROLOPHUS_DEFENSE, PARASAUROLOPHUS_SPEED, PARASAUROLOPHUS_ATTACKS, f"Parasaurolophus {letter}")
+
+	def __repr__(self):
+		return f"Boss {self.name}"

@@ -1025,7 +1025,7 @@ def ClimbOne():
 	battle_aftermath(battle_outcome, 900)
 	print_s("You keep climbing and eventually get out of the canyon!", 1)
 	print_s("You decide to follow a path that turns right here.", 1)
-	PathSix()
+	PathFive()
 
 def ClimbTwo():
 	checkpoint()
@@ -1040,10 +1040,45 @@ def ClimbTwo():
 	battle_outcome = battle(player, [chialingosaurus_1])
 	battle_aftermath(battle_outcome, 600)
 	print_s("You climb out of the canyon. You see a path and decide to follow it.", 1.5)
-	PathSix()
+	PathFive()
 
-def PathSix():
+def PathFive():
 	player.level_up()
+	print_s("You are walking on the path. You see big carnivore footprints.", 1.5)
+	print_s("Suddenly, you stop. A ruler! The dino with your crewmate is this way.", 1.5)
+	print_s("You continue the search with haste. You follow a clear trail of footprints showing in the muddy path.", 1.5)
+	print_s("You keep going and see a big tree. It's so big that you can't see the top. In fact, you are in a huge forest of these trees. A redwood forest!", 2)
+	print_s("The path is lost in the overgrowth of the forest.", 1)
+	print_s("But, this forest has lots of life. Odd extinct plants are everywhere.", 1.5)
+	print_s("After you hike into the forest enough, you can't really see anything.", 1.5)
+	print_s("Not only that, you hear an odd trumpeting sound.", 1)
+	print_s("It's some kind of dinosaur. When you come near, you see an angry dinosaur running in circles and trumpeting.", 2)
+	print_s("It stops, runs up to you, and trumpets louder. It's really mad.", 1.5)
+	print_s("!!! BOSS !!!")
+	print_s("!!! BATTLE PARASAUROLOPHUS !!!")
+	parasaurolophus_1 = Parasaurolophus("A")
+	battle_outcome = battle(player, [parasaurolophus_1])
+	battle_aftermath(battle_outcome, 2000)
+	print_s("After you defeat Parasaurolophus, you leave the forest. There is a cave and a mountain ahead, and a big lake to your right.", 2)
+	print_s("Which way do you want to go?")
+	print_s("1. Climb the mountain")
+	print_s("2. Go into the cave")
+	print_s("3. Swim in the lake")
+	i = choices(3)
+	if i == 1:
+		MountainThree()
+	elif i == 2:
+		CaveThree()
+	elif i == 3:
+		SwimThree()
+
+def MountainThree():
+	print_s("to be continued...")
+
+def CaveThree():
+	print_s("to be continued...")
+
+def SwimThree():
 	print_s("to be continued...")
 
 def find_mushroom(n):
