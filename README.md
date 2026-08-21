@@ -26,8 +26,7 @@ You have to escape. Your ultra-smart app tells you that you need to find _anothe
 
 ## HOW TO PLAY
 
-To start the game, run the shell file `main.sh` in the **command line** by typing `./main.sh`
-** - OR - ** just run the python file `main.py`, which is in the directory `src`.
+To start the game, run the shell file `main.sh` in the **command line** by typing `./main.sh` ** - OR - ** just run the python file `main.py`, which is in the directory `src`.
 
 This is a text-based game. This game will tell you to type to do certain actions.
 
@@ -48,4 +47,4 @@ Keywords:
 - Type `stats` to see the player's stats.
 - Type `continue` to continute playing.
 
-If you need to quit immediately, type `Ctrl+C`. _(it will give you an error message but don't worry about that.)_
+If you need to quit immediately, type `Ctrl+C` if you are on Windows or `Cmd+C` if you are on a Mac. _(it will give you an error message but don't worry about that.)_

@@ -1038,7 +1038,7 @@ def ClimbTwo():
 	print_s("!!! BATTLE CHIALINGOSAURUS !!!")
 	chialingosaurus_1 = Chialingosaurus("A")
 	battle_outcome = battle(player, [chialingosaurus_1])
-	battle_aftermath(battle_outcome, 600)
+	battle_aftermath(battle_outcome, 750)
 	print_s("You climb out of the canyon. You see a path and decide to follow it.", 1.5)
 	PathFive()
 
@@ -1059,11 +1059,15 @@ def PathFive():
 	parasaurolophus_1 = Parasaurolophus("A")
 	battle_outcome = battle(player, [parasaurolophus_1])
 	battle_aftermath(battle_outcome, 2000)
+	player.health += 120
+	if player.health > player.max_health:
+		player.health = player.max_health
 	print_s("After you defeat Parasaurolophus, you leave the forest. There is a cave and a mountain ahead, and a big lake to your right.", 2)
+	print_s(f"You find an energy drink! You drink it and heal. {repr(player)} health left: {player.health}")
 	print_s("Which way do you want to go?")
 	print_s("1. Climb the mountain")
 	print_s("2. Go into the cave")
-	print_s("3. Swim in the lake")
+	print_s("3. Swim around the mountain !!! UNFINISHED !!!")
 	i = choices(3)
 	if i == 1:
 		MountainThree()
@@ -1073,12 +1077,50 @@ def PathFive():
 		SwimThree()
 
 def MountainThree():
-	print_s("to be continued...")
+	checkpoint()
+	find_fruit(-20, 27)
+	print_s("You decide to climb the mountain.")
+	print_s("It's very tall and exhausting to climb. You feel like you are climbing the canyon all over again.", 1.5)
+	find_mushroom(15)
+	print_s("You reach the summit. It's quite flat, and there are ferns growing.", 1.5)
+	print_s("There is a dinosaur grazing on the ferns. You walk by it. Then you see another one.", 1.5)
+	print_s("All in all, you count thirteen dinosaurs. You wonder why there are so many. Then, you see THE NESTS.", 1.5)
+	print_s("And, you see egg theives. Lots of them. They attack the nests. Angry mother dinosaurs chase them. It's a stampede!", 2)
+	print_s("Some unlucky egg theives couldn't get any eggs. They see you. Tasty! They attack.", 1.5)
+	print_s("!!! BATTLE COELOPHYSIS, DEINONYCHUS, AND ANUROGNATHUS !!!")
+	coelophysis_1 = Coelophysis("A")
+	deinonychus_1 = Deinonychus("A")
+	anurognathus_1 = Anurognathus("A")
+	battle_outcome = battle(player, [coelophysis_1, deinonychus_1, anurognathus_1])
+	battle_aftermath(battle_outcome, 1300)
+	print_s("You climb down the mountain and see a path. You decide to follow it.")
+	PathSix()
 
 def CaveThree():
-	print_s("to be continued...")
+	global score
+	checkpoint()
+	print_s("You decide to walk into the cave.")
+	print_s("There are loose rocks everywhere. They look like they have been recently scattered.", 1.5)
+	print_s("They have been. There are creatures on the floor. When you step nearer, they fly everywhere.", 1.5)
+	print_s("Too late, you realize you are in their territory. They attack you.", 1.5)
+	enemies = []
+	for letter in ["A", "B", "C", "D", "E", "F"]:
+		enemies.append(Nemicolopterus(letter))
+	battle_outcome = battle(player, enemies)
+	battle_aftermath(battle_outcome, 1200)
+	player.lasers += 2
+	score += 300
+	print_s(f"You find some lasers on the floor! {repr(player)} lasers: {player.lasers}", 1.5)
+	print_s(f"You earned 300 points! Score: {score}.", 1)
+	print_s("You exit the cave and see a path. You decide to follow it.", 1)
+	PathSix()
 
 def SwimThree():
+	checkpoint()
+	print_s("to be continued...")
+
+def PathSix():
+	checkpoint()
 	print_s("to be continued...")
 
 def find_mushroom(n):
@@ -1090,7 +1132,7 @@ def find_mushroom(n):
 	i = choices(2)
 	if i == 1:
 		r = random.randint(0, 100)
-		if r < 75:
+		if r < 70:
 			player.health += n
 			score += 100
 			if player.health > player.max_health:
@@ -1164,7 +1206,7 @@ def print_instructions():
 	print_s("type 'continue' to continue playing")
 	print_s("type 'stats' to see your stats")
 	print_s("")
-	print_s("if you need to quit immediately, type Ctrl+C. (it will give you an error message but don't worry about that.)")
+	print_s("if you need to quit immediately, type Ctrl+C or Cmd+C. (it will give you an error message but don't worry about that.)")
 	print_s('there is no "save" function in this game. it WILL NOT reload ANYTHING if you quit.')
 
 def checkpoint():

@@ -74,7 +74,6 @@ class Player:
 
 	def print_stats(self):
 		print_s(f"Health: {self.health}/{self.max_health}")
-		print_s(f"Speed: {self.speed}")
 		print_s(f"Level: {self.level}")
 		print_s(f"Lasers left: {self.lasers}")
 		print_s(f"Potions left: {self.potions}")
