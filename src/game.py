@@ -1067,7 +1067,7 @@ def PathFive():
 	print_s("Which way do you want to go?")
 	print_s("1. Climb the mountain")
 	print_s("2. Go into the cave")
-	print_s("3. Swim around the mountain !!! UNFINISHED !!!")
+	print_s("3. Swim around the mountain")
 	i = choices(3)
 	if i == 1:
 		MountainThree()
@@ -1116,11 +1116,35 @@ def CaveThree():
 	PathSix()
 
 def SwimThree():
+	global score
 	checkpoint()
-	print_s("to be continued...")
+	print_s("You decide to swim around the mountain.")
+	print_s("There is a current sweeping you backward. You swim on your back for half an hour and feel like you are going nowhere.", 2)
+	print_s("You see a big hole with water coming out. You swim out and all of a sudden, WHOOSH! you are going way faster.", 2)
+	print_s("You are going so much faster you accidentally bump into something. It gets really mad and attacks you.", 1.5)
+	print_s("There is also this pesky fish trying to get a bite out of you.", 1)
+	print_s("!!! BATTLE PLESIOSAURUS AND ICHTHYODECTES !!!")
+	plesiosaurus_1 = Plesiosaurus("A")
+	ichthyodectes_1 = Ichthyodectes("A")
+	battle_outcome = battle(player, [plesiosaurus_1, ichthyodectes_1])
+	battle_aftermath(battle_outcome, 1100)
+	player.health += 40
+	score += 300
+	if player.health > player.max_health:
+		player.health = player.max_health
+	print_s(f"You find a drink! You get out of the water and drink it. It's a little watered down, but it heals you. {repr(player)} health left: {player.health}")
+	print_s(f"You earned 300 points! Score: {score}")
+	print_s("You see a path and decide to follow it.", 1)
+	PathSix()
 
-def PathSix():
+def PathSix(): # this function should be quite long. at the end add level up.
 	checkpoint()
+	player.health += 90
+	if player.health > player.max_health:
+		player.health = player.max_health
+	print_s(f"The path is really rocky. You trip and fall twelve times. But then, you find a toothbrush and a granola bar! You eat the granola bar and heal. {repr(player)} health: {player.health}", 2.5)
+	find_mushroom(15)
+	find_fruit(-20, 25)
 	print_s("to be continued...")
 
 def find_mushroom(n):
@@ -1132,7 +1156,7 @@ def find_mushroom(n):
 	i = choices(2)
 	if i == 1:
 		r = random.randint(0, 100)
-		if r < 70:
+		if r < 65:
 			player.health += n
 			score += 100
 			if player.health > player.max_health:

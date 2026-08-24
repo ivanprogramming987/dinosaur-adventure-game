@@ -78,3 +78,7 @@ class Parasaurolophus(Enemy):
 
 	def __repr__(self):
 		return f"Boss {self.name}"
+
+class Plesiosaurus(Enemy):
+	def __init__(self, letter):
+		super().__init__(PLESIOSAURUS_HEALTH, PLESIOSAURUS_DEFENSE, PLESIOSAURUS_SPEED, PLESIOSAURUS_ATTACKS, f"Plesiosaurus {letter}")

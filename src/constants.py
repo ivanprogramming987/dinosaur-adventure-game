@@ -93,6 +93,10 @@ PARASAUROLOPHUS_DEFENSE = 5
 PARASAUROLOPHUS_SPEED = 160
 # parasaurolophus attacks are in "variables with functions" section
 
+PLESIOSAURUS_HEALTH = 220
+PLESIOSAURUS_DEFENSE = 15
+PLESIOSAURUS_SPEED = 190
+PLESIOSAURUS_ATTACKS = [Attack(30, 90, "Tail Hit"), Attack(40, 80, "Neck Hit")]
 # functions
 def heal_15(user):
 	user.health += 15
