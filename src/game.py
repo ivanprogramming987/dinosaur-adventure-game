@@ -1119,7 +1119,7 @@ def SwimThree():
 	global score
 	checkpoint()
 	print_s("You decide to swim around the mountain.")
-	print_s("There is a current sweeping you backward. You swim on your back for half an hour and feel like you are going nowhere.", 2)
+	print_s("There is a current sweeping you backward. You swim on your back for fifteen minutes and feel like you are going nowhere.", 2)
 	print_s("You see a big hole with water coming out. You swim out and all of a sudden, WHOOSH! you are going way faster.", 2)
 	print_s("You are going so much faster you accidentally bump into something. It gets really mad and attacks you.", 1.5)
 	print_s("There is also this pesky fish trying to get a bite out of you.", 1)
@@ -1137,7 +1137,7 @@ def SwimThree():
 	print_s("You see a path and decide to follow it.", 1)
 	PathSix()
 
-def PathSix(): # this function should be quite long. at the end add level up.
+def PathSix():
 	checkpoint()
 	player.health += 90
 	if player.health > player.max_health:
@@ -1145,6 +1145,68 @@ def PathSix(): # this function should be quite long. at the end add level up.
 	print_s(f"The path is really rocky. You trip and fall twelve times. But then, you find a toothbrush and a granola bar! You eat the granola bar and heal. {repr(player)} health: {player.health}", 2.5)
 	find_mushroom(15)
 	find_fruit(-20, 25)
+	print_s("You hear rumbling. You look behind you, in front of you, and all around you. The rumbling gets worse, and dinosaurs are freaking out. What is it?", 2)
+	print_s("The shaking sweeps you off your feet. Your head throbbing, you realize an earthquake is going on!", 1.5)
+	print_s("What do you want to do?")
+	print_s("1. Run away from the earthquake")
+	print_s("2. Hug a tree to keep from falling")
+	print_s("3. Keep your ground and stay where you are")
+	i = choices(3)
+	if i == 1:
+		RunFromEarthquake()
+	elif i == 2:
+		HideUnderTree()
+	elif i == 3:
+		StayWhereYouAre()
+
+def RunFromEarthquake():
+	print_s("You try to run from the earthquake.")
+	print_s("You can hardly get up, and it is very hard to keep your balance.", 1.5)
+	print_s("Any attempts to stand up are fruitless.", 1)
+	player.health -= 90
+	print_s("Finally, the earthquake passes.")
+	print_s(f"You are bruised and beat up from the earthquake. {repr(player)} health left: {player.health}", 1.5)
+	if player.health <= 0:
+		main.lose()
+	ContinuePath()
+
+def HideUnderTree():
+	print_s("You hide under a tree and hug it as hard as you can.", 1)
+	print_s("You are shaking hard and the tree keeps making creaky noises. A few cracks appear in some branches.", 1.5)
+	player.health -= 40
+	print_s(f"After the earthquake, all you have suffered is apples falling on your head and your head hitting the tree a few times. {repr(player)} health left: {player.health}", 2.5)
+	if player.health <= 0:
+		main.lose()
+	ContinuePath()
+
+def StayWhereYouAre():
+	print_s("You stay where you are and hope to outlast the earthquake.", 1)
+	print_s("You curl up, with your hands covering your head. You bounce around like a basketball.", 1.5)
+	print_s("BRURURURURURURURUM!!! The earthquake seems endless.", 1)
+	player.lasers -= 2
+	player.potions -= 1
+	if player.lasers <= 0:
+		player.lasers = 0
+	if player.potions <= 0:
+		player.potions = 0
+	print_s(f"But, it finally finishes. You look in your pockets and see that a lot of your stuff is squashed and useless. {repr(player)} lasers left: {player.lasers}. {repr(player)} potions left: {player.potions}", 3)
+	player.health -= 20
+	print_s(f"You are also shaken up and bruised a little. {repr(player)} health left: {player.health}")
+	if player.health <= 0:
+		main.lose()
+	ContinuePath()
+
+def ContinuePath():
+	print_s("You continue on the path.")
+	print_s("After the earthquake, the dinosaurs in the area are stressed out.", 1.5)
+	print_s("Two herbivores get into a fight. You try to walk past. One is hit into you. You act without thinking and punch it in the side.", 2)
+	print_s("It thinks you are a carnivore and attacks you. A pterosaur is also here to eat you.", 1.5)
+	print_s("!!! BATTLE EINIOSAURUS AND ANUROGNATHUS !!!")
+	einiosaurus_1 = Einiosaurus("A")
+	anurognathus_1 = Anurognathus("A")
+	battle_outcome = battle(player, [einiosaurus_1, anurognathus_1])
+	battle_aftermath(battle_outcome, 1000)
+	player.level_up()
 	print_s("to be continued...")
 
 def find_mushroom(n):
