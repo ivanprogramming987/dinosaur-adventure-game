@@ -82,3 +82,7 @@ class Parasaurolophus(Enemy):
 class Plesiosaurus(Enemy):
 	def __init__(self, letter):
 		super().__init__(PLESIOSAURUS_HEALTH, PLESIOSAURUS_DEFENSE, PLESIOSAURUS_SPEED, PLESIOSAURUS_ATTACKS, f"Plesiosaurus {letter}")
+
+class Allosaurus(Enemy):
+	def __init__(self, letter):
+		super().__init__(ALLOSAURUS_HEALTH, ALLOSAURUS_DEFENSE, ALLOSAURUS_SPEED, ALLOSAURUS_ATTACKS, f"Allosaurus {letter}")

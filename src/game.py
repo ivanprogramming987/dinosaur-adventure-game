@@ -1163,7 +1163,7 @@ def RunFromEarthquake():
 	print_s("You try to run from the earthquake.")
 	print_s("You can hardly get up, and it is very hard to keep your balance.", 1.5)
 	print_s("Any attempts to stand up are fruitless.", 1)
-	player.health -= 90
+	player.health -= 120
 	print_s("Finally, the earthquake passes.")
 	print_s(f"You are bruised and beat up from the earthquake. {repr(player)} health left: {player.health}", 1.5)
 	if player.health <= 0:
@@ -1173,7 +1173,7 @@ def RunFromEarthquake():
 def HideUnderTree():
 	print_s("You hide under a tree and hug it as hard as you can.", 1)
 	print_s("You are shaking hard and the tree keeps making creaky noises. A few cracks appear in some branches.", 1.5)
-	player.health -= 40
+	player.health -= 60
 	print_s(f"After the earthquake, all you have suffered is apples falling on your head and your head hitting the tree a few times. {repr(player)} health left: {player.health}", 2.5)
 	if player.health <= 0:
 		main.lose()
@@ -1190,7 +1190,7 @@ def StayWhereYouAre():
 	if player.potions <= 0:
 		player.potions = 0
 	print_s(f"But, it finally finishes. You look in your pockets and see that a lot of your stuff is squashed and useless. {repr(player)} lasers left: {player.lasers}. {repr(player)} potions left: {player.potions}", 3)
-	player.health -= 20
+	player.health -= 40
 	print_s(f"You are also shaken up and bruised a little. {repr(player)} health left: {player.health}")
 	if player.health <= 0:
 		main.lose()
@@ -1207,6 +1207,37 @@ def ContinuePath():
 	battle_outcome = battle(player, [einiosaurus_1, anurognathus_1])
 	battle_aftermath(battle_outcome, 1000)
 	player.level_up()
+	print_s("You see a weird purple shining gem-looking thing flying around your head. It chases you and you run away from it.", 2)
+	print_s("You hide under some rocks. The thing passes you by. You wonder what it could be.", 1.5)
+	find_mushroom(1)
+	find_fruit(-1, 1)
+	print_s("GRAAAWK! GRAAWK! You hear something. You look out and see a big green pterosaur with yellow stripes and red spots flying around. It flies towards the purple gem thingy. It strikes you as very odd that it would do that.", 3)
+	print_s("You start to feel like this purple thingy is not what it seems. Then, the pterosaur returns with a blue and pink and orange one. Yikes! They are about the size of small airplanes.", 2.5)
+	print_s("The pterosaurs don't notice and keep flying. You decide to look around for any clues. You find none.", 1.5)
+	print_s("You start walking the way you were going because that was the way the dinosaur with your crewmate was going.", 2)
+	print_s("A big carnivore comes. It is injured and can't catch large food.", 1.5)
+	print_s("You seem pretty easy to eat though. It lunges at you, trying to take out a big bite. It misses.", 1.5)
+	print_s("It is still hungry though.")
+	print_s("!!! BATTLE ALLOSAURUS !!!")
+	allosaurus_1 = Allosaurus("A")
+	battle_outcome = battle(player, [allosaurus_1])
+	battle_aftermath(battle_outcome, 1200)
+	find_mushroom(15)
+	find_fruit(-17, 20)
+	print_s("The path splits. To the left, there is a canyon. To your right, there is a big pond.", 1.5)
+	print_s("Which way do you want to go?")
+	print_s("1. Go into the canyon")
+	print_s("2. Swim in the pond")
+	i = choices(2)
+	if i == 1:
+		CanyonOne()
+	elif i == 2:
+		SwimFour()
+
+def CanyonOne():
+	print_s("to be continued...")
+
+def SwimFour():
 	print_s("to be continued...")
 
 def find_mushroom(n):

@@ -7,7 +7,9 @@ def main():
 
 def lose():
 	print_s("YOU LOSE")
+	print_s("You have failed to rescue your crewmate and find the purple stone.", 1)
 	print_s(f"Score: {game.score}")
+	print_s("GAME OVER")
 	sys.exit()
 
 def win():
@@ -39,7 +41,7 @@ def choices(max):
 		print_s("Must type integer")
 		return choices(max)
 	if i < 1 or i > max:
-		print_s("Sorry, choose one")
+		print_s(f"Sorry, choose a number between 1 and {max}")
 		return choices(max)
 	return i
 
