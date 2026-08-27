@@ -24,9 +24,11 @@ When your vision clears, it hits you. It's a **DINOSAUR**. Such a thing has neve
 
 You have to escape. Your ultra-smart app tells you that you need to find _another weird purple rock with a green glowing spot_.
 
+To win the game, you must rescue your crewmate and escape the time of the dinosaurs.
+
 ## HOW TO PLAY
 
-To start the game, run the shell file `main.sh` in the **command line** by typing `./main.sh` ** - OR - ** just run the python file `main.py`, which is in the directory `src`.
+To start the game, run the shell file `main.sh` in the **command line** by typing `./main.sh` **- OR -** just run the python file `main.py`, which is in the directory `src`.
 
 This is a text-based game. This game will tell you to type to do certain actions.
 

@@ -26,15 +26,16 @@ def play():
 		print_s("But it isn't the same desert dino dig you were at.", 2)
 		print_s("It looks like a blurry green jungle with enormous birds. Then you realize those colorful feathered thingys aren't birds. One walks up to you. It's huge.", 2.5)
 		print_s("When your vision clears, it hits you. It's a DINOSAUR. Such a thing has never happened before (despite there being apps that can recognize any rock or anything else, really).", 3.5)
-		print_s("You have to escape. Your ultra-smart app tells you that you need to find another weird purple rock with a green glowing spot.", 5)
+		print_s("You have to escape. Your ultra-smart app tells you that you need to find another weird purple rock with a green glowing spot.", 3)
+		print_s("To win, you must rescue your crewmate and escape the time of the dinosaurs.", 5)
 	print_s("")
 	junk = input("Type your name, then type enter to start: ")
 	player.name = junk
 	print_s("Player stats:")
 	player.print_stats()
 	print_s("")
-	print_s("You are in a jungle. There is a big tree next to you with a hole in it.", 1.25)
-	print_s("You also see a big bunch of ferns and a well trod path used by dinos often.", 1.25)
+	print_s("You are in a jungle. There is a big tree next to you with a hole in it.", 1.5)
+	print_s("You also see a big bunch of ferns and a well trod path used by dinos often.", 1.5)
 	print_s("Which way do you want to go?")
 	print_s("1. Go in the tree and explore")
 	print_s("2. Look inside the ferns")
@@ -1213,7 +1214,7 @@ def ContinuePath():
 	find_fruit(-1, 1)
 	print_s("GRAAAWK! GRAAWK! You hear something. You look out and see a big green pterosaur with yellow stripes and red spots flying around. It flies towards the purple gem thingy. It strikes you as very odd that it would do that.", 3)
 	print_s("You start to feel like this purple thingy is not what it seems. Then, the pterosaur returns with a blue and pink and orange one. Yikes! They are about the size of small airplanes.", 2.5)
-	print_s("The pterosaurs don't notice and keep flying. You decide to look around for any clues. You find none.", 1.5)
+	print_s("The pterosaurs don't notice and keep flying. You decide to look around for any clues to your crewmate. You find none.", 2)
 	print_s("You start walking the way you were going because that was the way the dinosaur with your crewmate was going.", 2)
 	print_s("A big carnivore comes. It is injured and can't catch large food.", 1.5)
 	print_s("You seem pretty easy to eat though. It lunges at you, trying to take out a big bite. It misses.", 1.5)
@@ -1227,7 +1228,7 @@ def ContinuePath():
 	print_s("The path splits. To the left, there is a canyon. To your right, there is a big pond.", 1.5)
 	print_s("Which way do you want to go?")
 	print_s("1. Go into the canyon")
-	print_s("2. Swim in the pond")
+	print_s("2. Swim in the pond !!! UNFINISHED !!!")
 	i = choices(2)
 	if i == 1:
 		CanyonOne()
@@ -1235,6 +1236,56 @@ def ContinuePath():
 		SwimFour()
 
 def CanyonOne():
+	global score
+	print_s("You decide to go into the canyon.")
+	print_s("When you get to the bottom, you start hearing a trumpeting sound.", 1.5)
+	print_s("It is coming from above you, behind you, and on both sides of you. You start to feel that something is wrong.", 2)
+	print_s("The trumpeting noise turns out to be a bunch of odd bird-looking things with teeth and dinosaur-like claws. They fly over you.", 2.5)
+	player.lasers += 2
+	score += 300
+	print_s(f"You find 2 lasers! {repr(player)} lasers: {player.lasers}", 1)
+	print_s(f"You earned 300 points! Score: {score}", 1)
+	print_s("You continue. You notice the ground beginning to get sticky, and you see a few small bones.", 1.5)
+	print_s("It gets stickier and stickier. A few yards ahead, you see a dinosaur carcass. Uh oh! It's a tar pit, and you are inside it!", 2)
+	print_s("What are you going to do?")
+	print_s("1. Run away from the tar pit")
+	print_s("2. Go through the tar pit")
+	print_s("3. Walk out of the tar pit")
+	i = choices(3)
+	if i == 1:
+		RunAwayFromTarPit()
+	elif i == 2:
+		GoThroughTarPit()
+	elif i == 3:
+		WalkAwayFromTarPit()
+
+def RunAwayFromTarPit():
+	print_s("You try to run away from the tar pit.")
+	print_s("You can't really run in the tar. You trip and fall on your face.", 1.5)
+	player.health -= 80
+	print_s(f"Luckily, you get out. However, pulling out of the tar has left some of your face behind. {repr(player)} health left: {player.health}", 2)
+	if player.health <= 0:
+		main.lose()
+	ClimbThree()
+
+def GoThroughTarPit():
+	print_s("You try to go through the tar pit.")
+	print_s("The tar gets deeper and deeper. You trip and fall.", 1)
+	print_s("You can't get out of the tar. You drown in the sticky, goopy tar.", 1.5)
+	main.lose()
+
+def WalkAwayFromTarPit():
+	print_s("You try to walk away from the tar pit.")
+	print_s("SQUISH! SQUISH! SQUISH! It is very difficult to walk through the tar. But you make it.", 1.5)
+	ClimbThree()
+
+def ClimbThree():
+	print_s("You go around the tar pit.")
+	print_s("Now you have to climb out. You keep pulling yourself up, finding a new ledge to climb, no less tedious than the first.", 2)
+	print_s("You make it out. You decide to climb a mountain that you see ahead.", 1.5)
+	MountainFour()
+
+def MountainFour():
 	print_s("to be continued...")
 
 def SwimFour():
