@@ -86,3 +86,17 @@ class Plesiosaurus(Enemy):
 class Allosaurus(Enemy):
 	def __init__(self, letter):
 		super().__init__(ALLOSAURUS_HEALTH, ALLOSAURUS_DEFENSE, ALLOSAURUS_SPEED, ALLOSAURUS_ATTACKS, f"Allosaurus {letter}")
+
+class Quetzalcoatlus(Enemy):
+	def __init__(self, letter):
+		super().__init__(QUETZALCOATLUS_HEALTH, QUETZALCOATLUS_DEFENSE, QUETZALCOATLUS_SPEED, QUETZALCOATLUS_ATTACKS, f"Quetzalcoatlus {letter}")
+
+	def __repr__(self):
+		return f"Boss {self.name}"
+
+class Cryodrakon(Enemy):
+	def __init__(self, letter):
+		super().__init__(CRYODRAKON_HEALTH, CRYODRAKON_DEFENSE, CRYODRAKON_SPEED, CRYODRAKON_ATTACKS, f"Cryodrakon {letter}")
+
+	def __repr__(self):
+		return f"Boss {self.name}"

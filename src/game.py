@@ -161,7 +161,6 @@ def PathTwo():
 	find_mushroom(5)
 	print_s("The path leads into a jungle and you follow it.", 1)
 	print_s("You see dinosaurs flying through trees. They swoop down on you.", 1.5)
-	print_s("Oh no! More Microraptor.")
 	print_s("!!! BATTLE FOUR MICRORAPTOR !!!")
 	microraptor_1 = Microraptor("A")
 	microraptor_2 = Microraptor("B")
@@ -1263,7 +1262,7 @@ def RunAwayFromTarPit():
 	print_s("You try to run away from the tar pit.")
 	print_s("You can't really run in the tar. You trip and fall on your face.", 1.5)
 	player.health -= 80
-	print_s(f"Luckily, you get out. However, pulling out of the tar has left some of your face behind. {repr(player)} health left: {player.health}", 2)
+	print_s(f"Luckily, you get out. However, pulling out of the tar has injured your face. {repr(player)} health left: {player.health}", 2)
 	if player.health <= 0:
 		main.lose()
 	ClimbThree()
@@ -1271,7 +1270,7 @@ def RunAwayFromTarPit():
 def GoThroughTarPit():
 	print_s("You try to go through the tar pit.")
 	print_s("The tar gets deeper and deeper. You trip and fall.", 1)
-	print_s("You can't get out of the tar. You drown in the sticky, goopy tar.", 1.5)
+	print_s("You can't get out of the tar. You drown.", 1)
 	main.lose()
 
 def WalkAwayFromTarPit():
@@ -1282,13 +1281,48 @@ def WalkAwayFromTarPit():
 def ClimbThree():
 	print_s("You go around the tar pit.")
 	print_s("Now you have to climb out. You keep pulling yourself up, finding a new ledge to climb, no less tedious than the first.", 2)
+	print_s("On one ledge, you are faced by a dinosaur. It is an aggresive dinosaur with a spiky tail. It keeps wacking you with its tail. You have to get it out of the way.", 2.5)
+	print_s("!!! BATTLE CHIALINGOSAURUS !!!")
+	chialingosaurus_1 = Chialingosaurus("A")
+	battle_outcome = battle(player, [chialingosaurus_1])
+	battle_aftermath(battle_outcome, 750)
 	print_s("You make it out. You decide to climb a mountain that you see ahead.", 1.5)
 	MountainFour()
 
-def MountainFour():
-	print_s("to be continued...")
-
 def SwimFour():
+	global score
+	print_s("You decide to swim in the pond.")
+	player.potions += 1
+	score += 200
+	print_s(f"You find 1 potion! {repr(player)} potions: {player.potions}", 1.5)
+	print_s(f"You earned 200 potions! Score: {score}.", 1)
+	print_s("You swim for a long time and get about halfway through the pond when you are caught between some rocks!", 1.5)
+	print_s("You jerk really hard and finally pop yourself out. But you are spied by two roundish things with long necks that want to eat you.", 2)
+	print_s("!!! BATTLE TWO PLESIOSAURUS !!!")
+	plesiosaurus_1 = Plesiosaurus("A")
+	plesiosaurus_2 = Plesiosaurus("B")
+	battle_outcome = battle(player, [plesiosaurus_1, plesiosaurus_2])
+	battle_aftermath(battle_outcome, 1500)
+	print_s("You get out and decide to climb a mountain that you see ahead.", 1.5)
+	MountainFour()
+
+def MountainFour():
+	print_s("The mountain is quite difficult to climb.")
+	if player.health < 300:
+		player.health = 300
+	print_s("On one ledge, you find some water. You drink it.", 1)
+	print_s(f"There is something mysterious in the water. You heal from most of your wounds. {repr(player)} health left: {player.health}")
+	print_s("You keep slipping on rocks and fallen stones. You reach the top.", 1.5)
+	print_s("SCREEECH!! SCREEECH!! You see pterosaurs circling above the summit of the mountain.", 1.5)
+	print_s("You've seen these before. They're the airplane-sized creatures.", 1.5)
+	print_s("Food is scarce on the snowy top of the mountain. The pterosaurs swoop down on you.", 1.5)
+	print_s("!!! BOSS !!!")
+	print_s("!!! BATTLE QUETZALCOATLUS AND CRYODRAKON !!!")
+	quetzalcoatlus_1 = Quetzalcoatlus("A")
+	cryodrakon_1 = Cryodrakon("A")
+	battle_outcome = battle(player, [quetzalcoatlus_1, cryodrakon_1])
+	battle_aftermath(battle_outcome, 2500)
+	print_s("You climb down the mountain safely.")
 	print_s("to be continued...")
 
 def find_mushroom(n):
