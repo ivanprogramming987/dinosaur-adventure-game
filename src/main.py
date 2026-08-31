@@ -3,7 +3,11 @@ import sys
 import game
 
 def main():
-	game.play()
+	try:
+		game.play()
+	except (KeyboardInterrupt):
+		print("Keyboard interrupt (Ctrl+C or Cmd+C) detected.")
+		print("QUITTING GAME")
 
 def lose():
 	print_s("YOU LOSE")
@@ -19,7 +23,7 @@ def win():
 	sys.exit()
 
 def end():
-	print_s("ARE YOU SURE?")
+	print_s("ARE YOU SURE YOU WANT TO QUIT?")
 	print_s("1. Yes")
 	print_s("2. No")
 	i = choices(2)

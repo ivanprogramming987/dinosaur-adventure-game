@@ -28,7 +28,7 @@ To win the game, you must rescue your crewmate and escape the time of the dinosa
 
 ## HOW TO PLAY
 
-To start the game, run the shell file `main.sh` in the **command line** by typing `./main.sh` **- OR -** just run the python file `main.py`, which is in the directory `src`.
+To start the game, run the shell file `main.sh` in the **command line** by typing `./main.sh` - OR - just run the python file `main.py`, which is in the directory `src`.
 
 This is a text-based game. This game will tell you to type to do certain actions.
 
@@ -36,7 +36,7 @@ At the beginning, you can read the instructions. A copy is also in this file.
 
 ### INSTRUCTIONS
 
-WARNING! There is no "save" function in this game. If you quit, the game WILL NOT SAVE where you are, your stats, etc.
+**WARNING!** There is no "save" function in this game. If you quit, the game WILL NOT SAVE where you are, your stats, etc.
 
 If you are presented with a choice, type the number that fits your choice, then type enter.
 
@@ -45,8 +45,7 @@ There are also certain keywords that always do certain things but can only be us
 Keywords:
 
 - Type `instructions` to read the instructions.
-- Type `quit` to quit the game.
 - Type `stats` to see the player's stats.
-- Type `continue` to continute playing.
+- Type `continue` to continue playing.
 
-If you need to quit immediately, type `Ctrl+C` if you are on Windows or `Cmd+C` if you are on a Mac. _(it will give you an error message but don't worry about that.)_
+If you need to quit, type `Ctrl+C` if you are on Windows or `Cmd+C` if you are on a Mac. _(it will give you an error message but don't worry about that.)_

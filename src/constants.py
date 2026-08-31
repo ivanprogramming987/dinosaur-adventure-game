@@ -172,8 +172,8 @@ CERATOSAURUS_ATTACKS = [Attack(30, 90, "Roar"), Attack(40, 80, "Bite", damage_se
 EINIOSAURUS_ATTACKS = [Attack(0, 100, "Drink Water", heal_45), Attack(45, 80, "Power Hit", damage_self_10), Attack(30, 90, "Horn Hit")]
 CHIALINGOSAURUS_ATTACKS = [Attack(0, 90, "Heal", heal_60), Attack(30, 80, "Tail Whap"), Attack(55, 80, "Super Smack", damage_self_20)]
 PARASAUROLOPHUS_ATTACKS = [Attack(35, 100, "Cure and Hit", heal_35), Attack(40, 90, "Big Headbutt"), Attack(60, 80, "Stomp", damage_self_10)]
-QUETZALCOATLUS_ATTACKS = [Attack(35, 90, "Peck"), Attack(0, 90, "Heal", heal_60), Attack(50, 80, "Swoop", damage_self_10)]
-CRYODRAKON_ATTACKS = [Attack(25, 90, "Peck"), Attack(0, 90, "Heal", heal_45), Attack(40, 80, "Swoop", damage_self_10)]
+QUETZALCOATLUS_ATTACKS = [Attack(35, 90, "Peck"), Attack(0, 90, "Heal", heal_45), Attack(45, 80, "Swoop", damage_self_10)]
+CRYODRAKON_ATTACKS = [Attack(25, 90, "Peck"), Attack(0, 90, "Heal", heal_45), Attack(35, 80, "Swoop", damage_self_10)]
 
 # hidden variables
 COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled

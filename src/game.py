@@ -29,8 +29,8 @@ def play():
 		print_s("You have to escape. Your ultra-smart app tells you that you need to find another weird purple rock with a green glowing spot.", 3)
 		print_s("To win, you must rescue your crewmate and escape the time of the dinosaurs.", 5)
 	print_s("")
-	junk = input("Type your name, then type enter to start: ")
-	player.name = junk
+	name = input("Type your name, then type enter to start: ")
+	player.name = name
 	print_s("Player stats:")
 	player.print_stats()
 	print_s("")
@@ -1227,7 +1227,7 @@ def ContinuePath():
 	print_s("The path splits. To the left, there is a canyon. To your right, there is a big pond.", 1.5)
 	print_s("Which way do you want to go?")
 	print_s("1. Go into the canyon")
-	print_s("2. Swim in the pond !!! UNFINISHED !!!")
+	print_s("2. Swim in the pond")
 	i = choices(2)
 	if i == 1:
 		CanyonOne()
@@ -1292,6 +1292,10 @@ def ClimbThree():
 def SwimFour():
 	global score
 	print_s("You decide to swim in the pond.")
+	player.health += 50
+	if player.health > player.max_health:
+		player.health = player.max_health
+	print_s(f"You find some food! You eat it and heal a little. {repr(player)} health left: {player.health}")
 	player.potions += 1
 	score += 200
 	print_s(f"You find 1 potion! {repr(player)} potions: {player.potions}", 1.5)
@@ -1308,10 +1312,9 @@ def SwimFour():
 
 def MountainFour():
 	print_s("The mountain is quite difficult to climb.")
-	if player.health < 300:
-		player.health = 300
+	player.health = 350
 	print_s("On one ledge, you find some water. You drink it.", 1)
-	print_s(f"There is something mysterious in the water. You heal from most of your wounds. {repr(player)} health left: {player.health}")
+	print_s(f"There is something mysterious in the water. You heal from all of your wounds. {repr(player)} health left: 350")
 	print_s("You keep slipping on rocks and fallen stones. You reach the top.", 1.5)
 	print_s("SCREEECH!! SCREEECH!! You see pterosaurs circling above the summit of the mountain.", 1.5)
 	print_s("You've seen these before. They're the airplane-sized creatures.", 1.5)
@@ -1323,7 +1326,144 @@ def MountainFour():
 	battle_outcome = battle(player, [quetzalcoatlus_1, cryodrakon_1])
 	battle_aftermath(battle_outcome, 2500)
 	print_s("You climb down the mountain safely.")
+	player.level_up()
+	print_s("Ahead, the purple gem-thing lands. A recognizable dinosaur steps out. Your crewmate, in his hands, screams. It slashes him cruelly. You get really mad and chase the dinosaur.", 2.5)
+	print_s("But the dinosaur is too fast. Your crewmate throws a piece of paper to you. It says:", 1.5)
+	print_s("")
+	print_s("fol ow me t  h le whe e big di o hom  is a d fi ht big din . h  has p rpl  s one wi h  reen sp t in ho  .", 2.5)
+	print_s("")
+	print_s("Unfortunately, a lot of the paper is unintelligible. There are gaps and blotches and accidental scribbles (from trying to write while being carried by a running dinosaur). You can only read the parts shown above.", 3)
+	print_s("The dinosaur with your crewmate is out of sight by now.", 1.5)
+	print_s("There are a few places where you could investigate for the dinosaur.", 1.5)
+	print_s("There is a hole, a big tree with a nest in it, a large canyon, and a mountain.", 1.5)
+	print_s("Hurry! The dinosaur could eat your crewmate!")
+	paths = [False, False, False]
+	print_s("!!! CHOICE IS UNFINISHED !!!")
+	print_s("1. Go into the canyon")
+	print_s("2. Go into the hole")
+	print_s("3. Climb the tree")
+	print_s("4. Climb the mountain")
+	i = choices(4)
+	if i == 1:
+		CanyonTwo(paths)
+	elif i == 2:
+		HoleOne()
+	elif i == 3:
+		TreeFour(paths)
+	elif i == 4:
+		MountainFive(paths)
+
+def CanyonTwo(paths):
+	print_s("... will be filled in later ...")
+	paths[0] = True
+	if paths[1] == False and paths[2] == False:
+		print_s("Where do you want to go now?")
+		print_s("1. Go into the hole")
+		print_s("2. Climb the tree")
+		print_s("3. Climb the mountain")
+		i = choices(3)
+		if i == 1:
+			HoleOne()
+		elif i == 2:
+			TreeFour(paths)
+		elif i == 3:
+			MountainFive(paths)
+	elif paths[1] == True and paths[2] == False:
+		print_s("Where do you want to go now?")
+		print_s("1. Go into the hole")
+		print_s("2. Climb the mountain")
+		i = choices(2)
+		if i == 1:
+			HoleOne()
+		elif i == 2:
+			MountainFive(paths)
+	elif paths[1] == False and paths[2] == True:
+		print_s("Where do you want to go now?")
+		print_s("1. Go into the hole")
+		print_s("2. Climb the tree")
+		i = choices(2)
+		if i == 1:
+			HoleOne()
+		elif i == 2:
+			TreeFour(paths)
+	else:
+		HoleOne()
+
+def HoleOne():
+	print_s("You decide to go into the hole.")
 	print_s("to be continued...")
+
+def TreeFour(paths):
+	print_s("... will be filled in later ...")
+	paths[1] = True
+	if paths[0] == False and paths[2] == False:
+		print_s("Where do you want to go now?")
+		print_s("1. Go into the hole")
+		print_s("2. Go into the canyon")
+		print_s("3. Climb the mountain")
+		i = choices(3)
+		if i == 1:
+			HoleOne()
+		elif i == 2:
+			CanyonTwo(paths)
+		elif i == 3:
+			MountainFive(paths)
+	elif paths[0] == True and paths[2] == False:
+		print_s("Where do you want to go now?")
+		print_s("1. Go into the hole")
+		print_s("2. Climb the mountain")
+		i = choices(2)
+		if i == 1:
+			HoleOne()
+		elif i == 2:
+			MountainFive(paths)
+	elif paths[0] == False and paths[2] == True:
+		print_s("Where do you want to go now?")
+		print_s("1. Go into the hole")
+		print_s("2. Go into the canyon")
+		i = choices(2)
+		if i == 1:
+			HoleOne()
+		elif i == 2:
+			CanyonTwo(paths)
+	else:
+		HoleOne()
+
+def MountainFive(paths):
+	print_s("... will be filled in later ...")
+	paths[2] = True
+	if paths[0] == False and paths[1] == False:
+		print_s("Where do you want to go now?")
+		print_s("1. Go into the hole")
+		print_s("2. Climb the tree")
+		print_s("3. Go into the canyon")
+		i = choices(2)
+		if i == 1:
+			HoleOne()
+		elif i == 2:
+			TreeFour(paths)
+		elif i == 3:
+			CanyonTwo(paths)
+	elif paths[0] == True and paths[1] == False:
+		print_s("Where do you want to go now?")
+		print_s("1. Go into the hole")
+		print_s("2. Climb the tree")
+		i = choices(2)
+		if i == 1:
+			HoleOne()
+		elif i == 2:
+			TreeFour(paths)
+	elif paths[0] == False and paths[1] == True:
+		print_s("Where do you want to go now?")
+		print_s("1. Go into the hole")
+		print_s("2. Go into the canyon")
+		i = choices(2)
+		if i == 1:
+			HoleOne()
+		elif i == 2:
+			CanyonTwo(paths)
+	else:
+		HoleOne()
 
 def find_mushroom(n):
 	global score
@@ -1404,19 +1544,16 @@ def print_instructions():
 	print_s("you can only type a key word at a checkpoint")
 	print_s("key words:")
 	print_s("type 'instructions' to read this again")
-	print_s("type 'quit' to quit the game")
 	print_s("type 'continue' to continue playing")
 	print_s("type 'stats' to see your stats")
 	print_s("")
-	print_s("if you need to quit immediately, type Ctrl+C or Cmd+C. (it will give you an error message but don't worry about that.)")
+	print_s("if you need to quit, type Ctrl+C if you are on a PC or Cmd+C if you are on a Mac. (it will give you an error message but don't worry about that.)")
 	print_s('there is no "save" function in this game. it WILL NOT reload ANYTHING if you quit.')
 
 def checkpoint():
-	print_s("CHECKPOINT! type instructions, quit, stats, or continue (anything else will default to 'continue')")
+	print_s("CHECKPOINT! type instructions, stats, or continue (anything else will default to 'continue')")
 	i = input("Please choose: ")
 	if i == "instructions":
 		print_instructions()
-	elif i == "quit":
-		main.end()
 	elif i == "stats":
 		player.print_stats()
