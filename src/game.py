@@ -1338,9 +1338,8 @@ def MountainFour():
 	print_s("There is a hole, a big tree with a nest in it, a large canyon, and a mountain.", 1.5)
 	print_s("Hurry! The dinosaur could eat your crewmate!")
 	paths = [False, False, False]
-	print_s("!!! CHOICE IS UNFINISHED !!!")
 	print_s("1. Go into the canyon")
-	print_s("2. Go into the hole")
+	print_s("2. Go into the hole !!! UNFINISHED !!!")
 	print_s("3. Climb the tree")
 	print_s("4. Climb the mountain")
 	i = choices(4)
@@ -1354,7 +1353,16 @@ def MountainFour():
 		MountainFive(paths)
 
 def CanyonTwo(paths):
-	print_s("... will be filled in later ...")
+	print_s("You decide to go into the canyon.")
+	print_s("You walk for a long time and find nothing of interest. In fact, there aren't even any plants or water.", 1.5)
+	print_s("You are getting hungry and thirsty. You have run out of food and water.", 1.5)
+	print_s("You see one scrawny plant-eater looking for food, the only dinosaur you have seen in this desolate place. It finds a very small bush and chomps it down in one bite.", 2.5)
+	print_s("It looks much happier after that one bite. You wonder if you have gone the wrong way. A big dinosaur could never live here.", 2)
+	player.health -= 100
+	print_s(f"In fact, the hunger and thirst is taking a toll on your health. {repr(player)} health left: {player.health}", 2)
+	if player.health <= 0:
+		main.lose()
+	print_s("You climb out of the canyon, exhausted. There is no reason to go any farther.", 1.5)
 	paths[0] = True
 	if paths[1] == False and paths[2] == False:
 		print_s("Where do you want to go now?")
@@ -1394,7 +1402,16 @@ def HoleOne():
 	print_s("to be continued...")
 
 def TreeFour(paths):
-	print_s("... will be filled in later ...")
+	print_s("You decide to climb the tree.")
+	print_s("You climb up and up. It is very tall. You see birds, big toothy-beaked birds.", 1.5)
+	print_s("You also see pterosaurs. But there is no way a huge dinosaur could climb up this.", 1.5)
+	print_s("You turn around, disappointed. But some pterosaurs hiding in a nest see you. They swoop to attack!", 1.5)
+	print_s("!!! BATTLE TWO ANHANGUERA !!!")
+	anhanguera_1 = Anhanguera("A")
+	anhanguera_2 = Anhanguera("B")
+	battle_outcome = battle(player, [anhanguera_1, anhanguera_2])
+	battle_aftermath(battle_outcome, 900)
+	print_s("You finish climbing down the tree.")
 	paths[1] = True
 	if paths[0] == False and paths[2] == False:
 		print_s("Where do you want to go now?")
@@ -1430,7 +1447,18 @@ def TreeFour(paths):
 		HoleOne()
 
 def MountainFive(paths):
-	print_s("... will be filled in later ...")
+	print_s("You decide to climb up the mountain.")
+	print_s("This is a steep mountain, steeper than any other you have climbed. You see plenty of holes that could lead to dens, but they're too small for a large dinosaur.", 2)
+	print_s("You get to the summit. It's kind of snowy. A flock of pterosaurs passes overhead.", 1.5)
+	print_s("You see a big dinosaur, but it isn't the right one. It's very scrawny. It attacks you, along with a little pterosaur.", 2)
+	print_s("!!! BATTLE ALLOSAURUS AND NEMICOLOPTERUS !!!")
+	allosaurus_1 = Allosaurus("A")
+	nemicolopterus_1 = Nemicolopterus("A")
+	battle_outcome = battle(player, [allosaurus_1, nemicolopterus_1])
+	battle_aftermath(battle_outcome, 1150)
+	print_s("You look around for a long time. You see an eye. A big eye. Is this the dinosaur's eye?", 1.5)
+	print_s("The thing jumps up and flies away. Definitely not the dinosaur.", 1.5)
+	print_s("You climb down, disappointed.")
 	paths[2] = True
 	if paths[0] == False and paths[1] == False:
 		print_s("Where do you want to go now?")
