@@ -113,6 +113,16 @@ CRYODRAKON_DEFENSE = 20
 CRYODRAKON_SPEED = 150
 # cryodrakon attacks are in "variables with functions" section
 
+GORGOSAURUS_HEALTH = 320
+GORGOSAURUS_DEFENSE = 15
+GORGOSAURUS_SPEED = 190
+# gorgosaurus attacks are in "variables with functions" section
+
+VELOCIRAPTOR_HEALTH = 100
+VELOCIRAPTOR_DEFENSE = 10
+VELOCIRAPTOR_SPEED = 190
+VELOCIRAPTOR_ATTACKS = [Attack(15, 100, "Bite"), Attack(25, 90, "Slash")]
+
 # functions
 def heal_15(user):
 	user.health += 15
@@ -174,6 +184,7 @@ CHIALINGOSAURUS_ATTACKS = [Attack(0, 90, "Heal", heal_60), Attack(30, 80, "Tail 
 PARASAUROLOPHUS_ATTACKS = [Attack(35, 100, "Cure and Hit", heal_35), Attack(40, 90, "Big Headbutt"), Attack(60, 80, "Stomp", damage_self_10)]
 QUETZALCOATLUS_ATTACKS = [Attack(35, 90, "Peck"), Attack(0, 90, "Heal", heal_45), Attack(45, 80, "Swoop", damage_self_10)]
 CRYODRAKON_ATTACKS = [Attack(25, 90, "Peck"), Attack(0, 90, "Heal", heal_45), Attack(35, 80, "Swoop", damage_self_10)]
+GORGOSAURUS_ATTACKS = [Attack(35, 90, "Bite"), Attack(0, 90, "Heal", heal_60), Attack(60, 85, "Big Bite", damage_self_20)]
 
 # hidden variables
 COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled

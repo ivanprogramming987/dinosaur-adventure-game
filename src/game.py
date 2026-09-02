@@ -1207,13 +1207,11 @@ def ContinuePath():
 	battle_outcome = battle(player, [einiosaurus_1, anurognathus_1])
 	battle_aftermath(battle_outcome, 1000)
 	player.level_up()
-	print_s("You see a weird purple shining gem-looking thing flying around your head. It chases you and you run away from it.", 2)
-	print_s("You hide under some rocks. The thing passes you by. You wonder what it could be.", 1.5)
 	find_mushroom(1)
 	find_fruit(-1, 1)
-	print_s("GRAAAWK! GRAAWK! You hear something. You look out and see a big green pterosaur with yellow stripes and red spots flying around. It flies towards the purple gem thingy. It strikes you as very odd that it would do that.", 3)
-	print_s("You start to feel like this purple thingy is not what it seems. Then, the pterosaur returns with a blue and pink and orange one. Yikes! They are about the size of small airplanes.", 2.5)
-	print_s("The pterosaurs don't notice and keep flying. You decide to look around for any clues to your crewmate. You find none.", 2)
+	print_s("GRAAAWK! GRAAWK! You hear something. You look and see a big green pterosaur with yellow stripes and red spots flying around. It flies towards a mountain.", 2.5)
+	print_s("You start to feel like this pterosaur might be a threat. Then, the pterosaur returns with a blue and pink and orange one. Yikes! They are about the size of small airplanes.", 2.5)
+	print_s("The pterosaurs don't notice you and keep flying. You decide to look around for any clues to your crewmate. You find none.", 2)
 	print_s("You start walking the way you were going because that was the way the dinosaur with your crewmate was going.", 2)
 	print_s("A big carnivore comes. It is injured and can't catch large food.", 1.5)
 	print_s("You seem pretty easy to eat though. It lunges at you, trying to take out a big bite. It misses.", 1.5)
@@ -1398,7 +1396,32 @@ def CanyonTwo(paths):
 		HoleOne()
 
 def HoleOne():
+	global score
 	print_s("You decide to go into the hole.")
+	print_s("There are odd carvings on the walls. They look like big dinosaurs similar to the one that has your crewmate.", 2)
+	print_s("This place feels ruined and mystical. Many tiny animals live here. They scurry around you. They are mouse-like.", 2)
+	print_s("A big dinosaur comes out. It could not be the dino you are after, because it is too small and colored differently.", 2)
+	print_s("But it's hungry. Small mammals are not the best food for a big dinosaur. It attacks.", 1.5)
+	print_s("!!! BATTLE GORGOSAURUS !!!")
+	gorgosaurus_1 = Gorgosaurus("A")
+	battle_outcome = battle(player, [gorgosaurus_1])
+	battle_aftermath(battle_outcome, 1500)
+	print_s("As you walk, you find a hat. You're on the right track.", 1)
+	player.lasers += 1
+	player.potions += 1
+	score += 500
+	print_s(f"You also find a laser and a potion! {repr(player)} lasers: {player.lasers}. {repr(player)} potions: {player.potions}.", 2)
+	print_s(f"You earned 500 points! Score: {score}.")
+	print_s("The carvings become more fragmented. A few are missing.", 1)
+	print_s("You see why they are fragmented. Some dinosaurs are running around fighting some smaller animals.", 1.5)
+	print_s("You pass by. They don't notice you. But some other ones do. They are very deep in the hole and can't catch as much. This is a rare opportunity for them. They take it.", 2.5)
+	print_s("!!! BATTLE THREE VELOCIRAPTOR !!!")
+	velociraptor_1 = Velociraptor("A")
+	velociraptor_2 = Velociraptor("B")
+	velociraptor_3 = Velociraptor("C")
+	battle_outcome = battle(player, [velociraptor_1, velociraptor_2, velociraptor_3])
+	battle_aftermath(battle_outcome, 1500)
+	player.level_up()
 	print_s("to be continued...")
 
 def TreeFour(paths):

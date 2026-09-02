@@ -100,3 +100,12 @@ class Cryodrakon(Enemy):
 
 	def __repr__(self):
 		return f"Boss {self.name}"
+
+class Gorgosaurus(Enemy):
+	def __init__(self, letter):
+		super().__init__(GORGOSAURUS_HEALTH, GORGOSAURUS_DEFENSE, GORGOSAURUS_SPEED, GORGOSAURUS_ATTACKS, f"Gorgosaurus {letter}")
+
+class Velociraptor(Enemy):
+	def __init__(self, letter):
+		super().__init__(VELOCIRAPTOR_HEALTH, VELOCIRAPTOR_DEFENSE, VELOCIRAPTOR_SPEED, VELOCIRAPTOR_ATTACKS, f"Velociraptor {letter}")
+
