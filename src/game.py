@@ -1325,7 +1325,7 @@ def MountainFour():
 	battle_aftermath(battle_outcome, 2500)
 	print_s("You climb down the mountain safely.")
 	player.level_up()
-	print_s("Ahead, the purple gem-thing lands. A recognizable dinosaur steps out. Your crewmate, in his hands, screams. It slashes him cruelly. You get really mad and chase the dinosaur.", 2.5)
+	print_s("A recognizable dinosaur steps out from a cave. Your crewmate, in his hands, screams. It slashes him cruelly. You get really mad and chase the dinosaur.", 2.5)
 	print_s("But the dinosaur is too fast. Your crewmate throws a piece of paper to you. It says:", 1.5)
 	print_s("")
 	print_s("fol ow me t  h le whe e big di o hom  is a d fi ht big din . h  has p rpl  s one wi h  reen sp t in ho  .", 2.5)
@@ -1337,7 +1337,7 @@ def MountainFour():
 	print_s("Hurry! The dinosaur could eat your crewmate!")
 	paths = [False, False, False]
 	print_s("1. Go into the canyon")
-	print_s("2. Go into the hole !!! UNFINISHED !!!")
+	print_s("2. Go into the hole")
 	print_s("3. Climb the tree")
 	print_s("4. Climb the mountain")
 	i = choices(4)
@@ -1413,7 +1413,7 @@ def HoleOne():
 	print_s(f"You also find a laser and a potion! {repr(player)} lasers: {player.lasers}. {repr(player)} potions: {player.potions}.", 2)
 	print_s(f"You earned 500 points! Score: {score}.")
 	print_s("The carvings become more fragmented. A few are missing.", 1)
-	print_s("You see why they are fragmented. Some dinosaurs are running around fighting some smaller animals.", 1.5)
+	print_s("You see why they are fragmented. Some dinosaurs are running around fighting some smaller animals. One scratches the wall.", 2)
 	print_s("You pass by. They don't notice you. But some other ones do. They are very deep in the hole and can't catch as much. This is a rare opportunity for them. They take it.", 2.5)
 	print_s("!!! BATTLE THREE VELOCIRAPTOR !!!")
 	velociraptor_1 = Velociraptor("A")
@@ -1422,7 +1422,22 @@ def HoleOne():
 	battle_outcome = battle(player, [velociraptor_1, velociraptor_2, velociraptor_3])
 	battle_aftermath(battle_outcome, 1500)
 	player.level_up()
-	print_s("to be continued...")
+	print_s("You see the dinosaur you are after. It sees you, kicks a hole in the wall, and escapes! It runs away and jumps into a herd of herbivores.", 2)
+	print_s("You follow it. But the herbivores, freaked out, attack you! They don't want to let you escape.", 1.5)
+	print_s("!!! BATTLE STEGOSAURUS !!!")
+	stegosaurus_1 = Stegosaurus("A")
+	battle_outcome = battle(player, [stegosaurus_1])
+	battle_aftermath(battle_outcome, 1500)
+	print_s("After that, you see a path and decide to follow it.", 1)
+	print_s("Very shortly, the path splits.")
+	print_s("Which way do you want to go?")
+	print_s("1. To the left")
+	print_s("2. To the right")
+	i = choices(2)
+	if i == 1:
+		LeftSideThree()
+	elif i == 2:
+		RightSideThree()
 
 def TreeFour(paths):
 	print_s("You decide to climb the tree.")
@@ -1515,6 +1530,39 @@ def MountainFive(paths):
 			CanyonTwo(paths)
 	else:
 		HoleOne()
+
+def LeftSideThree():
+	global score
+	checkpoint()
+	print_s("You decide to choose the left side.")
+	print_s("You walk into a jungle. It starts getting humid. Then it happens.", 1.5)
+	print_s("It starts to rain really hard. It feels like it's peeling your skin off.", 1.5)
+	print_s("You hide under a rock. You get really wet and dirty. But it's better than that skin-peeling feeling.", 1.5)
+	print_s("You see a big footprint. In it is a pair of muddy glasses.", 1.5)
+	print_s("The rain stops. You come out from under the rock and start walking on the path. The path was ruined by the rain.", 2)
+	print_s("You get out of the jungle. You see a river. The path follows the river.", 1.5)
+	print_s("There are dinosaurs across the river from you. They jump over the river and onto you! They are hungry.", 1.5)
+	print_s("!!! BATTLE FOUR VELOCIRAPTOR !!!")
+	velociraptor_1 = Velociraptor("A")
+	velociraptor_2 = Velociraptor("B")
+	velociraptor_3 = Velociraptor("C")
+	velociraptor_4 = Velociraptor("D")
+	battle_outcome = battle(player, [velociraptor_1, velociraptor_2, velociraptor_3, velociraptor_4])
+	battle_aftermath(battle_outcome, 2000)
+	player.lasers += 1
+	score += 200
+	print_s(f"You find a laser on the floor! {repr(player)} lasers: {player.lasers}", 1.5)
+	print_s(f"You earned 200 points! Score: {score}.", 1)
+	print_s("The two paths join.")
+	PathSeven()
+
+def RightSideThree():
+	checkpoint()
+	print_s("to be continued...")
+
+def PathSeven():
+	checkpoint()
+	print_s("to be continued...")
 
 def find_mushroom(n):
 	global score

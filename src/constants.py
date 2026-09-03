@@ -123,6 +123,11 @@ VELOCIRAPTOR_DEFENSE = 10
 VELOCIRAPTOR_SPEED = 190
 VELOCIRAPTOR_ATTACKS = [Attack(15, 100, "Bite"), Attack(25, 90, "Slash")]
 
+STEGOSAURUS_HEALTH = 350
+STEGOSAURUS_DEFENSE = 15
+STEGOSAURUS_SPEED = 175
+STEGOSAURUS_ATTACKS = [Attack(35, 90, "Kick"), Attack(50, 90, "Tail Whip")]
+
 # functions
 def heal_15(user):
 	user.health += 15
