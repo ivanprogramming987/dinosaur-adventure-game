@@ -1553,15 +1553,69 @@ def LeftSideThree():
 	score += 200
 	print_s(f"You find a laser on the floor! {repr(player)} lasers: {player.lasers}", 1.5)
 	print_s(f"You earned 200 points! Score: {score}.", 1)
-	print_s("The two paths join.")
 	PathSeven()
 
 def RightSideThree():
 	checkpoint()
-	print_s("to be continued...")
+	print_s("You decide to choose the right side.")
+	print_s("You walk next to a beach. There are giant turtles and plesiosaurs in the water.", 1.5)
+	print_s("You clamber over rocks. You get to a field. It is beautiful and quiet. Then, you hear a growling sound.", 1.5)
+	print_s("rrrm HRRRRM!! A dinosaur runs out of the bushes behind you and tries to headbutt you out!", 1.5)
+	print_s("It is very aggressive. It doesn't let you run away.", 1)
+	print_s("!!! BATTLE TRICERATOPS !!!")
+	triceratops_1 = Triceratops("A")
+	battle_outcome = battle(player, [triceratops_1])
+	battle_aftermath(battle_outcome, 1500)
+	find_mushroom(20)
+	find_fruit(-25, 30)
+	PathSeven()
 
 def PathSeven():
 	checkpoint()
+	print_s("The two paths join.")
+	print_s("You look around for the dino that has your crewmate. You find a trail of footprints as the ground gets muddier.", 2)
+	print_s("But the trail of footprints is lost in the gooey mud.", 1)
+	print_s("You walk deeper and deeper into the mud. At one point, you are up to your hips in it!", 1.5)
+	print_s("But then, the mud gets shallower. You come out. Your pants are covered in mud.", 1.5)
+	find_fruit(-35, 45)
+	print_s("It starts to get really windy. It blows your hat off. You catch your hat, only for it to blow off again.", 1.5)
+	print_s("Trees start waving. Dinosaurs are freaking out. You look behind you, alarmed.", 1.5)
+	print_s("A TORNADO IS BLOWING YOUR WAY!", 2)
+	print_s("What do you want to do?")
+	print_s("1. Run away from the tornado")
+	print_s("2. Hide in a small cave")
+	print_s("3. Climb a tree")
+	i = choices(3)
+	if i == 1:
+		RunAwayFromTornado()
+	elif i == 2:
+		HideInCave()
+	elif i == 3:
+		TreeFive()
+
+def RunAwayFromTornado():
+	print_s("You decide to run away from the tornado.")
+	print_s("You run as fast as you can.")
+	print_s("You don't run long before it starts getting really loud behind you.", 1.5)
+	print_s("The tornado catches you. You blow high in the air.", 1)
+	print_s("The last thing you see is the ground getting closer very fast. You are smashed.", 1.5)
+	main.lose()
+
+def HideInCave():
+	print_s("You decide to hide in a small stone cave.")
+	print_s("You get soaked by rain. Thunder roars. Lightning flashes.", 1)
+	print_s("The tornado comes your way! But it passes over the cave instead of into it.", 1.5)
+	print_s("When the storm stops, you come out. You have survived.", 1)
+	ForestOne()
+
+def TreeFive():
+	print_s("You decide to climb a tree.")
+	print_s("While you climb, the tree wiggles. When you are at the top, it starts bending back and forth.", 1.5)
+	print_s("You hear a RRIIP! A root is sticking out of the ground!", 1)
+	print_s("The tree falls. You hit your head on the floor hard. You are dead.", 1.5)
+	main.lose()
+
+def ForestOne():
 	print_s("to be continued...")
 
 def find_mushroom(n):

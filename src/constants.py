@@ -118,15 +118,20 @@ GORGOSAURUS_DEFENSE = 15
 GORGOSAURUS_SPEED = 190
 # gorgosaurus attacks are in "variables with functions" section
 
-VELOCIRAPTOR_HEALTH = 100
+VELOCIRAPTOR_HEALTH = 80
 VELOCIRAPTOR_DEFENSE = 10
-VELOCIRAPTOR_SPEED = 190
+VELOCIRAPTOR_SPEED = 200
 VELOCIRAPTOR_ATTACKS = [Attack(15, 100, "Bite"), Attack(25, 90, "Slash")]
 
 STEGOSAURUS_HEALTH = 350
 STEGOSAURUS_DEFENSE = 15
-STEGOSAURUS_SPEED = 175
-STEGOSAURUS_ATTACKS = [Attack(35, 90, "Kick"), Attack(50, 90, "Tail Whip")]
+STEGOSAURUS_SPEED = 225
+STEGOSAURUS_ATTACKS = [Attack(40, 90, "Kick"), Attack(50, 90, "Tail Whip")]
+
+TRICERATOPS_HEALTH = 330
+TRICERATOPS_DEFENSE = 25
+TRICERATOPS_SPEED = 250
+# triceratops attacks are in "variables with functions" section
 
 # functions
 def heal_15(user):
@@ -190,6 +195,7 @@ PARASAUROLOPHUS_ATTACKS = [Attack(35, 100, "Cure and Hit", heal_35), Attack(40, 
 QUETZALCOATLUS_ATTACKS = [Attack(35, 90, "Peck"), Attack(0, 90, "Heal", heal_45), Attack(45, 80, "Swoop", damage_self_10)]
 CRYODRAKON_ATTACKS = [Attack(25, 90, "Peck"), Attack(0, 90, "Heal", heal_45), Attack(35, 80, "Swoop", damage_self_10)]
 GORGOSAURUS_ATTACKS = [Attack(35, 90, "Bite"), Attack(0, 90, "Heal", heal_60), Attack(60, 85, "Big Bite", damage_self_20)]
+TRICERATOPS_ATTACKS = [Attack(25, 85, "Healing Kick", heal_35), Attack(60, 80, "Horn Hit", damage_self_10)]
 
 # hidden variables
 COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled

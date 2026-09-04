@@ -112,3 +112,7 @@ class Velociraptor(Enemy):
 class Stegosaurus(Enemy):
 	def __init__(self, letter):
 		super().__init__(STEGOSAURUS_HEALTH, STEGOSAURUS_DEFENSE, STEGOSAURUS_SPEED, STEGOSAURUS_ATTACKS, f"Stegosaurus {letter}")
+
+class Triceratops(Enemy):
+	def __init__(self, letter):
+		super().__init__(TRICERATOPS_HEALTH, TRICERATOPS_DEFENSE, TRICERATOPS_SPEED, TRICERATOPS_ATTACKS, f"Triceratops {letter}")
