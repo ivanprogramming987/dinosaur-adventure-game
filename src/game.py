@@ -10,7 +10,7 @@ score = 0
 player = Player()
 
 def play():
-	print_s("DINOSAURS the game", 1.5)
+	print_s("JURASSIC GIANTS the game", 1.5)
 	print_s("")
 	print_instructions()
 	print_s("")
@@ -176,9 +176,9 @@ def PathTwo():
 	print_s("Oh no! A large, crabby herbivore shows up. It seems angry about you squashing its leaves.", 2)
 	print_s("It lowers its head, showing five sharp horns.", 1)
 	print_s("This dinosaur will be very difficult to fight.", 1)
-	print_s("!!! BOSS !!!", 1)
+	print_s("!!! BOSS ONE !!!", 1)
 	print_s("!!! BATTLE PENTACERATOPS !!!", 1)
-	pentaceratops = Pentaceratops("A")
+	pentaceratops = Pentaceratops()
 	battle_outcome = battle(player, [pentaceratops])
 	battle_aftermath(battle_outcome, 1000)
 	player.health += 80
@@ -803,10 +803,10 @@ def EndOfCave():
 	print_s(f"You earned 300 points! Score: {score}.")
 	print_s("You enter a big room. The ceiling has completely fallen. A big, ferocious dinosaur is there.", 1.5)
 	print_s("The dinosaur is really hungry and has had no food for a few days, so despite you being small in comparison, it attacks.", 2)
-	print_s("!!! BOSS !!!")
+	print_s("!!! BOSS TWO!!!")
 	print_s("!!! BATTLE CERATOSAURUS !!!")
-	ceratosaurus_1 = Ceratosaurus("A")
-	battle_outcome = battle(player, [ceratosaurus_1])
+	ceratosaurus = Ceratosaurus()
+	battle_outcome = battle(player, [ceratosaurus])
 	battle_aftermath(battle_outcome, 1500)
 	print_s("As you defeat Ceratosaurus, the front of the room breaks!", 1)
 	player.level_up()
@@ -1054,10 +1054,10 @@ def PathFive():
 	print_s("Not only that, you hear an odd trumpeting sound.", 1)
 	print_s("It's some kind of dinosaur. When you come near, you see an angry dinosaur running in circles and trumpeting.", 2)
 	print_s("It stops, runs up to you, and trumpets louder. It's really mad.", 1.5)
-	print_s("!!! BOSS !!!")
+	print_s("!!! BOSS THREE !!!")
 	print_s("!!! BATTLE PARASAUROLOPHUS !!!")
-	parasaurolophus_1 = Parasaurolophus("A")
-	battle_outcome = battle(player, [parasaurolophus_1])
+	parasaurolophus = Parasaurolophus()
+	battle_outcome = battle(player, [parasaurolophus])
 	battle_aftermath(battle_outcome, 2000)
 	player.health += 120
 	if player.health > player.max_health:
@@ -1317,11 +1317,11 @@ def MountainFour():
 	print_s("SCREEECH!! SCREEECH!! You see pterosaurs circling above the summit of the mountain.", 1.5)
 	print_s("You've seen these before. They're the airplane-sized creatures.", 1.5)
 	print_s("Food is scarce on the snowy top of the mountain. The pterosaurs swoop down on you.", 1.5)
-	print_s("!!! BOSS !!!")
+	print_s("!!! BOSS FOUR !!!")
 	print_s("!!! BATTLE QUETZALCOATLUS AND CRYODRAKON !!!")
-	quetzalcoatlus_1 = Quetzalcoatlus("A")
-	cryodrakon_1 = Cryodrakon("A")
-	battle_outcome = battle(player, [quetzalcoatlus_1, cryodrakon_1])
+	quetzalcoatlus = Quetzalcoatlus()
+	cryodrakon = Cryodrakon()
+	battle_outcome = battle(player, [quetzalcoatlus, cryodrakon])
 	battle_aftermath(battle_outcome, 2500)
 	print_s("You climb down the mountain safely.")
 	player.level_up()
@@ -1605,18 +1605,30 @@ def HideInCave():
 	print_s("You decide to hide in a small stone cave.")
 	print_s("You get soaked by rain. Thunder roars. Lightning flashes.", 1)
 	print_s("The tornado comes your way! But it passes over the cave instead of into it.", 1.5)
-	print_s("When the storm stops, you come out. You have survived.", 1)
-	ForestOne()
+	print_s("When the storm stops, you come out. You have survived. There is a beautiful sunset happening ahead of you.", 1.5)
+	print_s("You walk into a jungle you see ahead.", 1)
+	print_s("It is very humid, and fallen trees are everywhere. Your hair gets caught in the sticky ferns.", 1.5)
+	print_s("You trip on a tree and fall, bumping into a dinosaur.", 1)
+	print_s("It looks at you, grunts, and moves on.", 1)
+	player.health = 450
+	print_s(f"You find an energy drink! You drink it. This drink is extra special. You heal from all of your wounds. {repr(player)} health left: 450.", 2)
+	print_s("You walk into a part where it starts getting wet.", 1)
+	print_s("Suddenly, without warning, SPLASH!!! You fall in cold, icy water.", 1.5)
+	print_s("You disturb an aggressive, angry plesiosaur. It attacks you!", 1.5)
+	print_s("!!! BOSS FIVE !!!")
+	print_s("!!! BATTLE ELASMOSAURUS !!!")
+	elasmosaurus = Elasmosaurus()
+	battle_outcome = battle(player, [elasmosaurus])
+	battle_aftermath(battle_outcome, 3000)
+	player.level_up()
+	print_s("You get out of the jungle and find a large dinosaur footprint! You're going the right way.", 1.5)
 
 def TreeFive():
 	print_s("You decide to climb a tree.")
 	print_s("While you climb, the tree wiggles. When you are at the top, it starts bending back and forth.", 1.5)
 	print_s("You hear a RRIIP! A root is sticking out of the ground!", 1)
-	print_s("The tree falls. You hit your head on the floor hard. You are dead.", 1.5)
+	print_s("The tree falls. You hit your head on the floor hard. You die.", 1.5)
 	main.lose()
-
-def ForestOne():
-	print_s("to be continued...")
 
 def find_mushroom(n):
 	global score
@@ -1627,7 +1639,7 @@ def find_mushroom(n):
 	i = choices(2)
 	if i == 1:
 		r = random.randint(0, 100)
-		if r < 65:
+		if r < 70:
 			player.health += n
 			score += 100
 			if player.health > player.max_health:

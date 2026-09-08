@@ -6,10 +6,14 @@ def battle(player, enemies):
 		if player.health <= 0:
 			return False
 
-		print_s("Pick an enemy:")
-		for e in range(len(enemies)):
-			print_s(f"{e+1}. {repr(enemies[e])}")
-		i = choices(len(enemies))
+		if len(enemies) > 1:
+			print_s("Pick an enemy:")
+			for e in range(len(enemies)):
+				print_s(f"{e+1}. {repr(enemies[e])}")
+			i = choices(len(enemies))
+		else:
+			print_s(f"You attack {repr(enemies[0])}.")
+			i = 1
 
 		player.attack(enemies[i-1])
 		if player.health <= 0:

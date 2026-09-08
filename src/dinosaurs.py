@@ -15,8 +15,8 @@ class Microraptor(Enemy):
 		super().__init__(MICRORAPTOR_HEALTH, MICRORAPTOR_DEFENSE, MICRORAPTOR_SPEED, MICRORAPTOR_ATTACKS, f"Microraptor {letter}")
 
 class Pentaceratops(Enemy):
-	def __init__(self, letter):
-		super().__init__(PENTACERATOPS_HEALTH, PENTACERATOPS_DEFENSE, PENTACERATOPS_SPEED, PENTACERATOPS_ATTACKS, f"Pentaceratops {letter}")
+	def __init__(self):
+		super().__init__(PENTACERATOPS_HEALTH, PENTACERATOPS_DEFENSE, PENTACERATOPS_SPEED, PENTACERATOPS_ATTACKS, "Pentaceratops")
 
 	def __repr__(self):
 		return f"Boss {self.name}"
@@ -46,8 +46,8 @@ class Coelophysis(Enemy):
 		super().__init__(COELOPHYSIS_HEALTH, COELOPHYSIS_DEFENSE, COELOPHYSIS_SPEED, COELOPHYSIS_ATTACKS, f"Coelophysis {letter}")
 
 class Ceratosaurus(Enemy):
-	def __init__(self, letter):
-		super().__init__(CERATOSAURUS_HEALTH, CERATOSAURUS_DEFENSE, CERATOSAURUS_SPEED, CERATOSAURUS_ATTACKS, f"Ceratosaurus {letter}")
+	def __init__(self):
+		super().__init__(CERATOSAURUS_HEALTH, CERATOSAURUS_DEFENSE, CERATOSAURUS_SPEED, CERATOSAURUS_ATTACKS, "Ceratosaurus")
 
 	def __repr__(self):
 		return f"Boss {self.name}"
@@ -73,8 +73,8 @@ class Chialingosaurus(Enemy):
 		super().__init__(CHIALINGOSAURUS_HEALTH, CHIALINGOSAURUS_DEFENSE, CHIALINGOSAURUS_SPEED, CHIALINGOSAURUS_ATTACKS, f"Chialingosaurus {letter}")
 
 class Parasaurolophus(Enemy):
-	def __init__(self, letter):
-		super().__init__(PARASAUROLOPHUS_HEALTH, PARASAUROLOPHUS_DEFENSE, PARASAUROLOPHUS_SPEED, PARASAUROLOPHUS_ATTACKS, f"Parasaurolophus {letter}")
+	def __init__(self):
+		super().__init__(PARASAUROLOPHUS_HEALTH, PARASAUROLOPHUS_DEFENSE, PARASAUROLOPHUS_SPEED, PARASAUROLOPHUS_ATTACKS, "Parasaurolophus")
 
 	def __repr__(self):
 		return f"Boss {self.name}"
@@ -88,15 +88,15 @@ class Allosaurus(Enemy):
 		super().__init__(ALLOSAURUS_HEALTH, ALLOSAURUS_DEFENSE, ALLOSAURUS_SPEED, ALLOSAURUS_ATTACKS, f"Allosaurus {letter}")
 
 class Quetzalcoatlus(Enemy):
-	def __init__(self, letter):
-		super().__init__(QUETZALCOATLUS_HEALTH, QUETZALCOATLUS_DEFENSE, QUETZALCOATLUS_SPEED, QUETZALCOATLUS_ATTACKS, f"Quetzalcoatlus {letter}")
+	def __init__(self):
+		super().__init__(QUETZALCOATLUS_HEALTH, QUETZALCOATLUS_DEFENSE, QUETZALCOATLUS_SPEED, QUETZALCOATLUS_ATTACKS, "Quetzalcoatlus")
 
 	def __repr__(self):
 		return f"Boss {self.name}"
 
 class Cryodrakon(Enemy):
-	def __init__(self, letter):
-		super().__init__(CRYODRAKON_HEALTH, CRYODRAKON_DEFENSE, CRYODRAKON_SPEED, CRYODRAKON_ATTACKS, f"Cryodrakon {letter}")
+	def __init__(self):
+		super().__init__(CRYODRAKON_HEALTH, CRYODRAKON_DEFENSE, CRYODRAKON_SPEED, CRYODRAKON_ATTACKS, "Cryodrakon")
 
 	def __repr__(self):
 		return f"Boss {self.name}"
@@ -116,3 +116,10 @@ class Stegosaurus(Enemy):
 class Triceratops(Enemy):
 	def __init__(self, letter):
 		super().__init__(TRICERATOPS_HEALTH, TRICERATOPS_DEFENSE, TRICERATOPS_SPEED, TRICERATOPS_ATTACKS, f"Triceratops {letter}")
+
+class Elasmosaurus(Enemy):
+	def __init__(self):
+		super().__init__(ELASMOSAURUS_HEALTH, ELASMOSAURUS_DEFENSE, ELASMOSAURUS_SPEED, ELASMOSAURUS_ATTACKS, "Elasmosaurus")
+
+	def __repr__(self):
+		return f"Boss {self.name}"

@@ -4,11 +4,11 @@ def main():
 	try:
 		print("CHEATING... (this is for test purposes)")
 		game.player.name = "Cheater"
-		for i in range(5):
+		for i in range(7):
 			print("CHEATING...")
 			game.player.level_up()
 		print("FINISHED CHEATING...")
-		game.MountainFour()
+		game.HideInCave()
 	except (KeyboardInterrupt):
 		print("Keyboard interrupt detected.")
 		print("QUITTING GAME")
