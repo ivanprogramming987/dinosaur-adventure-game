@@ -9,6 +9,13 @@ import random
 score = 0
 player = Player()
 
+# GOALS:
+# MUST finish game by September 17
+# finish level 9 by September 13
+# finish level 10 and final boss by September 14
+# test during September 15-17 for length, difficulty, and story
+# RELEASE on September 17
+
 def play():
 	print_s("JURASSIC GIANTS the game", 1.5)
 	print_s("")
@@ -1602,6 +1609,7 @@ def RunAwayFromTornado():
 	main.lose()
 
 def HideInCave():
+	global score
 	print_s("You decide to hide in a small stone cave.")
 	print_s("You get soaked by rain. Thunder roars. Lightning flashes.", 1)
 	print_s("The tornado comes your way! But it passes over the cave instead of into it.", 1.5)
@@ -1622,6 +1630,29 @@ def HideInCave():
 	battle_aftermath(battle_outcome, 3000)
 	player.level_up()
 	print_s("You get out of the jungle and find a large dinosaur footprint! You're going the right way.", 1.5)
+	print_s("There is a big, flat, expanse without anything growing other than a few isolated ferns.", 1.5)
+	print_s("You walk through it. It's actually a big clearing. An angry dinosaur is headbutting a tree.", 1.5)
+	print_s("It sees you. It is angry, aggressive, and territorial. It attacks! There is also some dinosaurs that are trying to eat you.", 2)
+	print_s("!!! BATTLE TRICERATOPS AND TWO VELOCIRAPTOR !!!")
+	triceratops_1 = Triceratops("A")
+	velociraptor_1 = Velociraptor("A")
+	velociraptor_2 = Velociraptor("B")
+	battle_outcome = battle(player, [triceratops_1, velociraptor_1, velociraptor_2])
+	battle_aftermath(battle_outcome, 1300)
+	print_s("You walk back into the jungle.")
+	player.lasers += 2
+	score += 400
+	print_s(f"You find 2 lasers! {repr(player)} lasers: {player.lasers}", 1)
+	print_s(f"You earned 400 points! Score: {score}.", 1)
+	print_s("You get out of the jungle again. There is a volcano ahead.", 1)
+	print_s("Which way do you want to go?")
+	print_s("1. Climb the volcano")
+	print_s("2. Go around the volcano !!! UNFINISHED !!!")
+	i = choices(2)
+	if i == 1:
+		VolcanoTwo()
+	elif i == 2:
+		DetourThree()
 
 def TreeFive():
 	print_s("You decide to climb a tree.")
@@ -1629,6 +1660,29 @@ def TreeFive():
 	print_s("You hear a RRIIP! A root is sticking out of the ground!", 1)
 	print_s("The tree falls. You hit your head on the floor hard. You die.", 1.5)
 	main.lose()
+
+def VolcanoTwo():
+	print_s("You decide to climb the volcano.")
+	find_mushroom(35)
+	print_s("It is quite difficult climbing the volcano. The rock is smooth and a little steep.", 1.5)
+	print_s("You get to the top. You look in the crater. There is red hot lava inside.", 1.5)
+	print_s("You decide to leave in case it erupts.", 1)
+	print_s("On your climb down, you are attacked by several hungry carnivores!", 1.5)
+	print_s("!!! BATTLE THREE ALLOSAURUS !!!")
+	allosaurus_1 = Allosaurus("A")
+	allosaurus_2 = Allosaurus("B")
+	allosaurus_3 = Allosaurus("C")
+	battle_outcome = battle(player, [allosaurus_1, allosaurus_2, allosaurus_3])
+	battle_aftermath(battle_outcome, 2000)
+	print_s("You finish climbing down the volcano. You see a dinosaur path and decide to follow it.", 1.5)
+	PathEight()
+
+def DetourThree():
+	print_s("You decide to go around the volcano.")
+	print_s("to be continued...")
+
+def PathEight():
+	print_s("to be continued...")
 
 def find_mushroom(n):
 	global score

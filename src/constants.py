@@ -110,7 +110,7 @@ QUETZALCOATLUS_SPEED = 200
 
 CRYODRAKON_HEALTH = 270
 CRYODRAKON_DEFENSE = 20
-CRYODRAKON_SPEED = 150
+CRYODRAKON_SPEED = 175
 # cryodrakon attacks are in "variables with functions" section
 
 GORGOSAURUS_HEALTH = 320
@@ -198,10 +198,10 @@ EINIOSAURUS_ATTACKS = [Attack(0, 100, "Drink Water", heal_45), Attack(45, 80, "P
 CHIALINGOSAURUS_ATTACKS = [Attack(0, 90, "Heal", heal_60), Attack(30, 80, "Tail Whap"), Attack(55, 80, "Super Smack", damage_self_20)]
 PARASAUROLOPHUS_ATTACKS = [Attack(35, 100, "Cure and Hit", heal_35), Attack(40, 90, "Big Headbutt"), Attack(60, 80, "Stomp", damage_self_10)]
 QUETZALCOATLUS_ATTACKS = [Attack(35, 90, "Peck"), Attack(0, 90, "Heal", heal_45), Attack(45, 80, "Swoop", damage_self_10)]
-CRYODRAKON_ATTACKS = [Attack(25, 90, "Peck"), Attack(0, 90, "Heal", heal_45), Attack(35, 80, "Swoop", damage_self_10)]
+CRYODRAKON_ATTACKS = [Attack(30, 85, "Peck"), Attack(0, 85, "Heal", heal_45), Attack(40, 80, "Swoop", damage_self_10)]
 GORGOSAURUS_ATTACKS = [Attack(35, 90, "Bite"), Attack(0, 90, "Heal", heal_60), Attack(60, 85, "Big Bite", damage_self_20)]
 TRICERATOPS_ATTACKS = [Attack(25, 85, "Healing Kick", heal_35), Attack(60, 80, "Horn Hit", damage_self_10)]
-ELASMOSAURUS_ATTACKS = [Attack(55, 95, "Tail Whap"), Attack(75, 90, "Neck Hit", damage_self_10)]
+ELASMOSAURUS_ATTACKS = [Attack(60, 95, "Tail Whap"), Attack(75, 90, "Neck Hit", damage_self_10),]
 
 # hidden variables
 COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled
