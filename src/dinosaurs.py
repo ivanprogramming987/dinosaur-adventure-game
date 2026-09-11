@@ -127,3 +127,7 @@ class Elasmosaurus(Enemy):
 class Pachycephalosaurus(Enemy):
 	def __init__(self, letter):
 		super().__init__(PACHYCEPHALOSAURUS_HEALTH, PACHYCEPHALOSAURUS_DEFENSE, PACHYCEPHALOSAURUS_SPEED, PACHYCEPHALOSAURUS_ATTACKS, f"Pachycephalosaurus {letter}")
+
+class Ankylosaurus(Enemy):
+	def __init__(self, letter):
+		super().__init__(ANKYLOSAURUS_HEALTH, ANKYLOSAURUS_DEFENSE, ANKYLOSAURUS_SPEED, ANKYLOSAURUS_ATTACKS, f"Ankylosaurus {letter}")

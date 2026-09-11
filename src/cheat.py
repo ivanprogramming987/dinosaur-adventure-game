@@ -8,7 +8,7 @@ def main():
 			print("CHEATING...")
 			game.player.level_up()
 		print("FINISHED CHEATING...")
-		game.player.potions = 4
+		game.player.potions = 3
 		game.HideInCave()
 	except (KeyboardInterrupt):
 		print("Keyboard interrupt detected.")

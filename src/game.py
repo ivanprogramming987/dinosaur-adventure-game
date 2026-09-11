@@ -11,7 +11,7 @@ player = Player()
 
 # GOALS:
 # MUST finish game by September 17
-# finish level 9 by September 14 (10, 11, 12?, 14)
+# finish level 9 by September 14 (11, 12?, 14)
 # finish level 10 and final boss by September 15
 # test during September 15-17 for length, difficulty, and story
 # RELEASE on September 17
@@ -1684,6 +1684,7 @@ def VolcanoTwo():
 
 def DetourThree():
 	print_s("You decide to go around the volcano.")
+	find_fruit(-40, 55)
 	print_s("You get to a black lava plain. There are only a few shrubs growing.", 1.5)
 	print_s("There are armored dinosaurs peacefully grazing plants. You walk past them. You find some binoculars on the floor.", 2)
 	print_s("You then see some carnivores. But they are full. One walks towards you. You get out of the way.", 1.5)
@@ -1697,7 +1698,50 @@ def DetourThree():
 	PathEight()
 
 def PathEight():
+	global score
 	checkpoint()
+	print_s("The path is not a good one. There are rocks and trees in the middle of it.", 1.5)
+	print_s("The trees start to become more stripped of vegetation. Things have been eating them. A LOT of things.", 1.5)
+	print_s("You hear a very long, very low, very loud bellow. But it's behind you.", 1.5)
+	print_s("The trees start regaining their vegetation. You see more mammals. They are small and run away when you walk up.", 2)
+	print_s("You find some broken glass. You also hear that telltale roar. You're catching up.", 1.5)
+	player.lasers += 2
+	score += 400
+	print_s(f"Then, you find 2 lasers! {repr(player)} lasers: {player.lasers}", 1.5)
+	print_s(f"You earned 400 points! Score: {score}.", 1)
+	print_s("The thing bellows again. It sounds like a very low-pitched gong.", 1.5)
+	print_s("You run away and are so scared you bump into a dinosaur!", 1.5)
+	print_s("RRRRRMMM!! It growls, steps back, and swipes you with its tail! Ouch!", 1.5)
+	print_s("!!! BATTLE ANKYLOSAURUS !!!")
+	ankylosaurus_1 = Ankylosaurus("A")
+	battle_outcome = battle(player, [ankylosaurus_1])
+	battle_aftermath(battle_outcome, 1500)
+	print_s("You see a mountain with a cave. It has two locked doors.", 1.5)
+	print_s("To your left, there is a forest. To your right, a desert.", 1.5)
+	print_s("Which way do you want to go? Each way has one key.")
+	print_s("1. Go into the forest")
+	print_s("2. Hike into the desert")
+	i = choices(2)
+	if i == 1:
+		ForestOne()
+	elif i == 2:
+		DesertThree()
+
+def ForestOne(d=False):
+	print_s("... will be filled in later ...")
+	if d:
+		CaveThree()
+	else:
+		DesertThree(True)
+
+def DesertThree(f=False):
+	print_s("... will be filled in later ...")
+	if f:
+		CaveThree()
+	else:
+		ForestOne(True)
+
+def CaveThree():
 	print_s("to be continued...")
 
 def find_mushroom(n):
