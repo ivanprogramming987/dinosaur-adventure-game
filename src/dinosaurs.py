@@ -123,3 +123,7 @@ class Elasmosaurus(Enemy):
 
 	def __repr__(self):
 		return f"Boss {self.name}"
+
+class Pachycephalosaurus(Enemy):
+	def __init__(self, letter):
+		super().__init__(PACHYCEPHALOSAURUS_HEALTH, PACHYCEPHALOSAURUS_DEFENSE, PACHYCEPHALOSAURUS_SPEED, PACHYCEPHALOSAURUS_ATTACKS, f"Pachycephalosaurus {letter}")

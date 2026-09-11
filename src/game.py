@@ -11,13 +11,17 @@ player = Player()
 
 # GOALS:
 # MUST finish game by September 17
-# finish level 9 by September 13
-# finish level 10 and final boss by September 14
+# finish level 9 by September 14 (10, 11, 12?, 14)
+# finish level 10 and final boss by September 15
 # test during September 15-17 for length, difficulty, and story
 # RELEASE on September 17
 
+# MY PROGRESS: 1/3 through level 9
+
+
 def play():
 	print_s("JURASSIC GIANTS the game", 1.5)
+	print_s("created in 2026 by Ivan Whittaker")
 	print_s("")
 	print_instructions()
 	print_s("")
@@ -1610,6 +1614,7 @@ def RunAwayFromTornado():
 
 def HideInCave():
 	global score
+	checkpoint()
 	print_s("You decide to hide in a small stone cave.")
 	print_s("You get soaked by rain. Thunder roars. Lightning flashes.", 1)
 	print_s("The tornado comes your way! But it passes over the cave instead of into it.", 1.5)
@@ -1647,7 +1652,7 @@ def HideInCave():
 	print_s("You get out of the jungle again. There is a volcano ahead.", 1)
 	print_s("Which way do you want to go?")
 	print_s("1. Climb the volcano")
-	print_s("2. Go around the volcano !!! UNFINISHED !!!")
+	print_s("2. Go around the volcano")
 	i = choices(2)
 	if i == 1:
 		VolcanoTwo()
@@ -1665,7 +1670,7 @@ def VolcanoTwo():
 	print_s("You decide to climb the volcano.")
 	find_mushroom(35)
 	print_s("It is quite difficult climbing the volcano. The rock is smooth and a little steep.", 1.5)
-	print_s("You get to the top. You look in the crater. There is red hot lava inside.", 1.5)
+	print_s("You get to the top. You look in the crater. There is red hot bubbling lava inside.", 1.5)
 	print_s("You decide to leave in case it erupts.", 1)
 	print_s("On your climb down, you are attacked by several hungry carnivores!", 1.5)
 	print_s("!!! BATTLE THREE ALLOSAURUS !!!")
@@ -1679,9 +1684,20 @@ def VolcanoTwo():
 
 def DetourThree():
 	print_s("You decide to go around the volcano.")
-	print_s("to be continued...")
+	print_s("You get to a black lava plain. There are only a few shrubs growing.", 1.5)
+	print_s("There are armored dinosaurs peacefully grazing plants. You walk past them. You find some binoculars on the floor.", 2)
+	print_s("You then see some carnivores. But they are full. One walks towards you. You get out of the way.", 1.5)
+	print_s("Some dinosaurs are butting heads. Some see you. They're irritated at you coming and charge!", 1.5)
+	print_s("!!! BATTLE TWO PACHYCEPHALOSAURUS !!!")
+	pachycephalosaurus_1 = Pachycephalosaurus("A")
+	pachycephalosaurus_2 = Pachycephalosaurus("B")
+	battle_outcome = battle(player, [pachycephalosaurus_1, pachycephalosaurus_2])
+	battle_aftermath(battle_outcome, 2000)
+	print_s("You keep walking and go all the way around the volcano. You see a path made by dinos and decide to follow it.", 2)
+	PathEight()
 
 def PathEight():
+	checkpoint()
 	print_s("to be continued...")
 
 def find_mushroom(n):
