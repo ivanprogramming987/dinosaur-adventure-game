@@ -131,3 +131,10 @@ class Pachycephalosaurus(Enemy):
 class Ankylosaurus(Enemy):
 	def __init__(self, letter):
 		super().__init__(ANKYLOSAURUS_HEALTH, ANKYLOSAURUS_DEFENSE, ANKYLOSAURUS_SPEED, ANKYLOSAURUS_ATTACKS, f"Ankylosaurus {letter}")
+
+class Argentinosaurus(Enemy):
+	def __init__(self):
+		super().__init__(ARGENTINOSAURUS_HEALTH, ARGENTINOSAURUS_DEFENSE, ARGENTINOSAURUS_SPEED, ARGENTINOSAURUS_ATTACKS, "Argentinosaurus")
+
+	def __repr__(self):
+		return f"Boss {self.name}"

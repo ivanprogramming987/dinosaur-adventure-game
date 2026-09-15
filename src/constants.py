@@ -147,6 +147,12 @@ ANKYLOSAURUS_HEALTH = 300
 ANKYLOSAURUS_DEFENSE = 50
 ANKYLOSAURUS_SPEED = 225
 ANKYLOSAURUS_ATTACKS = [Attack(30, 90, "Kick"), Attack(60, 80, "Tail Swipe")]
+
+ARGENTINOSAURUS_HEALTH = 700
+ARGENTINOSAURUS_DEFENSE = 15
+ARGENTINOSAURUS_SPEED = 250
+# argentinosaurus attacks are in "variables with functions" section
+
 # functions
 def heal_15(user):
 	user.health += 15
@@ -202,7 +208,7 @@ PLAYER_ATTACKS_LEVEL_9 = [Attack(105, 95, "Punch"),Attack(115, 85, "Kick"),Attac
 
 PENTACERATOPS_ATTACKS = [Attack(20, 90, "Horn Hit"), Attack(30, 80, "Charge", damage_self_10), Attack(15, 90, "Cure and Hit", heal_25)]
 NEMICOLOPTERUS_ATTACKS = [Attack(5, 100, "Stupid Face", heal_15), Attack(10, 90, "Wing Smack"), Attack(15, 80, "Crash")]
-CERATOSAURUS_ATTACKS = [Attack(30, 90, "Roar"), Attack(40, 80, "Bite", damage_self_10), Attack(20, 90, "Blood Drain", heal_25), Attack(25, 100, "Kick")]
+CERATOSAURUS_ATTACKS = [Attack(30, 90, "Roar"), Attack(40, 80, "Bite", damage_self_10), Attack(20, 90, "Cure and Hit", heal_25), Attack(25, 100, "Kick")]
 EINIOSAURUS_ATTACKS = [Attack(0, 100, "Drink Water", heal_45), Attack(45, 80, "Power Hit", damage_self_10), Attack(30, 90, "Horn Hit")]
 CHIALINGOSAURUS_ATTACKS = [Attack(0, 90, "Heal", heal_60), Attack(30, 80, "Tail Whap"), Attack(55, 80, "Super Smack", damage_self_20)]
 PARASAUROLOPHUS_ATTACKS = [Attack(35, 100, "Cure and Hit", heal_35), Attack(40, 90, "Big Headbutt"), Attack(60, 80, "Stomp", damage_self_10)]
@@ -210,8 +216,8 @@ QUETZALCOATLUS_ATTACKS = [Attack(35, 90, "Peck"), Attack(0, 90, "Heal", heal_45)
 CRYODRAKON_ATTACKS = [Attack(30, 85, "Peck"), Attack(0, 85, "Heal", heal_45), Attack(40, 80, "Swoop", damage_self_10)]
 GORGOSAURUS_ATTACKS = [Attack(35, 90, "Bite"), Attack(0, 90, "Heal", heal_60), Attack(60, 85, "Big Bite", damage_self_20)]
 TRICERATOPS_ATTACKS = [Attack(25, 85, "Healing Kick", heal_35), Attack(60, 80, "Horn Hit", damage_self_10)]
-ELASMOSAURUS_ATTACKS = [Attack(60, 95, "Tail Whap"), Attack(75, 90, "Neck Hit", damage_self_10),]
-
+ELASMOSAURUS_ATTACKS = [Attack(60, 95, "Tail Whap"), Attack(75, 90, "Neck Hit", damage_self_10)]
+ARGENTINOSAURUS_ATTACKS = [Attack(30, 90, "Kick"), Attack(40, 80, "Tail Whip"), Attack(60, 80, "Headbutt", damage_self_20)]
 # hidden variables
 COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled
 COMBINATION_LOCK_HINT_ONE = "The answer is in the game somewhere else"

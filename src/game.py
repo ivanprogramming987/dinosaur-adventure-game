@@ -1637,7 +1637,7 @@ def HideInCave():
 	print_s("You get out of the jungle and find a large dinosaur footprint! You're going the right way.", 1.5)
 	print_s("There is a big, flat, expanse without anything growing other than a few isolated ferns.", 1.5)
 	print_s("You walk through it. It's actually a big clearing. An angry dinosaur is headbutting a tree.", 1.5)
-	print_s("It sees you. It is angry, aggressive, and territorial. It attacks! There is also some dinosaurs that are trying to eat you.", 2)
+	print_s("It sees you. It is angry, aggressive, and territorial. It attacks! There are also some dinosaurs that are trying to eat you.", 2)
 	print_s("!!! BATTLE TRICERATOPS AND TWO VELOCIRAPTOR !!!")
 	triceratops_1 = Triceratops("A")
 	velociraptor_1 = Velociraptor("A")
@@ -1728,20 +1728,56 @@ def PathEight():
 		DesertThree()
 
 def ForestOne(d=False):
-	print_s("... will be filled in later ...")
+	print_s("You decide to go into the forest.")
+	print_s("You hear another bellow. It is very close now.", 1)
+	print_s("Then, you see the THING. It is a long-necked dinosaur fifteen times your height!", 1.5)
+	print_s("It bellows again and kicks you. You are irritated and punch it.", 1.5)
+	print_s("It slowly turns its neck towards you. It swipes you with its tail!", 1.5)
+	print_s("!!! BOSS SIX !!!")
+	print_s("!!! BATTLE ARGENTINOSAURUS !!!")
+	argentinosaurus = Argentinosaurus()
+	battle_outcome = battle(player, [argentinosaurus])
+	battle_aftermath(battle_outcome, 3500)
+	print_s("You get out of the forest. You can already hear another bellow in the distance.", 1.5)
+	print_s("You find a key hanging on a tree.", 1)
 	if d:
 		CaveThree()
 	else:
 		DesertThree(True)
 
 def DesertThree(f=False):
-	print_s("... will be filled in later ...")
+	print_s("You decide to hike into the desert.")
+	print_s("You walk for a long time. All you can see is the same drab yellow sand all around you, as far as the eye can see.", 2)
+	print_s("You get pretty hungry. It is hard to stay walking. You want to turn around.", 1.5)
+	print_s("Then, you come to a clump of trees. Water! Fruit! You eat and drink greedily.", 1.5)
+	find_fruit(-45, 60)
+	find_mushroom(50)
+	print_s("You also find a key on top of a pile of rocks.", 1)
+	print_s("You turn around and walk back to the cave and the forest.", 1.5)
 	if f:
 		CaveThree()
 	else:
 		ForestOne(True)
 
 def CaveThree():
+	print_s("You unlock the door and go into the cave.")
+	print_s("You hear another roar and a scream. A human scream. You start running as fast as you can.", 1.5)
+	print_s("Down, down, down. The cave has a steep slope.", 1)
+	print_s("But, all of a sudden, it starts climbing upwards. You keep running.", 1.5)
+	print_s("You come to a place where the cave roof has collapsed. You find dinosaurs.", 1.5)
+	print_s("They are territorial and attack!")
+	print_s("!!! BATTLE STEGOSAURUS AND ANKYLOSAURUS !!!")
+	stegosaurus_1 = Stegosaurus("A")
+	ankylosaurus_1 = Ankylosaurus("A")
+	battle_outcome = battle(player, [stegosaurus_1, ankylosaurus_1])
+	battle_aftermath(battle_outcome, 2500)
+	player.level_up()
+	print_s("It starts going very steeply downwards again. You come to the very bottom.", 1.5)
+	print_s("The dinosaur is here! Your crewmate is in his very small, two-fingered hands, kicking and yelling.", 1.5)
+	print_s("THE PURPLE STONE IS BEHIND THE DINOSAUR! Now you have two reasons to be here!", 1.5)
+	print_s("You launch yourself at it with fury.")
+	print_s("!!! BOSS SEVEN (LAST BOSS) !!!")
+	print_s("!!! BATTLE TYRANNOSAURUS REX !!!")
 	print_s("to be continued...")
 
 def find_mushroom(n):
