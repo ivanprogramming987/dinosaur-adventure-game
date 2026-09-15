@@ -153,6 +153,11 @@ ARGENTINOSAURUS_DEFENSE = 15
 ARGENTINOSAURUS_SPEED = 250
 # argentinosaurus attacks are in "variables with functions" section
 
+T_REX_HEALTH = 625
+T_REX_DEFENSE = 25
+T_REX_SPEED = 300
+# t. rex attacks are in "variables with functions" section
+
 # functions
 def heal_15(user):
 	user.health += 15
@@ -218,6 +223,8 @@ GORGOSAURUS_ATTACKS = [Attack(35, 90, "Bite"), Attack(0, 90, "Heal", heal_60), A
 TRICERATOPS_ATTACKS = [Attack(25, 85, "Healing Kick", heal_35), Attack(60, 80, "Horn Hit", damage_self_10)]
 ELASMOSAURUS_ATTACKS = [Attack(60, 95, "Tail Whap"), Attack(75, 90, "Neck Hit", damage_self_10)]
 ARGENTINOSAURUS_ATTACKS = [Attack(30, 90, "Kick"), Attack(40, 80, "Tail Whip"), Attack(60, 80, "Headbutt", damage_self_20)]
+T_REX_ATTACKS = [Attack(0, 100, "Heal", heal_80), Attack(60, 90, "Roar"), Attack(80, 90, "Bite", damage_self_20), Attack(35, 90, "Cure and Hit", heal_35)]
+
 # hidden variables
 COMBINATION_LOCK_CODE_ONE = (6800 / 2) - 560 + (111 * 5) # this is in code so that the puzzle isn't spoiled
 COMBINATION_LOCK_HINT_ONE = "The answer is in the game somewhere else"

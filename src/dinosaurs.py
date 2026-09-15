@@ -138,3 +138,10 @@ class Argentinosaurus(Enemy):
 
 	def __repr__(self):
 		return f"Boss {self.name}"
+
+class T_Rex(Enemy):
+	def __init__(self):
+		super().__init__(T_REX_HEALTH, T_REX_DEFENSE, T_REX_SPEED, T_REX_ATTACKS, "Tyrannosaurus Rex")
+
+	def __repr__(self):
+		return f"Final Boss {self.name}"

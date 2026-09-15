@@ -1760,9 +1760,17 @@ def DesertThree(f=False):
 		ForestOne(True)
 
 def CaveThree():
+	global score
 	print_s("You unlock the door and go into the cave.")
 	print_s("You hear another roar and a scream. A human scream. You start running as fast as you can.", 1.5)
 	print_s("Down, down, down. The cave has a steep slope.", 1)
+	player.health += 250
+	player.potions += 2
+	score += 750
+	if player.health > player.max_health:
+		player.health = player.max_health
+	print_s(f"You find a chocolate chip cookie and 2 potions! You eat the cookie and heal. {repr(player)} health left: {player.health}", 2)
+	print_s(f"You earned 750 points! Score: {score}")
 	print_s("But, all of a sudden, it starts climbing upwards. You keep running.", 1.5)
 	print_s("You come to a place where the cave roof has collapsed. You find dinosaurs.", 1.5)
 	print_s("They are territorial and attack!")
@@ -1778,7 +1786,12 @@ def CaveThree():
 	print_s("You launch yourself at it with fury.")
 	print_s("!!! BOSS SEVEN (LAST BOSS) !!!")
 	print_s("!!! BATTLE TYRANNOSAURUS REX !!!")
-	print_s("to be continued...")
+	t_rex = T_Rex()
+	battle_outcome = battle(player, [t_rex])
+	battle_aftermath(battle_outcome, 5000)
+	print_s("You defeat T. Rex. You and your crewmate run towards each other and hug each other. You both touch the purple stone at the same time.", 2)
+	print_s("In a few seconds, you are back in the present time. Your quest is over.", 1.5)
+	main.win()
 
 def find_mushroom(n):
 	global score
